@@ -22,4 +22,5 @@ pub:
 	ssh ssh.cs.brown.edu chmod -R a+r /web/cs/web/sites/pyret.org/*
 
 clean:
-	rm -rf site/*
+	git clean -fd
+	raco frog --clean
