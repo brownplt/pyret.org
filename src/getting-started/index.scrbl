@@ -40,14 +40,14 @@ I want to use my favorite editor and the command line.
 Open DrRacket, which comes with the Racket installation.  It has an icon that
 looks like this:
 
-@image["img/plt-logo-red-shiny.png"]
+@image["site/img/plt-logo-red-shiny.png"]
 
 Then, use File -> Install .plt File, select the Web tab, copy paste the URL
 below into the space, and click "OK"
 
 @url{http://pyret.org/download/pyret-0.2.plt}
 
-@image["img/install-via-url.png"]
+@image["site/img/install-via-url.png"]
 
 Once this process has completed, you can run Pyret programs in DrRacket.
 
