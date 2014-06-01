@@ -1,5 +1,7 @@
 site/*.html
+
 site/sitemap.txt
+
 site/blog/
 site/crew/
 site/discuss/
@@ -8,3 +10,5 @@ site/feeds/
 site/getting-started/
 site/tags/
 site/tour/
+
+src/docs/

@@ -1,15 +1,22 @@
-.Phony: all
-all: pages docs
+PYRET_REPO      ?= ../pyret-lang
+
+# pyret-lang git refs for which we want to host docs
+PYRET_RELEASES  ?= master
 
 .Phony: pages
 pages:
 	raco frog -b
 
 .Phony: docs
-docs:
-	cd .. && make doc
-	rm -rf site/docs
-	cp -r ../docs/lang/ site/docs/
+docs: $(PYRET_REPO)
+	mkdir -p src/docs
+	for ref in $(PYRET_RELEASES) ; do \
+		$(MAKE) -C $(PYRET_REPO) docs ; \
+		cd $(PYRET_REPO) && git checkout $$ref ; \
+		cd $(CURDIR) ; \
+		rm -rf src/docs/$$ref ;\
+		cp -r $(PYRET_REPO)/docs src/docs/$$ref ; \
+	done
 
 .Phony: serve
 serve:
