@@ -33,4 +33,3 @@
 (define (col size . content)
   (define size-str (format "col-md-~a" size))
   (apply div (cons size-str content)))
-

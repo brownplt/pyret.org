@@ -80,7 +80,7 @@ posts-index-uri = /blog/index.html
 # This may be an absolute or relative path. If relative, it's relative
 # to the project top directory, i.e. to where this .frogrc file is
 # located.
-source-dir = _src
+source-dir = src
 
 # The output directory where generated HTML and other files should go.
 #
@@ -92,4 +92,4 @@ source-dir = _src
 # This may be an absolute or relative path. If relative, it's relative
 # to the project top directory, i.e. to where this .frogrc file is
 # located.
-output-dir = .
+output-dir = site
