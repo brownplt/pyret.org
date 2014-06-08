@@ -187,7 +187,7 @@ end
 # Variables are different from identifiers.
 fun mk-counter():
   var ctr = 0
-  fun():
+  lam():
     ctr := ctr + 1
     ctr
   end
@@ -208,15 +208,15 @@ end
 @disable-prefix{
 
 
-for map(n from [1,2,3]): n * n end
-# ==> [1, 4, 9]
+for map(n from [list: 1,2,3]): n * n end
+# ==> [list: 1, 4, 9]
 
-for filter(n from [1, 2, 3]):
+for filter(n from [list: 1, 2, 3]):
   n >= 2
 end
-# ==> [2, 3]
+# ==> [list: 2, 3]
 
-for fold(sum from 0, n from [4, 5, 6]):
+for fold(sum from 0, n from [list: 4, 5, 6]):
   sum + n
 end
 # ==> 15
@@ -232,10 +232,10 @@ end
 # correct behavior of insertion.
 
 fun insert(n :: Number,
-           l :: List<Number>(is-sorted-ascending))
-    -> List<Number>(is-sorted-ascending):
+           l :: List<Number> % (is-sorted-ascending))
+  -> List<Number> % (is-sorted-ascending):
   cases (List) l:
-    | empty => [n]
+    | empty => [list: n]
     | link(f, r) =>
       if n < f: link(n, l)
       else:     link(f, insert(n, r))
@@ -253,7 +253,7 @@ end
 eps = 0.001
 fun d-dx(f):
   doc: "Calculate the derivative of f"
-  fun(x): (f(x + eps) - f(x)) / eps;
+  lam(x): (f(x + eps) - f(x)) / eps;
 where:
   fun square(x): x * x;
   fun within(delta, target): ...;
@@ -291,7 +291,7 @@ fun to-celsius(f):
   (f - 32) * (5 / 9)
 end
 
-for each(str from ["Ahoy", "world!"]):
+for each(str from [list: "Ahoy", "world!"]):
   print(str)
 end}
 "Pyret has Python-inspired syntax for functions, lists, and operators.
@@ -306,8 +306,8 @@ fun sum(l):
     | link(first, rest) => first + sum(rest)
   end
 where:
-  sum([]) is 0
-  sum([1, 2, 3]) is 6
+  sum([list: ]) is 0
+  sum([list: 1, 2, 3]) is 6
 end
 }
 "Pyret makes testing a natural part of the programming process.  Functions can
@@ -335,7 +335,7 @@ check:
     request({
         url: url,
         type: "get",
-        params: []
+        params: [list: ]
       }).status-code
   end
   get-status("http://google.com/") is 200
@@ -379,7 +379,7 @@ the language in use for a while before we codify these.
 <hr/>
   @(pyret-example #:where 'right
 @disable-prefix{
-data BinTree: | leaf | node(value, left, right);
+data BinTree: leaf | node(value, left, right);
 
 fun square(n): n * n;
 }
@@ -393,9 +393,9 @@ resorting to whitespace, but <code>end</code> can be verbose in short programs."
   @(pyret-example #:where 'left
 @disable-prefix{
 check:
-  [1, 2, 3].filter(_ > 1) is [2, 3]
-  ["one", "two"].map(_.to-upper()) is ["ONE", "TWO"]
-  [[1], [2]].map(_.first) is [1, 2]
+  [list: 1, 2, 3].filter(_ > 1) is [list: 2, 3]
+  [list: "one", "two"].map(string-toupper) is [list: "ONE", "TWO"]
+  [list: [list: 1], [list: 2]].map(_.first) is [list: 1, 2]
 end
 }
 
@@ -411,11 +411,11 @@ functional and object-oriented styles.")
 eps = 0.001
 fun d-dx(f):
   doc: "Approximate the derivative of f"
-  fun(x): (f(x + eps) - f(x)) / eps;
+  lam(x): (f(x + eps) - f(x)) / eps;
 where:
   fun square(x): x * x;
   fun within(delta, target):
-    fun(actual): (actual - target).abs() < delta;;
+    lam(actual): num-abs(actual - target) < delta;;
 
   dsquare = d-dx(square)
 
@@ -434,9 +434,9 @@ satisfaction of an arbitrary predicate.")
 @disable-prefix{
 point-methods = {
   dist(self, other):
-    ysquared = (other.y - self.y).expt(2)
-    xsquared = (other.x - self.x).expt(2)
-    (ysquared + xsquared).sqrt()
+    ysquared = num-expt(other.y - self.y, 2)
+    xsquared = num-expt(other.x - self.x, 2)
+    num-sqrt(ysquared + xsquared)
   end
 }
 
@@ -462,31 +462,6 @@ extending the object containing point methods.")
 
   <hr/>
 
-  @(pyret-example #:where 'right
-@disable-prefix{
-data CyclicList:
-  | clink(cyclic first, rest)
-  | cempty
-end
-check:
-  graph:
-  BOSTON = clink(FRANKFURT, cempty)
-  BEIJING = clink(FRANKFURT, clink(BOSTON, cempty))
-  FRANKFURT = clink(BOSTON, cempty)
-  end
-
-  BOSTON.first is FRANKFURT
-  BEIJING.rest.first is BOSTON
-  BOSTON.first.first.first.first.first is FRANKFURT
-end
-}
-
-"Many real-world data structures are cyclic, like graphs of cities with direct
-flights between them.  In most languages, a serialized encoding or mutation are
-required to introduce graphs.  Pyret's <code>graph:</code> and
-<code>cyclic</code> allow for a declarative description of cyclic data.")
-
-  <hr/>
 
 
 <div class="row">
@@ -539,8 +514,8 @@ static int square(int n) @"{"
 "Python"
 @disable-prefix{
 fun insert(e :: Number,
-           s :: BST(is-balanced))
-    -> BST(is-balanced):
+           s :: BST % (is-balanced))
+    -> BST % (is-balanced):
   # self-balancing tree insertion
 end}
 @disable-prefix{
@@ -571,9 +546,9 @@ rightful place in the programming process.}
 "Python"
 @disable-prefix{
 check:
-  empty.first raises "not found"
-  [1,2,3,4,5].first is 1
-  [2,4,6,8].first is 2
+  empty.first raises "not-found"
+  [list: 1,2,3,4,5].first is 1
+  [list: 2,4,6,8].first is 2
 end
 }
 @disable-prefix{
