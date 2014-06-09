@@ -20,6 +20,9 @@ Jake Ellis, Frank Goodman, and Sam Ainsworth, the survivors of CS1729 2014,
 made great contributions to the JavaScript implementation of Pyret in concept,
 design, and runtime implementation.
 
+John Ericson and Cody Mello were a great help with many final details of the
+build system, testing, and documentation.
+
 The work of Danny Yoo on Moby, WeScheme, and Whalesong has been indispensible
 in both for inspiration and for re-use of image and bignum libraries.
 
