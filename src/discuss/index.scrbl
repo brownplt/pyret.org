@@ -4,9 +4,9 @@
 
 @section{Announcements}
 
-If you're interested in hearing about major updates to Pyret, including an
-announcement when we make our first stable release, sign up for the
-@tt{pyret-announce} mailing list at:
+If you're interested in hearing about major updates to Pyret (including new
+versions with updated features or backwards-incompatible changes), sign up for
+the @tt{pyret-announce} mailing list at:
 
 @url{https://groups.google.com/forum/#!forum/pyret-announce}
 
