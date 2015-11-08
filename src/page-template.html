@@ -256,12 +256,12 @@ fun d-dx(f):
   lam(x): (f(x + eps) - f(x)) / eps;
 where:
   fun square(x): x * x;
-  fun within(delta, target): ...;
+  fun around(delta, target): ...;
 
   dsquare = d-dx(square)
 
-  dsquare(5) satisfies within(0.1, 10)
-  dsquare(10) satisfies within(0.1, 20)
+  dsquare(5) satisfies around(0.1, 10)
+  dsquare(10) satisfies around(0.1, 20)
 end
 }
       </pre>
@@ -414,13 +414,13 @@ fun d-dx(f):
   lam(x): (f(x + eps) - f(x)) / eps;
 where:
   fun square(x): x * x;
-  fun within(delta, target):
+  fun around(delta, target):
     lam(actual): num-abs(actual - target) < delta;;
 
   dsquare = d-dx(square)
 
-  dsquare(5) satisfies within(0.1, 10)
-  dsquare(10) satisfies within(0.1, 20)
+  dsquare(5) satisfies around(0.1, 10)
+  dsquare(10) satisfies around(0.1, 20)
 end
 }
 "Real tests need to accomodate more than equality tests.  Pyret supports these
