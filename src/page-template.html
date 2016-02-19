@@ -376,34 +376,6 @@ the language in use for a while before we codify these.
   <div class="col-md-2"></div>
 </div>
 
-<hr/>
-  @(pyret-example #:where 'right
-@disable-prefix{
-data BinTree: leaf | node(value, left, right);
-
-fun square(n): n * n;
-}
-"Pyret supports both <code>end</code> and <code>;</code> as block terminators.
-It requires <em>some</em> terminator in order to parse unambiguously without
-resorting to whitespace, but <code>end</code> can be verbose in short programs."
-)
-
-<hr/>
-
-  @(pyret-example #:where 'left
-@disable-prefix{
-check:
-  [list: 1, 2, 3].filter(_ > 1) is [list: 2, 3]
-  [list: "one", "two"].map(string-toupper) is [list: "ONE", "TWO"]
-  [list: [list: 1], [list: 2]].map(_.first) is [list: 1, 2]
-end
-}
-
-"Pyret embraces and provides syntactic sugar for functional patterns.  The
-special <code>_</code> syntax turns expressions into functions:
-<code>_ > 1</code> means <code>lam(x): x > 1 end</code>.  Pyret goes further
-and works this syntax into the common dot syntax for field lookup, blending
-functional and object-oriented styles.")
 
   <hr/>
   @(pyret-example #:where 'right
