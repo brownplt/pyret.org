@@ -14,6 +14,8 @@
     <link rel="icon"      href="/img/pyret-icon.png">
     <link rel="canonical" href="@|full-uri|">
     <!-- CSS -->
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/font-hack/2.019/css/hack.min.css">
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/css/pygments.css">
     <link rel="stylesheet" type="text/css" href="/css/codemirror.css">
@@ -56,86 +58,26 @@ s.parentNode.insertBefore(ga, s);
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a href="/index.html" class="navbar-brand">
+          <a href="/index.html" class="navbar-brand fancyhover-above">
             <img class="navbar-logo" src="/img/pyret-banner.png"></img>
           </a>
         </div>
         <div class="collapse navbar-collapse our-nav-collapse"
              role="navigation">
           <ul class="nav navbar-nav">
-            <li><a href="/#examples">Examples</a></li>
-            <li><a target="_blank" href="https://code.pyret.org">Set Sail</a></li>
-            <li><a href="/discuss/">News &amp; Discussion</a></li>
-            <li><a href="/docs/latest/">Documentation</a></li>
-            <li><a href="https://github.com/brownplt/pyret-lang">Code</a></li>
-            <li><a href="/crew/">Crew</a></li>
+            <li><a class="fancyhover-above" href="/#examples">Examples</a></li>
+            <li><a class="fancyhover-above" target="_blank" href="https://code.pyret.org">Set Sail</a></li>
+            <li><a class="fancyhover-above" href="/discuss/">News &amp; Discussion</a></li>
+            <li><a class="fancyhover-above" href="/docs/latest/">Documentation</a></li>
+            <li><a class="fancyhover-above" href="https://github.com/brownplt/pyret-lang">Code</a></li>
+            <li><a class="fancyhover-above" href="/crew/">Crew</a></li>
           </ul>
         </div>
     </header>
-    <div class="container">
-      <div class="row">
-        @;{ Remember that Twitter Bootstrap has a 12 cell model. The
-            col-md-N classes should add up to 12.  For instance 3
-            "col-md-4" divs, or 2 "col-md-6" divs. }
-        <!-- Main column -->
-        <div id="content" class="col-md-12">
-@(when (string-ci=? uri-path "/index.html")
-  @(define (info-code code info)
-    @disable-prefix{<span class="info" title="@|info|">@|code|</span>})
-
-  @(define (two-langs header words other-lang pyret-code other-code)
-    (define other-block
-      @list{
-      <div class="col-md-4"><b>@|other-lang|</b><pre class="non-pyret">@|other-code|</pre> </div>
-      })
-    (define pyret-block
-      @list{
-      <div class="col-md-4"><b>Pyret</b><pre>@|pyret-code|</pre> </div>
-      })
-    (define description-block
-      @list{
-      <div class="col-md-4"><b>@|header|</b><p>@|words|</p></div>
-      })
+    @(when (string-ci=? uri-path "/index.html")
     @list{
-      <div class="row">
-        @description-block
-        @other-block
-        @pyret-block
-      </div>
-    })
-
-  @(define (pyret-example code description #:where (where 'left))
-    (define code-block
-      @list{
-      <div class="col-md-6"> <pre>@|code|</pre> </div>
-      })
-    (define description-block @list{
-      <div class="col-md-4">
-      <p>@|description|</p>
-      </div>
-    })
-    (cond
-      [(equal? where 'left) @list{
-          <div class="row">
-            <div class="col-md-1"></div>
-        @|code-block|
-        @|description-block|
-            <div class="col-md-1"></div>
-          </div>
-            }]
-            [(equal? where 'right) @list{
-          <div class="row">
-            <div class="col-md-1"></div>
-        @|description-block|
-        @|code-block|
-            <div class="col-md-1"></div>
-          </div>
-        }]))
-
-
-@list{
-<div class="jumbotron">
-  <div class="container">
+    <div class="jumbotron">
+      <div class="container">
     <div class="row">
       <div class="col-md-6">
       <img class="title-logo" src="/img/pyret-banner.png"></img>
@@ -146,10 +88,10 @@ s.parentNode.insertBefore(ga, s);
       development, and free to use or modify.
       </p>
       <p>
-        <a href="/#examples" class="btn btn-primary btn-m">Examples</a>
-        <a target="_blank" href="https://code.pyret.org" class="btn btn-primary btn-m">Set Sail</a>
-        <a href="/discuss/" class="btn btn-primary btn-m">News &amp; Discussion</a>
-        <a href="https://github.com/brownplt/pyret-lang" class="btn btn-primary btn-m">Code</a>
+        <a href="/#examples" class="btn btn-primary btn-m hvr-border-fade">Examples</a>
+        <a target="_blank" href="https://code.pyret.org" class="btn btn-primary btn-m hvr-border-fade">Set Sail</a>
+        <a href="/discuss/" class="btn btn-primary btn-m hvr-border-fade">News &amp; Discussion</a>
+        <a href="https://github.com/brownplt/pyret-lang" class="btn btn-primary btn-m hvr-border-fade">Code</a>
       </p>
       </div>
       <div class="col-md-6">
@@ -279,7 +221,71 @@ end
       </div>
     </div>
   </div>
-</div>
+    </div>
+    })
+    <div class="container">
+      <div class="row">
+        @;{ Remember that Twitter Bootstrap has a 12 cell model. The
+            col-md-N classes should add up to 12.  For instance 3
+            "col-md-4" divs, or 2 "col-md-6" divs. }
+        <!-- Main column -->
+        <div id="content" class="col-md-12">
+@(when (string-ci=? uri-path "/index.html")
+  @(define (info-code code info)
+    @disable-prefix{<span class="info" title="@|info|">@|code|</span>})
+
+  @(define (two-langs header words other-lang pyret-code other-code)
+    (define other-block
+      @list{
+      <div class="col-md-4"><b>@|other-lang|</b><pre class="non-pyret">@|other-code|</pre> </div>
+      })
+    (define pyret-block
+      @list{
+      <div class="col-md-4"><b>Pyret</b><pre>@|pyret-code|</pre> </div>
+      })
+    (define description-block
+      @list{
+      <div class="col-md-4"><b>@|header|</b><p>@|words|</p></div>
+      })
+    @list{
+      <div class="row">
+        @description-block
+        @other-block
+        @pyret-block
+      </div>
+    })
+
+  @(define (pyret-example code description #:where (where 'left))
+    (define code-block
+      @list{
+      <div class="col-md-6"> <pre>@|code|</pre> </div>
+      })
+    (define description-block @list{
+      <div class="col-md-4">
+      <p>@|description|</p>
+      </div>
+    })
+    (cond
+      [(equal? where 'left) @list{
+          <div class="row">
+            <div class="col-md-1"></div>
+        @|code-block|
+        @|description-block|
+            <div class="col-md-1"></div>
+          </div>
+            }]
+            [(equal? where 'right) @list{
+          <div class="row">
+            <div class="col-md-1"></div>
+        @|description-block|
+        @|code-block|
+            <div class="col-md-1"></div>
+          </div>
+        }]))
+
+
+@list{
+
 
 <a name="examples"></a>
 <h2>Programming in Pyret</h2>
