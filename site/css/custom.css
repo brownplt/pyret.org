@@ -1,7 +1,11 @@
 /* custom.css */
 
+a:active, a:focus {
+  outline: 0;
+}
+
 code {
-    color: black;
+  color: black;
 }
 
 /* When highlighted code blocks are too wide, they wrap. Resulting in the */
@@ -178,6 +182,10 @@ h1 {
 div.carousel {
   height : 100%;
   min-height : 100%;
+}
+
+a.carousel-control {
+  text-shadow: none;
 }
 
 a.carousel-control.right {
