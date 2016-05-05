@@ -1,5 +1,9 @@
 /* custom.css */
 
+body > div:first-of-type {
+  padding-top: 66px;
+}
+
 a:active, a:focus {
   outline: 0;
 }
@@ -27,7 +31,7 @@ pre {
 
 .jumbotron {
   /* 48px from Bootstrap + 66px from Navbar (30px padding + 36px image)*/
-  padding-top: 114px;
+  padding-top: 114px !important;
 }
 
 img.navbar-logo {
