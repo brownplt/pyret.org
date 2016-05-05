@@ -150,6 +150,7 @@ img.title-logo {
 }
 
 .hvr-border-fade {
+  line-height: inherit;
   display: inline-block;
   vertical-align: middle;
   -webkit-transform: translateZ(0);
