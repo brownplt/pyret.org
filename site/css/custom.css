@@ -21,6 +21,13 @@ pre {
   background-color: #eee;
   border: 0px;
   margin-bottom: 0px;
+  width: 100%;
+  position: fixed;
+}
+
+.jumbotron {
+  /* 48px from Bootstrap + 66px from Navbar (30px padding + 36px image)*/
+  padding-top: 114px;
 }
 
 img.navbar-logo {
