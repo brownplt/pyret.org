@@ -749,7 +749,15 @@ method_as_fun = o.my_method
             @list{<h1>Posts tagged <em>@|tag|</em></h1>})
           @;{ The main page contents are in @contents }
           @(when (not (string-ci=? uri-path "/blog/index.html"))
-            @|contents|)
+            @list{
+            <div class="row paragraph-content">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+            @|contents|
+            </div>
+            <div class="col-md-2"></div>
+            </div>
+            })
         </div>
       </div>
       <footer>

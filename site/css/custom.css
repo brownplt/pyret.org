@@ -10,6 +10,8 @@ a:active, a:focus {
 
 code {
   color: black;
+  background-color: #eee;
+  font-size: 11pt;
 }
 
 /* When highlighted code blocks are too wide, they wrap. Resulting in the */
@@ -232,25 +234,31 @@ div.carousel-inner pre {
 }
 
 .jumbotron p {
-  font-family : 'Merriweather';
-  font-weight: 300;
+  font-family : 'Garamond';
   font-size: 14pt;
 }
 
 #content p {
-  font-family : 'Merriweather';
-  font-weight: 300;
+  font-family : 'Garamond';
   font-size : 14pt;
 }
 
 #content ul {
-  font-family : 'Merriweather';
+  font-family : 'Garamond';
   font-weight: 300;
   font-size : 14pt;
 }
 
 #content ol {
-  font-family : 'Merriweather';
-  font-weight: 300;
+  font-family : 'Garamond';
   font-size : 14pt;
+}
+
+.paragraph-content {
+  font-family : 'Garamond';
+  font-size : 14pt;
+}
+
+.paragraph-content code {
+  font-size: 12pt;
 }
