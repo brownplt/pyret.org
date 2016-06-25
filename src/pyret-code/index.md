@@ -79,12 +79,21 @@ message_, whereas we believe programmers — especially early-stage
 student programmers — should not have to confront these complexities,
 which are irrelevant to (and often significantly interfere with) the
 material they are trying to learn. Imagine if other languages said,
-“We'd love to give you function calls, but the x86 instruction set
+“We'd love to give you function calls, but your machine's instruction set
 doesn't contain them, so we can't — sorry!” Yet they do the equivalent
 when it comes to giving you control over your computation on top of
 JavaScript. In contrast, Pyret is uncompromising.
 
-Third, we view _building an awesome teaching language_ as as a useful
+Third, if you want to teach a media-rich curriculum, you actually need
+a pretty full-featured language at least under the hood. For instance,
+Pyret's built-in support for reactive programming requires a much more
+sophisticated run-time system — and corresponding language features —
+than one that didn't offer this at all or just punted to JavaScript
+for this support. (Essentially, event-loops are first-class entities
+in the language.) We just haven't emphasized these features,focusing
+instead on what we can do with them in a curriculum.
+
+Broadly, we view _building an awesome teaching language_ as a useful
 design discipline that necessarily entails all the features typically
 expected of a mature language.  When building a language, you're
 constantly confronted with questions: what to do next, how to do it,
@@ -170,6 +179,38 @@ Some of our central ideas include:
   of state). Therefore, Pyret has carefully developed
   [equality primitives](https://www.pyret.org/docs/latest/equality.html).
 
+### Is Pyret also a research project?
+
+Yes and no.
+
+Yes in that, broadly speaking, we view what we are doing as very much
+a research effort. We have specific, novel goals in mind (some of
+which we've described above), and finding good solutions to achieve
+those goals will require innovation. This is the very essence of
+research. Some of that research is on the curricular side, though, and
+may not require any language innovation. Indeed, as much as possible
+we want Pyret to remain a language that is easy to approach and
+understand.
+
+However, “research” also has a narrow meaning in academia, in the
+sense of publishing lots of papers. This is an un-goal, and almost an
+anti-goal. Every paper takes months to write, and those are months we
+are not spending on the language and curriculum. We view this as a
+poor time trade-off. So we'll write papers sometime, but our focus is
+on shipping code and textbooks and other materials of immediate value
+to students and educators.
+
+Ultimately, though, research _requires_ doing new things. We don't
+want to do new things just for the sake of it. We're long been
+inspired by this quote from
+[Paul Graham](http://www.paulgraham.com/desres.html):
+
+> The difference between design and research seems to be a question of
+> new versus good. Design doesn't have to be new, but it has to be
+> good. Research doesn't have to be good, but it has to be new.
+
+For us, design is essential; research in optional.
+
 ### What next?
 
 We are currently hard at work on three very important features:
@@ -208,3 +249,7 @@ developing three new curricula for Bootstrap:
 If you'd like to stay abreast of our developments or get involved in
 our discussions, please
 [come on board](http://www.pyret.org/discuss/)!
+
+### Where is the proximal end of the second femur?
+
+Look closer. It's a lambda.
