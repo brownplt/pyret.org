@@ -259,6 +259,8 @@ div.carousel-inner pre {
   font-size : 14pt;
 }
 
-.paragraph-content code {
-  font-size: 12pt;
+h3 {
+  font-size: 18px;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
 }
