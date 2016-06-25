@@ -5,12 +5,6 @@ all: pages docs
 pages:
 	raco frog -b
 
-.Phony: docs
-docs:
-	cd .. && make doc
-	rm -rf site/docs
-	cp -r ../docs/lang/ site/docs/
-
 .Phony: serve
 serve:
 	raco frog -s
