@@ -250,6 +250,6 @@ If you'd like to stay abreast of our developments or get involved in
 our discussions, please
 [come on board](http://www.pyret.org/discuss/)!
 
-### Where is the proximal end of the second femur?
+### Where is the [proximal end of the second femur](https://www.facebook.com/shriram.krishnamurthi/posts/10157066386395581?comment_id=10157070487615581&notif_t=comment_mention&notif_id=1466124885214745)?
 
 Look closer. It's a lambda.
