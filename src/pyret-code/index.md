@@ -129,10 +129,9 @@ well.
 What we do not take a dogmatic stance on is exactly how early state
 and types should be introduced. Pyret has the usual stateful
 operations. We discussed this at some length, but eventually decided
-an introduction to programming _must_ teach state (hopefully in a fair
-and balanced manner). Pyret also has optional annotations, so
-different instructors can, depending on their preference, introduce
-types at different times.
+an introduction to programming _must_ teach state (without dogma).
+Pyret also has optional annotations, so different instructors can,
+depending on their preference, introduce types at different times.
 
 ### What are some ways the educational philosophy influences the language?
 
@@ -209,7 +208,10 @@ inspired by this quote from
 > new versus good. Design doesn't have to be new, but it has to be
 > good. Research doesn't have to be good, but it has to be new.
 
-For us, design is essential; research in optional.
+For us, design is essential; research in optional. We actively dogfood
+Pyret both as teachers — actively teaching with it — and as
+programmers — actively building things with it — which gives us
+continuous feedback about its points of friction.
 
 ### What next?
 
