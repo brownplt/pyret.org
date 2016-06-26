@@ -211,7 +211,7 @@ inspired by this quote from
 For us, design is essential; research in optional. We actively dogfood
 Pyret both as teachers — actively teaching with it — and as
 programmers — actively building things with it — which gives us
-constant feedback about its points of friction.
+ongoing feedback about its points of friction.
 
 ### What next?
 
