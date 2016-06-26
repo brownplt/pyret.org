@@ -134,7 +134,7 @@ and balanced manner). Pyret also has optional annotations, so
 different instructors can, depending on their preference, introduce
 types at different times.
 
-### What are some ways the educational philosophy influences the langauge?
+### What are some ways the educational philosophy influences the language?
 
 Pyret is driven by the [How to Design Programs](http://www.htdp.org/)
 (HtDP) philosophy of programming education; one could almost view it
@@ -249,6 +249,10 @@ developing three new curricula for Bootstrap:
 If you'd like to stay abreast of our developments or get involved in
 our discussions, please
 [come on board](http://www.pyret.org/discuss/)!
+
+### Does the skull in your logo have a name?
+
+Yes, it's [Bonny](https://en.wikipedia.org/wiki/Anne_Bonny)!
 
 ### Where is the [proximal end of the second femur](https://www.facebook.com/shriram.krishnamurthi/posts/10157066386395581?comment_id=10157070487615581&notif_t=comment_mention&notif_id=1466124885214745)?
 
