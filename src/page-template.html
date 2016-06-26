@@ -435,7 +435,7 @@ satisfaction of an arbitrary predicate.")
   @(pyret-example #:where 'left
 @disable-prefix{
 point-methods = {
-  dist(self, other):
+  dist: method(self, other):
     ysquared = num-expt(other.y - self.y, 2)
     xsquared = num-expt(other.x - self.x, 2)
     num-sqrt(ysquared + xsquared)
@@ -685,7 +685,7 @@ binding an expression to a temporary name changes program behavior.
 "JavaScript"
 @disable-prefix{
 o = @"{"
-  my-method(self, x): self.y + x end,
+  my-method: method(self, x): self.y + x end,
   y: 10
 @"}"
 method-as-fun = o.my-method
@@ -712,7 +712,7 @@ method_as_fun(5)
 "Ruby"
 @disable-prefix{
 o = @"{"
-  my-method(self, x): self.y + x end,
+  my-method: method(self, x): self.y + x end,
   y: 10
 @"}"
 method-as-fun = o.my-method
