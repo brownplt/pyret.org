@@ -252,7 +252,7 @@ our discussions, please
 
 ### Does the skull in your logo have a name?
 
-Yes, it's [Bonny](https://en.wikipedia.org/wiki/Anne_Bonny)!
+Yes, she's [Bonny](https://en.wikipedia.org/wiki/Anne_Bonny)!
 
 ### Where is the [proximal end of the second femur](https://www.facebook.com/shriram.krishnamurthi/posts/10157066386395581?comment_id=10157070487615581&notif_t=comment_mention&notif_id=1466124885214745)?
 
