@@ -90,8 +90,8 @@ Pyret's built-in support for reactive programming requires a much more
 sophisticated run-time system — and corresponding language features —
 than one that didn't offer this at all or just punted to JavaScript
 for this support. (Essentially, event-loops are first-class entities
-in the language.) We just haven't emphasized these features,focusing
-instead on what we can do with them in a curriculum.
+in the language.) We just haven't emphasized these features when
+talking about Pyret, focusing instead on the curriculum they support.
 
 Broadly, we view _building an awesome teaching language_ as a useful
 design discipline that necessarily entails all the features typically
