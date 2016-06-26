@@ -250,6 +250,16 @@ If you'd like to stay abreast of our developments or get involved in
 our discussions, please
 [come on board](http://www.pyret.org/discuss/)!
 
+### Why is your filename suffix `.arr`?
+
+Because
+[pirates supposedly said](http://dialectblog.com/2011/05/24/pirate-accent/)
+“arrr!” (or “yarrr!”) a lot. (Sometimes they
+[sing](http://www.arrr.net/), too.) Note that you must pronounce it
+with a guttural sound, so it can't be mistaken for a file written in
+the R programming language. You should consider swashing your buckler
+as you speak.
+
 ### Does the skull in your logo have a name?
 
 Yes, she's [Bonny](https://en.wikipedia.org/wiki/Anne_Bonny)!
