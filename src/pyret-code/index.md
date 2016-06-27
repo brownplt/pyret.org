@@ -1,4 +1,4 @@
-# The Pyret Code; or A Case for the Pyret Programming Language
+# The Pyret Code; or A Rationale for the Pyret Programming Language
 
 We need better languages for introductory computing. A good
 introductory language makes good compromises between expressiveness
