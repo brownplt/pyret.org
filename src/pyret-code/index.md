@@ -36,7 +36,7 @@ browser. Going through Racket and
   many features that make an efficient implementation on today's
   JavaScript very hard. Building a native JavaScript implementation
   was the only option we could see. Over time, as technology changes,
-  this could prove to be wrong.
+  this could change.
 
 * Though our pedagogy draws from and is very similar to that of the
   Racketeers, it also diverges in some ways, reflecting the somewhat
@@ -112,9 +112,9 @@ it's certainly re-ordered priorities.
 
 That's right. We are focused on introductory programming education at
 a high-school and collegiate level — what is often called “CS 1” and
-“CS 2” (roughly, the first year of college). Pyret is also being
-actively _used_ in exactly that setting, giving us a tight feedback
-loop.
+“CS 2” (roughly, the first year of college). Pyret is being
+actively _used_ in everything from high-schools to upper-level
+collegiate courses, giving us a tight feedback loop.
 
 Of course, even in that setting there are differences of opinion about
 what needs to be taught. Some believe inheritance is so important it
@@ -129,19 +129,20 @@ well.
 What we do not take a dogmatic stance on is exactly how early state
 and types should be introduced. Pyret has the usual stateful
 operations. We discussed this at some length, but eventually decided
-an introduction to programming _must_ teach state (without dogma).
+an introduction to programming _must_ teach state.
 Pyret also has optional annotations, so different instructors can,
 depending on their preference, introduce types at different times.
 
 ### What are some ways the educational philosophy influences the language?
 
-Pyret is driven by the [How to Design Programs](http://www.htdp.org/)
+Pyret is driven by the [_How to Design Programs_](http://www.htdp.org/)
 (HtDP) philosophy of programming education; one could almost view it
 as a language designed to make teaching from HtDP comfortable.
 However, we also have our own curricular ideas that extend or run
 parallel to those of HtDP, which we are steadily writing up in
-[Programming and Programming Languages](http://papl.cs.brown.edu/)
-(PAPL). Note that PAPL exclusively uses Pyret.
+[_Programming and Programming Languages_](http://papl.cs.brown.edu/)
+(PAPL). PAPL both exclusively uses Pyret and is slowly turning into a
+definitive book for teaching with it.
 
 Some of our central ideas include:
 
@@ -159,7 +160,7 @@ Some of our central ideas include:
 * Design recipe support includes good data definition primitives, including
   the expression of invariants.  Therefore, Pyret has support for refinements
   (which are currently checked dynamically; a future version may add static
-  support, but this is not our highest priority.) In particular, by allowing
+  support, but this is not our highest priority). In particular, by allowing
   algebraic datatypes to also be objects, Pyret offers significant flexibility
   and expressiveness.
 
@@ -172,7 +173,7 @@ Some of our central ideas include:
   sophisticated testing, such as writing test oracles.
 
 * Equality is subtle and languages should respect its nuances. We have
-  therefore carefully different kinds of equality. We believe it is
+  therefore carefully thought through different kinds of equality. We believe it is
   important for students to understand the meaning of equality and its
   consequences (especially with regard to observations in the presence
   of state). Therefore, Pyret has carefully developed
@@ -184,7 +185,8 @@ Yes and no.
 
 Yes in that, broadly speaking, we view what we are doing as very much
 a research effort. We have specific, novel goals in mind (some of
-which we've described above), and finding good solutions to achieve
+which we've described elsewhere in this document), and finding good
+solutions to achieve
 those goals will require innovation. This is the very essence of
 research. Some of that research is on the curricular side, though, and
 may not require any language innovation. Indeed, as much as possible
@@ -195,9 +197,11 @@ However, “research” also has a narrow meaning in academia, in the
 sense of publishing lots of papers. This is an un-goal, and almost an
 anti-goal. Every paper takes months to write, and those are months we
 are not spending on the language and curriculum. We view this as a
-poor time trade-off. So we'll write papers sometime, but our focus is
+poor time trade-off. We'll write papers sometime, but our immediate focus is
 on shipping code and textbooks and other materials of immediate value
-to students and educators.
+to students and educators. If this means we get “scooped” on some of
+our technical innovations, that's just fine; we consider that a good
+trade-off.
 
 Ultimately, though, research _requires_ doing new things. We don't
 want to do new things just for the sake of it. We're long been
@@ -211,7 +215,9 @@ inspired by this quote from
 For us, design is essential; research in optional. We actively dogfood
 Pyret both as teachers — actively teaching with it — and as
 programmers — actively building things with it — which gives us
-ongoing feedback about its points of friction.
+ongoing feedback about its points of friction. Where necessary we have
+done and will continue to do research, but publishing it — rather than
+putting it to work educationally — will continue to take a back seat.
 
 ### What next?
 
@@ -234,6 +240,10 @@ We are currently hard at work on three very important features:
   We are currently revising and updating it in a few ways that will
   help it better serve our new educational programs.
 
+If you'd like to stay abreast of our developments or get involved in
+our discussions, please
+[come on board](http://www.pyret.org/discuss/)!
+
 On the educational side, Pyret is already used by the
 [Bootstrap project](http://www.bootstrapworld.org/). We are now
 developing three new curricula for Bootstrap:
@@ -248,9 +258,8 @@ developing three new curricula for Bootstrap:
 * A physics/modeling curriculum, to help teach students physics and
   modeling through the medium of programming.
 
-If you'd like to stay abreast of our developments or get involved in
-our discussions, please
-[come on board](http://www.pyret.org/discuss/)!
+If you'd like to talk more about these,
+[join us](http://www.bootstrapworld.org/community/)!
 
 ### Why is your filename suffix `.arr`?
 
