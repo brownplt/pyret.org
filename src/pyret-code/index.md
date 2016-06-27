@@ -33,7 +33,7 @@ several reasons:
 browser. Going through Racket and
   [Whalesong](http://cs.brown.edu/~sk/Publications/Papers/Published/yk-whalesong-racket-browser/)
   proved to be a non-starter in terms of performance, and Racket has
-  too many features that make an efficient implementation on today's
+  many features that make an efficient implementation on today's
   JavaScript very hard. Building a native JavaScript implementation
   was the only option we could see. Over time, as technology changes,
   this could prove to be wrong.
