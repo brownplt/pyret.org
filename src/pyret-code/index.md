@@ -212,7 +212,7 @@ inspired by this quote from
 > new versus good. Design doesn't have to be new, but it has to be
 > good. Research doesn't have to be good, but it has to be new.
 
-For us, design is essential; research in optional. We actively dogfood
+For us, design is essential; research is optional. We actively dogfood
 Pyret both as teachers — actively teaching with it — and as
 programmers — actively building things with it — which gives us
 ongoing feedback about its points of friction. Where necessary we have
