@@ -172,11 +172,10 @@ Some of our central ideas include:
 * Students should easily be able to escalate from simple examples to
   sophisticated testing, such as writing test oracles.
 
-* Equality is subtle and languages should respect its nuances. We have
-  therefore carefully thought through different kinds of equality. We believe it is
-  important for students to understand the meaning of equality and its
-  consequences (especially with regard to observations in the presence
-  of state). Therefore, Pyret has carefully developed
+* Equality is subtle and languages should respect its nuances.
+  Students must understand the meaning of equality and its
+  consequences, especially with regard to observations in the presence
+  of state. Therefore, Pyret has carefully developed
   [equality primitives](https://www.pyret.org/docs/latest/equality.html).
 
 ### Is Pyret also a research project?
@@ -213,11 +212,12 @@ inspired by this quote from
 > good. Research doesn't have to be good, but it has to be new.
 
 For us, design is essential; research is optional. We actively dogfood
-Pyret both as teachers — actively teaching with it — and as
-programmers — actively building things with it — which gives us
+Pyret both as teachers (actively teaching with it) and as
+programmers (actively building things with it), which gives us
 ongoing feedback about its points of friction. Where necessary we have
-done and will continue to do research, but publishing it — rather than
-putting it to work educationally — will continue to take a back seat.
+done and will continue to do research, but publishing academic papers
+about it — rather than putting it to work educationally — will
+continue to take a back seat.
 
 ### What next?
 
