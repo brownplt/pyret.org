@@ -13,11 +13,10 @@ interfaces, and more.
 
 @link["http://cs.brown.edu/~blerner" "Ben Lerner"] and
 @link["http://jpolitz.github.io/" "Joe Gibbs Politz"] are the main stewards of
-the language, and build and maintain the core of the compiler and associated
-tools.  @link["http://dbpmail.net/" "Daniel Patterson"], and
-@link["http://www.ccs.neu.edu/home/dorai/" "Dorai Sitaram"] are responsible for
-Pyret in its current form; they helped design and build its feel and core
-features.
+the language, and build and maintain the compiler and associated tools.
+@link["http://dbpmail.net/" "Daniel Patterson"], and
+@link["http://www.ccs.neu.edu/home/dorai/" "Dorai Sitaram"] have helped design
+and build its feel and core features.
 
 The work of Danny Yoo and Emmanuel Schanzer on Whalesong and WeScheme has been
 indispensible both for inspiration and for re-use.
