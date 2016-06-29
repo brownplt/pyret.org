@@ -11,29 +11,31 @@ understanding its (recent) research. Pyret's design and development draw on the
 group's experience in programming languages, education, web security, user
 interfaces, and more.
 
-@link["http://cs.brown.edu/~blerner" "Ben Lerner"], @link["http://dbpmail.net/"
-"Daniel Patterson"], @link["http://jpolitz.github.io/" "Joe Gibbs Politz"], and
+@link["http://cs.brown.edu/~blerner" "Ben Lerner"] and
+@link["http://jpolitz.github.io/" "Joe Gibbs Politz"] are the main stewards of
+the language, and build and maintain the core of the compiler and associated
+tools.  @link["http://dbpmail.net/" "Daniel Patterson"], and
 @link["http://www.ccs.neu.edu/home/dorai/" "Dorai Sitaram"] are responsible for
-Pyret in its current form; they designed and built its feel, core features, and
-three compilers for it so far.
+Pyret in its current form; they helped design and build its feel and core
+features.
 
-Jake Ellis, Frank Goodman, and Sam Ainsworth, the survivors of CS1729 2014,
-made great contributions to the JavaScript implementation of Pyret in concept,
-design, and runtime implementation.
+The work of Danny Yoo and Emmanuel Schanzer on Whalesong and WeScheme has been
+indispensible both for inspiration and for re-use.
 
-John Ericson and @link["http://codymello.com" "Cody Mello"] were a great
-help with many final details of the build system, testing, and documentation.
+Pyret has numerous contributors.  In no particular order, Jake Ellis, Frank
+Goodman, Sam Ainsworth, John Ericson, Sorawee Porncharoenwase, Alex St Laurent,
+Philip Blair, Matthew Kolosick, Jack Wrenn, Sarah Fischmann, Justin Pombrio,
+Cody Mello, Eric Caruso, Stevie Strickland, Liam Elberty, Kathi Fisler,
+Emmanuel Schanzer, Emma Youndtsmith, Jonah Kagan, and many users on the
+pyret-discuss mailing list have contributed ideas and code.
 
-The work of Danny Yoo on Moby, WeScheme, and Whalesong has been indispensible
-in both for inspiration and for re-use of image and bignum libraries.
+Adam Newall, Melanie Wiscount, YeukSze Leong, Brad Pierce, Eric Allatta, and
+Barbara Lerner have used Pyret in their courses, and we are grateful to them
+and their students.
 
-@link["http://cs.brown.edu/~justinpombrio/" "Justin Pombrio"], Liam Elberty,
-Kathi Fisler, Emmanuel Schanzer, Emma Youndtsmith, and Jonah Kagan have
-voluntarily used Pyret and given tons of valuable feedback while tolerating
-bugs and inconsistencies.
-
-The students of Brown's CSCI 0190, CSCI 1729, and CSCI 1730, along with
-Swarthmore's CS91, had Pyret thrust upon them, and bore it with grace.
+Early on, the students of Brown's CSCI 0190, CSCI 1729, and CSCI 1730, along
+with Swarthmore's CS91, were press-ganged into service aboard the Pyret ship,
+but took to the high seas with grace.
 
 @link["http://cs.brown.edu/~sk/" "Shriram Krishnamurthi"] provides the
 budget for t-shirts and stickers.
