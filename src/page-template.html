@@ -556,12 +556,7 @@ end
 import unittest
 class TestLists(unittest.TestCase):
   def test_empty_first(self):
-    def lookup_first(lst):
-      lst[0]
-    self.assertRaises(
-        IndexError,
-        lookup_first,
-        [])
+    self.assertRaises(IndexError, lambda: [][0])
 
   def test_1to5(self):
     self.assertEqual([1,2,3,4,5][0], 1)
