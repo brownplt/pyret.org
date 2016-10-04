@@ -1,5 +1,5 @@
 .Phony: all
-all: pages docs
+all: pages
 
 .Phony: pages
 pages:
