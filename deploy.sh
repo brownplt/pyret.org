@@ -6,7 +6,7 @@ SHORT_COMMIT=`echo $TRAVIS_COMMIT | cut -c1-7`
 VERSION=$SHORT_COMMIT
 make pages
 
-tar czf site.tgz site
+tar czf site.tgz site/*
 
 # NOTE(joe):
 #
@@ -15,7 +15,9 @@ tar czf site.tgz site
 # delete (see the -Q option in `man curl`).
 
 curl -u $FTP_USER:$FTP_PASS \
-     -Q "*dele pyret.org/site.tgz" \
+     -Q "*dele pyret.org/site-copied.tgz" \
+     -Q "-rnfr site-copied.tgz" \
+     -Q "-rnto site.tgz" \
      --ftp-create-dirs \
-     -T site.tgz ftp://ftp.cs.brown.edu/pyret.org/site.tgz
+     -T site.tgz ftp://ftp.cs.brown.edu/pyret.org/site-copied.tgz
 
