@@ -1,7 +1,5 @@
 #!/bin/bash
 
-#!/bin/bash
-
 SHORT_COMMIT=`echo $TRAVIS_COMMIT | cut -c1-7`
 VERSION=$SHORT_COMMIT
 make pages
