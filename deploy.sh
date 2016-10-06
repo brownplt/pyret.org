@@ -2,6 +2,7 @@
 
 SHORT_COMMIT=`echo $TRAVIS_COMMIT | cut -c1-7`
 VERSION=$SHORT_COMMIT
+npm install
 make pages
 
 tar czf site.tgz site/*
