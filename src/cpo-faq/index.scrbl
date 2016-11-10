@@ -36,10 +36,11 @@ programs you create.}
 ]
 
 You can always go to
-@link["https://security.google.com/settings/security/permissions?pli=1"]{https://security.google.com/settings/security/permissions?pli=1}
-and remove all access that code.pyret.org has to your account.  Your programs
-and @code{code.pyret.org} folders will not be deleted if you do so.  You can
-always manually delete these folders and their contents yourself.
+@link["https://security.google.com/settings/security/permissions?pli=1"]{your
+Google account settings} and remove all access that code.pyret.org has to your
+account.  Your programs and @code{code.pyret.org} folders will not be deleted
+if you do so.  You can always manually delete these folders and their contents
+yourself.
 
 @section{Where are things stored in my Drive?}
 
@@ -85,9 +86,9 @@ track of that file so it can show it to other users who view your program.
 
 We collect basic information about your use of @code{code.pyret.org} to help us
 improve the language and editor, and enable some debugging.  We send back
-information about errors, authentication, whether features such as the
-type-checker are used, and preferences (such as which mode you choose to
-display highlights with).
+information about errors and error messages, login status (to debug issues with
+connecting to Google), whether features such as the type-checker are used, and
+preferences (such as which mode you choose to display highlights with).
 
 @bold{Detailed Activity}
 
