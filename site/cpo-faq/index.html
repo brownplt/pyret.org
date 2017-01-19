@@ -1,20 +1,3 @@
-@(define disable-prefix (dynamic-require 'scribble/text 'disable-prefix))
-@(define pygmentize/raw   (dynamic-require 'frog/pygments 'pygmentize))
-@(define xexpr->string (dynamic-require 'xml 'xexpr->string))
-@(define current-pygments-linenos? (dynamic-require 'frog/params 'current-pygments-linenos?))
-@(define (sanitize-pygments-output o)
-  (define (remove-trailing-newline lst)
-    (cond [(null? lst) lst]
-          [(and (null? (cdr lst)) (equal? (car lst) "\n")) '()]
-          [(and (null? (cdr lst)) (pair? (car lst))) (list (remove-trailing-newline (car lst)))]
-          [else (cons (car lst) (remove-trailing-newline (cdr lst)))]))
-  `((div ((class "source")) (pre ((class "non-pyret"))
-    ,@(remove-trailing-newline (cddr (caddar o)))))))
-@(define (pygmentize lang . code)
-   (parameterize ([current-pygments-linenos? #f]
-                  [current-output-port (open-output-string)])
-    (let ([res (sanitize-pygments-output (pygmentize/raw (apply string-append code) lang))])
-      (xexpr->string `(div ([class ,(string-append "brush: " lang)]) ,@res)))))
       <!DOCTYPE html>
       <html lang="en">
         <head>
