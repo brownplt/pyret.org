@@ -133,7 +133,7 @@ end
 
 fun tree-sum(t):
   doc: "Calculate the sum of node values"
-  cases(BinTree) t:
+  cases (BinTree) t:
     | leaf => 0
     | node(v, l, r) =>
       v + tree-sum(l) + tree-sum(r)
@@ -331,7 +331,7 @@ Iteration constructs are designed to be evocative of those in other languages.")
   @(pyret-example #:where 'right
 @disable-prefix{
 fun sum(l):
-  cases(List) l:
+  cases (List) l:
     | empty => 0
     | link(first, rest) => first + sum(rest)
   end
