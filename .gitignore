@@ -13,5 +13,6 @@ site/pyret-code/
 site/tags/
 site/tour/
 site/release-notes/
+site/cpo-faq/
 .frog
 node_modules
