@@ -1,3 +1,4 @@
 #lang scribble/manual
 
-@title{The Pyret Programming Language}
+@(require frog/scribble)
+

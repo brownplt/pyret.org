@@ -1,20 +1,5 @@
 @(define disable-prefix (dynamic-require 'scribble/text 'disable-prefix))
-@(define pygmentize/raw   (dynamic-require 'frog/pygments 'pygmentize))
 @(define xexpr->string (dynamic-require 'xml 'xexpr->string))
-@(define current-pygments-linenos? (dynamic-require 'frog/params 'current-pygments-linenos?))
-@(define (sanitize-pygments-output o)
-  (define (remove-trailing-newline lst)
-    (cond [(null? lst) lst]
-          [(and (null? (cdr lst)) (equal? (car lst) "\n")) '()]
-          [(and (null? (cdr lst)) (pair? (car lst))) (list (remove-trailing-newline (car lst)))]
-          [else (cons (car lst) (remove-trailing-newline (cdr lst)))]))
-  `((div ((class "source")) (pre ((class "non-pyret"))
-    ,@(remove-trailing-newline (cddr (caddar o)))))))
-@(define (pygmentize lang . code)
-   (parameterize ([current-pygments-linenos? #f]
-                  [current-output-port (open-output-string)])
-    (let ([res (sanitize-pygments-output (pygmentize/raw (apply string-append code) lang))])
-      (xexpr->string `(div ([class ,(string-append "brush: " lang)]) ,@res)))))
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -26,7 +11,9 @@
     <meta name="description" content="@|description|">
     <meta name="author"      content="The Pyret Crew">
     <meta name="keywords"    content="@|keywords|">
-    <meta property="og:title" content="@|title|">
+    @(if (string-ci=? uri-path "/index.html")
+      @list{<meta property="og:title" content="The Pyret Programming Language">}
+      @list{<meta property="og:title" content="@|title|">})
     <meta property="og:author" content="The Pyret Crew">
     <meta property="og:url" content="@|full-uri|">
     <meta property="og:image" content="http://www.pyret.org/img/pyret-logo.png">
@@ -261,7 +248,7 @@ end
   @(define (two-langs header words other-lang pyret-code other-code)
      (define other-block
          @list{
-         <div class="col-md-4"><b>@|other-lang|</b>@disable-prefix[other-code]</div>
+         <div class="col-md-4"><b>@|other-lang|</b><pre class="non-pyret">@disable-prefix[other-code]</pre></div>
          })
     (define pyret-block
       @list{
@@ -489,7 +476,7 @@ fun square(n :: Number) -> Number:
   n * n
 end
 }
-@pygmentize["python"]{
+@disable-prefix{
 def square(n):
   return n * n
 }
@@ -504,7 +491,7 @@ languages do."
 fun square(n) -> Number:
   n * n
 end}
-@pygmentize["java"]{
+@disable-prefix{
 static int square(int n) @"{"
   return n * n;
 @"}"})
@@ -519,7 +506,7 @@ fun insert(e :: Number,
     -> BST % (is-balanced):
   # self-balancing tree insertion
 end}
-@pygmentize["python"]{
+@disable-prefix{
 def insert(e, s):
   # tree insertion but with
   # invariants neither
@@ -534,7 +521,7 @@ students to using just 32 bits."
 # this is true
 ((1 / 3) * 3) == 1
 }
-@pygmentize["java"]{
+@disable-prefix{
 // this is not true
 ((1 / 3) * 3) == 1
 })
@@ -552,7 +539,7 @@ check:
   [list: 2,4,6,8].first is 2
 end
 }
-@pygmentize["python"]{
+@disable-prefix{
 import unittest
 class TestLists(unittest.TestCase):
   def test_empty_first(self):
@@ -587,7 +574,7 @@ data BinTree:
   | leaf
   | node(v, l, r)
 end}
-@pygmentize["python"]{
+@disable-prefix{
 class BinTree:
   pass
 class leaf(BinTree):
@@ -623,7 +610,7 @@ fun animal-name(a :: Animal):
   a.name
 end
 }
-@pygmentize["ocaml"]{
+@disable-prefix{
 type animal =
   | Elephant of string * float
   | Tiger of string * float
@@ -652,7 +639,7 @@ fun animal-name(a :: Animal):
   a.name
 end
 }
-@pygmentize["racket"]{
+@disable-prefix{
 (struct elephant (name weight))
 (struct tiger (name stripes))
 (struct horse (name races-won))
@@ -688,7 +675,7 @@ check:
   method-as-fun(5) is 15
 end
 }
-@pygmentize["javascript"]{
+@disable-prefix{
 var o = @"{"
   my_method: function(x) @"{"
     return this.y + x;
@@ -715,7 +702,7 @@ check:
   method-as-fun(5) is 15
 end
 }
-@pygmentize["ruby"]{
+@disable-prefix{
 o = Object.new
 def o.my_method(x)
   self.y + x
