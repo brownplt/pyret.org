@@ -206,10 +206,10 @@ end
 eps = 0.001
 fun d-dx(f):
   doc: "Calculate the derivative of f"
-  lam(x): (f(x + eps) - f(x)) / eps;
+  lam(x): (f(x + eps) - f(x)) / eps end
 where:
-  fun square(x): x * x;
-  fun around(delta, target): ...;
+  fun square(x): x * x end
+  fun around(delta, target): ... end
 
   dsquare = d-dx(square)
 
@@ -399,11 +399,12 @@ the language in use for a while before we codify these.
 eps = 0.001
 fun d-dx(f):
   doc: "Approximate the derivative of f"
-  lam(x): (f(x + eps) - f(x)) / eps;
+  lam(x): (f(x + eps) - f(x)) / eps end
 where:
-  fun square(x): x * x;
+  fun square(x): x * x end
   fun around(delta, target):
-    lam(actual): num-abs(actual - target) < delta;;
+    lam(actual): num-abs(actual - target) < delta end
+  end
 
   dsquare = d-dx(square)
 
@@ -666,7 +667,7 @@ binding an expression to a temporary name changes program behavior.
 "JavaScript"
 @disable-prefix{
 o = @"{"
-  my-method(self, x): self.y + x end,
+  method my-method(self, x): self.y + x end,
   y: 10
 @"}"
 method-as-fun = o.my-method
@@ -693,7 +694,7 @@ method_as_fun(5)
 "Ruby"
 @disable-prefix{
 o = @"{"
-  my-method(self, x): self.y + x end,
+  method my-method(self, x): self.y + x end,
   y: 10
 @"}"
 method-as-fun = o.my-method
