@@ -22,5 +22,4 @@ serve:
 
 .Phony: clean
 clean:
-	git clean -fd
 	raco frog --clean
