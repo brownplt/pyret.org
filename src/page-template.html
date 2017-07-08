@@ -673,7 +673,9 @@ binding an expression to a temporary name changes program behavior.
 "JavaScript"
 @disable-prefix{
 o = @"{"
-  method my-method(self, x): self.y + x end,
+  method my-method(self, x):
+    self.y + x
+  end,
   y: 10
 @"}"
 method-as-fun = o.my-method
@@ -700,7 +702,9 @@ method_as_fun(5)
 "Ruby"
 @disable-prefix{
 o = @"{"
-  method my-method(self, x): self.y + x end,
+  method my-method(self, x):
+    self.y + x
+  end,
   y: 10
 @"}"
 method-as-fun = o.my-method
