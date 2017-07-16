@@ -6,9 +6,30 @@
 
 The online Pyret editor,
 @link["https://code.pyret.org"]{@code{code.pyret.org}}, uses your Google
-Account to store programs, and reports some information about your use of the
-editor to help us debug issues.  This page summarizes how the editor
-uses your account and data.
+Account to store programs, and logs some information about your use of the
+editor to help us debug issues and improve the editor.  This page summarizes
+how the editor uses your account and data.
+
+@section[#:tag "logging"]{What information is stored on Pyret servers?}
+
+The contents of files and programs are only stored in Google Drive, not on
+code.pyret.org servers.  When you publish programs with the "Publish" button,
+or open images from your Drive via the "Open" menu in the editor, the
+@code{code.pyret.org} server stores the ID for that file so it can show it to
+other users who view your program.
+
+We store a refresh token for your Google Account, which is a standard
+credential used for connecting services to Google services.
+
+We log basic information about your use of @code{code.pyret.org} to help us
+improve the language and editor, and enable some debugging: information about
+errors and error messages, login status, and preferences like which mode is
+used to display highlights with or if the type-checker is used.
+
+If you opt to contribute detailed usage information under the menu on the
+editor page, which is disabled by default, we will receive information about
+the contents of your programs and the edits you make.
+
 
 @section{What permissions does @code{code.pyret.org} ask for and why?}
 
@@ -36,7 +57,7 @@ programs you create.}
 ]
 
 You can always go to
-@link["https://security.google.com/settings/security/permissions?pli=1"]{your
+@link["https://security.google.com/settings/security/permissions"]{your
 Google account settings} and remove all access that code.pyret.org has to your
 account.  Your programs and @code{code.pyret.org} folders will not be deleted
 if you do so.  You can always manually delete these folders and their contents
@@ -72,27 +93,4 @@ Google Drive automatically stores old versions of your programs as they are
 saved (as it does for all files).  You can follow the instructions at
 @link["https://support.google.com/drive/answer/2409045?hl=en"]{Google's support
 site} to manage old versions of files that you may have saved over or renamed.
-
-
-@section[#:tag "logging"]{What information is stored on Pyret servers?}
-
-@bold{Files and Programs}
-
-When you publish programs with the "Publish" button, or open images from your
-Drive via the "Open" menu in the editor, the @code{code.pyret.org} server keeps
-track of that file so it can show it to other users who view your program.
-
-@bold{Basic Activity}
-
-We collect basic information about your use of @code{code.pyret.org} to help us
-improve the language and editor, and enable some debugging.  We send back
-information about errors and error messages, login status (to debug issues with
-connecting to Google), whether features such as the type-checker are used, and
-preferences (such as which mode you choose to display highlights with).
-
-@bold{Detailed Activity}
-
-If you opt to contribute detailed usage information under the "More" menu (off
-by default), we will also receive information about the contents of your
-programs and the edits you make.
 
