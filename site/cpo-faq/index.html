@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <meta charset="utf-8">
+    <title>Pyret</title>
+    <meta name="description" content="Your Information and code.pyret.org: The online Pyret editor, code.pyret.org, uses your Google Account to store programs, and reports some information about your use of the editor to help us debug issues.  This page summarizes how the editor uses your acc...">
+    <meta name="author"      content="The Pyret Crew">
+    <meta name="keywords"    content="">
+    <meta property="og:title" content="Your Information and code.pyret.org">
+    <meta property="og:author" content="The Pyret Crew">
+    <meta property="og:url" content="http://pyret.org/cpo-faq/index.html">
+    <meta property="og:image" content="http://www.pyret.org/img/pyret-logo.png">
+    <meta property="og:image:secure_url" content="https://www.pyret.org/img/pyret-logo.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="444">
+    <meta property="og:image:height" content="445">
+    <meta name="viewport"    content="width=device-width, initial-scale=1.0">
+    <link rel="icon"      href="/img/pyret-icon.png">
+    <link rel="canonical" href="http://pyret.org/cpo-faq/index.html">
+    <!-- CSS -->
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/font-hack/2.019/css/hack.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/pygments.css">
+    <link rel="stylesheet" type="text/css" href="/css/codemirror.css">
+    <link rel="stylesheet" type="text/css" href="/css/scribble.css">
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <!-- Feeds -->
+    <link ref="alternate" type="application/atom+xml"
+          href="/feeds/all.atom.xml" title="Atom Feed">
+    <link ref="alternate" type="application/rss+xml"
+          href="/feeds/all.rss.xml" title="RSS Feed">
+    <!-- JS -->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-45041801-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type =
+'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' :
+'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0];
+s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+  </head>
+  <body>
+    <!-- A standard Twitter Bootstrap nav bar -->
+    <header class="navbar navbar-default navbar-inverse"
+            role="banner">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button"
+                  class="navbar-toggle"
+                  data-toggle="collapse"
+                  data-target=".our-nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="/index.html" class="navbar-brand fancyhover-above">
+            <img class="navbar-logo" src="/img/pyret-banner.png"></img>
+          </a>
+        </div>
+        <div class="collapse navbar-collapse our-nav-collapse"
+             role="navigation">
+          <ul class="nav navbar-nav">
+            <li><div class="dropdown">
+              <button class="btn btn-primary fancyhover-above dropdown-toggle"
+                      type="button"
+                      data-toggle="dropdown">
+                      About
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                <li><a href="/pyret-code/">Why Pyret?</a></li>
+                <!-- TODO: build a scrbl page using the old home page -->
+                <!-- <li><a href="/other-langs/">vs. Other Lanugages</a></li> -->
+                <li><a href="/crew/">Crew</a></li>
+              </ul>
+            </div></li>
+            <li><div class="dropdown">
+              <button class="btn btn-primary fancyhover-above dropdown-toggle"
+                      type="button"
+                      data-toggle="dropdown">
+                      Start Coding
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                <li><a href="https://code.pyret.org" target="_blank">Try it Now</a></li>
+                <li><a href="http://www.pyret.org/docs/latest/A_Tour_of_Pyret.html">Beginner Tutorial</a></li>
+              </ul>
+            </div></li>
+            <li><div class="dropdown">
+              <button class="btn btn-primary fancyhover-above dropdown-toggle"
+                      type="button"
+                      data-toggle="dropdown">
+                      Resources
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                <li><a href="/docs/latest/">Documentation</a></li>
+                <li><a href="http://www.bootstrapworld.org">Bootstrap Curriculum</a></li>
+                <li><a href="http://papl.cs.brown.edu/2016/">PAPL Textbook</a></li>
+              </ul>
+            </div></li>
+            <li><div class="dropdown">
+              <button class="btn btn-primary fancyhover-above dropdown-toggle"
+                      type="button"
+                      data-toggle="dropdown">
+                      Community
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                <li><a href="/discuss/">Forum</a></li>
+                <li><a href="/discuss/">News</a></li>
+                <li><a href="https://github.com/brownplt/pyret-lang/issues">Bug Report</a></li>
+                <li><a href="https://twitter.com/PyretLang">@PyretLang</a></li>
+              </ul>
+            </div></li>
+          </ul>
+        </div>
+    </header>
+
+        <!-- Main column -->
+
+
+
+
+
+          <div class="row paragraph-content">
+          <div class="col-md-2"></div>
+          <div class="col-md-8">
+
+          <h1><a name="(part._.Your_.Information_and_code_pyret_org)"></a>Your Information and <span class="RktSym">code.pyret.org</span><span class="RktMeta"></span></h1>
+
+          <p>The online Pyret editor,
+          <a href="https://code.pyret.org"><span class="RktSym">code.pyret.org</span><span class="RktMeta"></span></a>, uses your Google
+          Account to store programs, and reports some information about your use of the
+          editor to help us debug issues.  This page summarizes how the editor
+          uses your account and data.</p>
+
+          <h1>1
+           <tt>&nbsp;</tt><a name="(part._.What_permissions_does_code_pyret_org_ask_for_and_why_)"></a>What permissions does <span class="RktSym">code.pyret.org</span><span class="RktMeta"></span> ask for and why?</h1>
+
+          <ul>
+           <li>
+            <p><span style="font-style: italic">Know who you are on Google</span> and <span style="font-style: italic">View your email address</span>: The
+          site needs to know your Google identity in order to reliably give persistent
+          access to saving to Drive that doesn&rsquo;t expire or require popping up new
+          windows while you&rsquo;re editing.</p></li>
+           <li>
+            <p><span style="font-style: italic">Manage your photos and videos</span> and <span style="font-style: italic">View the photos, videos, and
+          albums in your Google Drive</span>:  This is used to import images into programs
+          from your Drive (which can be useful for customizing games, for example).</p></li>
+           <li>
+            <p><span style="font-style: italic">View and manage your spreadsheets on Google Drive</span>: This enables
+          importing tables and working with data sources in your Drive.</p></li>
+           <li>
+            <p><span style="font-style: italic">Add itself to Google Drive</span>: This lets you right-click on Pyret
+          programs in Google Drive and "Open with Pyret."</p></li>
+           <li>
+            <p><span style="font-style: italic">View and manage Google Drive files and folders that you have opened
+          or created with this app</span>: This lets the editor see, save, publish, and re-open
+          programs you create.</p></li></ul>
+
+          <p>You can always go to
+          <a href="https://security.google.com/settings/security/permissions?pli=1">your
+          Google account settings</a> and remove all access that code.pyret.org has to your
+          account.  Your programs and <span class="RktSym">code.pyret.org</span><span class="RktMeta"></span> folders will not be deleted
+          if you do so.  You can always manually delete these folders and their contents
+          yourself.</p>
+
+          <h1>2
+           <tt>&nbsp;</tt><a name="(part._.Where_are_things_stored_in_my_.Drive_)"></a>Where are things stored in my Drive?</h1>
+
+          <p>The site initially makes a single folder in your Google Drive, called
+          <span class="RktSym">code.pyret.org</span><span class="RktMeta"></span>, and stores all of your programs there, with the names
+          you choose for them.  They are all created with you as the owner, and private
+          to your account.  As you run programs, there is also a directory called
+          <span class="RktSym">code.pyret.org.compiled</span><span class="RktMeta"></span> that is used for caching compiled copies of
+          programs.</p>
+
+          <p>If you <span style="font-style: italic">publish</span> programs, the site creates another folder, called
+          <span class="RktSym">code.pyret.org.shared</span><span class="RktMeta"></span>, and makes <span style="font-style: italic">publicly-readable copies</span> of
+          programs you publish in that directory.  If you delete files in this folder,
+          links for those programs you have shared with others will stop working, but any
+          copies others have made will be theirs to keep.  Each time you publish a
+          program, a new copy is created from its current contents.</p>
+
+          <h1>3
+           <tt>&nbsp;</tt><a name="(part._.How_can_.I_remove_the_access_code_pyret_org_has_to_my_data_)"></a>How can I remove the access code.pyret.org has to my data?</h1>
+
+          <p>You can always go to
+          <a href="https://security.google.com/settings/security/permissions?pli=1">https://security.google.com/settings/security/permissions?pli=1</a>
+          and remove all access that code.pyret.org has to your account.  Your programs
+          and the created folders will not be deleted if you do so.  You can
+          always manually delete the folder and its contents yourself.</p>
+
+          <h1>4
+           <tt>&nbsp;</tt><a name="(part._.How_can_.I_see_old_versions_of_my_programs_)"></a>How can I see old versions of my programs?</h1>
+
+          <p>Google Drive automatically stores old versions of your programs as they are
+          saved (as it does for all files).  You can follow the instructions at
+          <a href="https://support.google.com/drive/answer/2409045?hl=en">Google&rsquo;s support
+          site</a> to manage old versions of files that you may have saved over or renamed.</p>
+
+          <h1>5
+           <tt>&nbsp;</tt><a name="(part._logging)"></a>What information is stored on Pyret servers?</h1>
+
+          <p><span style="font-weight: bold">Files and Programs</span></p>
+
+          <p>When you publish programs with the "Publish" button, or open images from your
+          Drive via the "Open" menu in the editor, the <span class="RktSym">code.pyret.org</span><span class="RktMeta"></span> server keeps
+          track of that file so it can show it to other users who view your program.</p>
+
+          <p><span style="font-weight: bold">Basic Activity</span></p>
+
+          <p>We collect basic information about your use of <span class="RktSym">code.pyret.org</span><span class="RktMeta"></span> to help us
+          improve the language and editor, and enable some debugging.  We send back
+          information about errors and error messages, login status (to debug issues with
+          connecting to Google), whether features such as the type-checker are used, and
+          preferences (such as which mode you choose to display highlights with).</p>
+
+          <p><span style="font-weight: bold">Detailed Activity</span></p>
+
+          <p>If you opt to contribute detailed usage information under the "More" menu (off
+          by default), we will also receive information about the contents of your
+          programs and the edits you make.</p>
+          </div>
+          <div class="col-md-2"></div>
+          </div>
+        </div>
+      </div>
+      <footer>
+        <hr />
+        <p>Site generated
+        by <a href="https://github.com/greghendershott/frog">Frog</a>,
+        the <strong>fr</strong>ozen bl<strong>og</strong> tool.</p>
+      </footer>
+    </div>
+    <!-- </body> JS -->
+    <script type="text/javascript" src="//code.jquery.com/jquery.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+    <script>
+      $(".info").popover({ placement: "left" });
+    </script>
+    <script type="text/javascript" src="/js/codemirror.js"></script>
+    <script type="text/javascript" src="/js/runmode.js"></script>
+    <script type="text/javascript" src="/js/pyret.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <meta charset="utf-8">
+    <title>Pyret</title>
+    <meta name="description" content="The Pyret Code; or A Rationale for the Pyret Programming Language: We need better languages for introductory computing. A good introductory language makes good compromises between expressiveness and performance, and between simplicity and feature-richness...">
+    <meta name="author"      content="The Pyret Crew">
+    <meta name="keywords"    content="">
+    <meta property="og:title" content="The Pyret Code; or A Rationale for the Pyret Programming Language">
+    <meta property="og:author" content="The Pyret Crew">
+    <meta property="og:url" content="http://pyret.org/pyret-code/index.html">
+    <meta property="og:image" content="http://www.pyret.org/img/pyret-logo.png">
+    <meta property="og:image:secure_url" content="https://www.pyret.org/img/pyret-logo.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="444">
+    <meta property="og:image:height" content="445">
+    <meta name="viewport"    content="width=device-width, initial-scale=1.0">
+    <link rel="icon"      href="/img/pyret-icon.png">
+    <link rel="canonical" href="http://pyret.org/pyret-code/index.html">
+    <!-- CSS -->
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/font-hack/2.019/css/hack.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/pygments.css">
+    <link rel="stylesheet" type="text/css" href="/css/codemirror.css">
+    <link rel="stylesheet" type="text/css" href="/css/scribble.css">
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <!-- Feeds -->
+    <link ref="alternate" type="application/atom+xml"
+          href="/feeds/all.atom.xml" title="Atom Feed">
+    <link ref="alternate" type="application/rss+xml"
+          href="/feeds/all.rss.xml" title="RSS Feed">
+    <!-- JS -->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-45041801-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type =
+'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' :
+'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0];
+s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+  </head>
+  <body>
+    <!-- A standard Twitter Bootstrap nav bar -->
+    <header class="navbar navbar-default navbar-inverse"
+            role="banner">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button"
+                  class="navbar-toggle"
+                  data-toggle="collapse"
+                  data-target=".our-nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="/index.html" class="navbar-brand fancyhover-above">
+            <img class="navbar-logo" src="/img/pyret-banner.png"></img>
+          </a>
+        </div>
+        <div class="collapse navbar-collapse our-nav-collapse"
+             role="navigation">
+          <ul class="nav navbar-nav">
+            <li><div class="dropdown">
+              <button class="btn btn-primary fancyhover-above dropdown-toggle"
+                      type="button"
+                      data-toggle="dropdown">
+                      About
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                <li><a href="/pyret-code/">Why Pyret?</a></li>
+                <!-- TODO: build a scrbl page using the old home page -->
+                <!-- <li><a href="/other-langs/">vs. Other Lanugages</a></li> -->
+                <li><a href="/crew/">Crew</a></li>
+              </ul>
+            </div></li>
+            <li><div class="dropdown">
+              <button class="btn btn-primary fancyhover-above dropdown-toggle"
+                      type="button"
+                      data-toggle="dropdown">
+                      Start Coding
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                <li><a href="https://code.pyret.org" target="_blank">Try it Now</a></li>
+                <li><a href="http://www.pyret.org/docs/latest/A_Tour_of_Pyret.html">Beginner Tutorial</a></li>
+              </ul>
+            </div></li>
+            <li><div class="dropdown">
+              <button class="btn btn-primary fancyhover-above dropdown-toggle"
+                      type="button"
+                      data-toggle="dropdown">
+                      Resources
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                <li><a href="/docs/latest/">Documentation</a></li>
+                <li><a href="http://www.bootstrapworld.org">Bootstrap Curriculum</a></li>
+                <li><a href="http://papl.cs.brown.edu/2016/">PAPL Textbook</a></li>
+              </ul>
+            </div></li>
+            <li><div class="dropdown">
+              <button class="btn btn-primary fancyhover-above dropdown-toggle"
+                      type="button"
+                      data-toggle="dropdown">
+                      Community
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                <li><a href="/discuss/">Forum</a></li>
+                <li><a href="/discuss/">News</a></li>
+                <li><a href="https://github.com/brownplt/pyret-lang/issues">Bug Report</a></li>
+                <li><a href="https://twitter.com/PyretLang">@PyretLang</a></li>
+              </ul>
+            </div></li>
+          </ul>
+        </div>
+    </header>
+
+        <!-- Main column -->
+
+
+
+
+
+          <div class="row paragraph-content">
+          <div class="col-md-2"></div>
+          <div class="col-md-8">
+
+          <h1 id="the-pyret-code-or-a-rationale-for-the-pyret-programming-language">The Pyret Code; or A Rationale for the Pyret Programming Language</h1>
+
+          <p>We need better languages for introductory computing. A good introductory language makes good compromises between expressiveness and performance, and between simplicity and feature-richness. Pyret is our evolving experiment in this space.</p>
+
+          <h3 id="why-not-just-use-java-python-racket-ocaml-or-haskell">Why not just use Java, Python, Racket, OCaml, or Haskell?</h3>
+
+          <p>One of the enduring lessons from the Racket project is that <em>no full-blown, general-purpose programming language</em> is particularly appropriate for introductory education. By the time a language grows to be useful for building large-scale systems, it tends to have accumulated too many warts, odd corners, and complex features, all of which trip up students. The <a href="http://cs.brown.edu/~sk/Publications/Papers/Published/fffkf-drscheme-journal/">journal paper for DrScheme</a>  (the old name for DrRacket) explains this in some detail.</p>
+
+          <p>In that respect, the closest fellow travelers of us Pyreteers are the Racketeers (see how that works?). In fact, the first version of Pyret was merely a <code>#lang</code> in Racket. Nevertheless, Pyret represents a departure from Racket (for now and for the near future, at least) for several reasons:</p>
+
+          <ul>
+           <li>
+            <p>We wanted to experiment with syntax. Much as many of us love  parentheses, we fear that Racket will always bump into an acceptance  threshold due to its syntax. We&rsquo;re delighted to see the growing  adoption in industry of languages like Racket and Clojure, and maybe  the days of paren-phobia are over. But academics are far more  hidebound than industrial programmers!</p></li>
+           <li>
+            <p>We wanted to build a really great run-time system for the Web browser. Going through Racket and  <a href="http://cs.brown.edu/~sk/Publications/Papers/Published/yk-whalesong-racket-browser/">Whalesong</a>  proved to be a non-starter in terms of performance, and Racket has  many features that make an efficient implementation on today&rsquo;s  JavaScript very hard. Building a native JavaScript implementation  was the only option we could see. Over time, as technology changes,  this could change.</p></li>
+           <li>
+            <p>Though our pedagogy draws from and is very similar to that of the  Racketeers, it also diverges in some ways, reflecting the somewhat  different backgrounds and preferences of team. Pyret embodies <em>our</em>  educational philosophy. We felt we could more easily experiment if  we had a clean-slate design than if we had to keep fitting our work  into the constraints of Racket.</p></li>
+           <li>
+            <p>Ultimately, Racket&rsquo;s <code>#lang</code> facilities, though designed to create  new languages—and a great prototyping ground for Pyret—proved to not  be quite enough to support a language creation process of the scale  of Pyret; and the need for a strong Web run-time system also meant  that we did not get enough out of the Racket ecosystem.  Nevertheless, that only represents the state of systems today; if  someday the two grew closer together, many or all of us would  rejoice.</p></li></ul>
+
+          <h3 id="will-pyret-ever-be-a-full-fledged-programming-language">Will Pyret ever be a full-fledged programming language?</h3>
+
+          <p>Yes.</p>
+
+          <p>First of all, Pyret is much more powerful than you might realize. Pyret is already fully-fledged enough to self-host its compiler, which is a non-trivial and realistic challenge. What that means is, when you run Pyret in your browser, it loads JavaScript code that implements a Pyret-to-JavaScript compiler (i.e., it compiles the Pyret you type into JavaScript and runs it in the browser). This compiler was produced by the Pyret-to-JavaScript compiler by compiling the Pyret-to-JavaScript compiler. Take a look at the compiler&rsquo;s <a href="https://github.com/brownplt/pyret-lang/">bootstrapping phases</a> to get a sense of its sophistication.</p>
+
+          <p>Second, underneath Pyret is a very powerful run-time system based on over a decade of research. You don&rsquo;t see it as a user of the language, and that&rsquo;s the point. Many other languages expose the crippling limitations of JavaScript&rsquo;s run-time to users (e.g., can&rsquo;t halt a long-running computation, can&rsquo;t yield control to the event loop, etc.). These languages effectively let <em>the medium become part of the message</em>, whereas we believe programmers — especially early-stage student programmers — should not have to confront these complexities, which are irrelevant to (and often significantly interfere with) the material they are trying to learn. Imagine if other languages said, “We&rsquo;d love to give you function calls, but your machine&rsquo;s instruction set doesn&rsquo;t contain them, so we can&rsquo;t — sorry!” Yet they do the equivalent when it comes to giving you control over your computation on top of JavaScript. In contrast, Pyret is uncompromising.</p>
+
+          <p>Third, if you want to teach a media-rich curriculum, you actually need a pretty full-featured language at least under the hood. For instance, Pyret&rsquo;s built-in support for reactive programming requires a much more sophisticated run-time system — and corresponding language features — than one that didn&rsquo;t offer this at all or just punted to JavaScript for this support. (Essentially, event-loops are first-class entities in the language.) We just haven&rsquo;t emphasized these features when talking about Pyret, focusing instead on the curriculum they support.</p>
+
+          <p>Broadly, we view <em>building an awesome teaching language</em> as a useful design discipline that necessarily entails all the features typically expected of a mature language. When building a language, you&rsquo;re constantly confronted with questions: what to do next, how to do it, and whether to do it at all. Language designers therefore need a mental framework that guides their choices. For some, it might be “Build an awesome language for shared-memory concurrency!” For others it might be “Build an awesome language for writing scientific computations very, very concisely!” For us, it&rsquo;s “Build an awesome teaching language!” So whenever we&rsquo;re confronted with a design (or implementation) choice, we first ask how it would play out <em>in this specific context</em>. Then we ask how it would impact our long-term goal. We have yet to find actual contradictions between the two, but it&rsquo;s certainly re-ordered priorities.</p>
+
+          <h3 id="there-are-lots-of-kinds-of-education">There are lots of kinds of “education”.</h3>
+
+          <p>That&rsquo;s right. We are focused on introductory programming education at a high-school and collegiate level — what is often called “CS 1” and “CS 2” (roughly, the first year of college). Pyret is being actively <em>used</em> in everything from high-schools to upper-level collegiate courses, giving us a tight feedback loop.</p>
+
+          <p>Of course, even in that setting there are differences of opinion about what needs to be taught. Some believe inheritance is so important it should be taught early in the first semester. We utterly reject this belief (as someone once wisely said, “object-oriented programming does not scale down”: what is the point of teaching classes and inheritance when students have not yet done anything interesting enough to encapsulate or inherit from?). Some have gone so far as to start teaching with Turing Machines. Unsurprisingly, we reject this view as well.</p>
+
+          <p>What we do not take a dogmatic stance on is exactly how early state and types should be introduced. Pyret has the usual stateful operations. We discussed this at some length, but eventually decided an introduction to programming <em>must</em> teach state. Pyret also has optional annotations, so different instructors can, depending on their preference, introduce types at different times.</p>
+
+          <h3 id="what-are-some-ways-the-educational-philosophy-influences-the-language">What are some ways the educational philosophy influences the language?</h3>
+
+          <p>Pyret is driven by the <a href="http://www.htdp.org/"><em>How to Design Programs</em></a> (HtDP) philosophy of programming education; one could almost view it as a language designed to make teaching from HtDP comfortable. However, we also have our own curricular ideas that extend or run parallel to those of HtDP, which we are steadily writing up in <a href="http://papl.cs.brown.edu/"><em>Programming and Programming Languages</em></a> (PAPL). PAPL both exclusively uses Pyret and is slowly turning into a definitive book for teaching with it.</p>
+
+          <p>Some of our central ideas include:</p>
+
+          <ul>
+           <li>
+            <p>Languages should offer a rich set of values. For instance, images  should be primitive values, fully supported by the environment. This  improves the teaching of several things, from image-based  composition exercises (which are often far more interesting than  composition over numbers) to animations and games.</p></li>
+           <li>
+            <p>Languages should offer syntactic support for as much as possible of  the HtDP design recipe. (Pyret does not offer explicit support for  templates, but then again we&rsquo;re rethinking the pedagogy of the  template step.)</p></li>
+           <li>
+            <p>Design recipe support includes good data definition primitives, including  the expression of invariants. Therefore, Pyret has support for refinements  (which are currently checked dynamically; a future version may add static  support, but this is not our highest priority). In particular, by allowing  algebraic datatypes to also be objects, Pyret offers significant flexibility  and expressiveness.</p></li>
+           <li>
+            <p>Students should be able to easily write examples as a precursor to  writing code. In this regard, Pyret borrows but (we believe) syntactically  improves upon Racket&rsquo;s <code>check-expect</code> family of operations with <a href="https://www.pyret.org/docs/latest/testing.html">examples and  testing</a>.</p></li>
+           <li>
+            <p>Students should easily be able to escalate from simple examples to  sophisticated testing, such as writing test oracles.</p></li>
+           <li>
+            <p>Equality is subtle and languages should respect its nuances.  Students must understand the meaning of equality and its  consequences, especially with regard to observations in the presence  of state. Therefore, Pyret has carefully developed  <a href="https://www.pyret.org/docs/latest/equality.html">equality primitives</a>.</p></li></ul>
+
+          <h3 id="is-pyret-also-a-research-project">Is Pyret also a research project?</h3>
+
+          <p>Yes and no.</p>
+
+          <p>Yes in that, broadly speaking, we view what we are doing as very much a research effort. We have specific, novel goals in mind (some of which we&rsquo;ve described elsewhere in this document), and finding good solutions to achieve those goals will require innovation. This is the very essence of research. Some of that research is on the curricular side, though, and may not require any language innovation. Indeed, as much as possible we want Pyret to remain a language that is easy to approach and understand.</p>
+
+          <p>However, “research” also has a narrow meaning in academia, in the sense of publishing lots of papers. This is an un-goal, and almost an anti-goal. Every paper takes months to write, and those are months we are not spending on the language and curriculum. We view this as a poor time trade-off. We&rsquo;ll write papers sometime, but our immediate focus is on shipping code and textbooks and other materials of immediate value to students and educators. If this means we get “scooped” on some of our technical innovations, that&rsquo;s just fine; we consider that a good trade-off.</p>
+
+          <p>Ultimately, though, research <em>requires</em> doing new things. We don&rsquo;t want to do new things just for the sake of it. We&rsquo;re long been inspired by this quote from <a href="http://www.paulgraham.com/desres.html">Paul Graham</a>:</p>
+
+          <blockquote>
+           <p>The difference between design and research seems to be a question of new versus good. Design doesn&rsquo;t have to be new, but it has to be good. Research doesn&rsquo;t have to be good, but it has to be new.</p></blockquote>
+
+          <p>For us, design is essential; research is optional. We actively dogfood Pyret both as teachers (actively teaching with it) and as programmers (actively building things with it), which gives us ongoing feedback about its points of friction. Where necessary we have done and will continue to do research, but publishing academic papers about it — rather than putting it to work educationally — will continue to take a back seat.</p>
+
+          <h3 id="what-next">What next?</h3>
+
+          <p>We are currently hard at work on three very important features:</p>
+
+          <ul>
+           <li>
+            <p>Support for static typing. Pyret will have a conventional type  system with tagged unions and a type <em>checker</em>, resulting in  straightforward type errors without the complications associated  with type <em>inference</em> algorithms. We have carefully designed Pyret  to always be typeable, but our earlier type systems were not good  enough. We&rsquo;re pretty happy with how this one is going.</p></li>
+           <li>
+            <p>Tables are a critical type for storing real-world data. Pyret is  adding linguistic and library support for working effectively with  tables, which PAPL will use to expose students to “database”  thinking from early on.</p></li>
+           <li>
+            <p>Our model for interactive computation is based on the  <a href="http://cs.brown.edu/~sk/Publications/Papers/Published/fffk-functional-io/">“world” model</a>.   We are currently revising and updating it in a few ways that will  help it better serve our new educational programs.</p></li></ul>
+
+          <p>If you&rsquo;d like to stay abreast of our developments or get involved in our discussions, please <a href="http://www.pyret.org/discuss/">come on board</a>!</p>
+
+          <p>On the educational side, Pyret is already used by the <a href="http://www.bootstrapworld.org/">Bootstrap project</a>. We are now developing three new curricula for Bootstrap:</p>
+
+          <ul>
+           <li>
+            <p>A CS1 curriculum, corresponding to a standard introduction to  computer science, but with several twists based on our pedagogy and  materials.</p></li>
+           <li>
+            <p>A CS Principles curriculum, for the new US College Board Advanced  Placement exam.</p></li>
+           <li>
+            <p>A physics/modeling curriculum, to help teach students physics and  modeling through the medium of programming.</p></li></ul>
+
+          <p>If you&rsquo;d like to talk more about these, <a href="http://www.bootstrapworld.org/community/">join us</a>!</p>
+
+          <h3 id="why-is-your-filename-suffix-arr">Why is your filename suffix <code>.arr</code>?</h3>
+
+          <p>Because <a href="http://dialectblog.com/2011/05/24/pirate-accent/">pirates supposedly said</a> “arrr!” (or “yarrr!”) a lot. (Sometimes they <a href="http://www.arrr.net/">sing</a>, too.) Note that you must pronounce it with a guttural sound, so it can&rsquo;t be mistaken for a file written in the R programming language. You should consider swashing your buckler as you speak.</p>
+
+          <h3 id="does-the-skull-in-your-logo-have-a-name">Does the skull in your logo have a name?</h3>
+
+          <p>Yes, she&rsquo;s <a href="https://en.wikipedia.org/wiki/Anne_Bonny">Bonny</a>!</p>
+
+          <h3 id="where-is-the-httpswwwfacebookcomshriramkrishnamurthiposts10157066386395581commentid10157070487615581notiftcommentmentionnotifid1466124885214745proximal-end-of-the-second-femur">Where is the <a href="https://www.facebook.com/shriram.krishnamurthi/posts/10157066386395581?comment_id=10157070487615581&amp;notif_t=comment_mention&amp;notif_id=1466124885214745">proximal end of the second femur</a>?</h3>
+
+          <p>Look closer. It&rsquo;s a lambda.</p>
+          </div>
+          <div class="col-md-2"></div>
+          </div>
+        </div>
+      </div>
+      <footer>
+        <hr />
+        <p>Site generated
+        by <a href="https://github.com/greghendershott/frog">Frog</a>,
+        the <strong>fr</strong>ozen bl<strong>og</strong> tool.</p>
+      </footer>
+    </div>
+    <!-- </body> JS -->
+    <script type="text/javascript" src="//code.jquery.com/jquery.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+    <script>
+      $(".info").popover({ placement: "left" });
+    </script>
+    <script type="text/javascript" src="/js/codemirror.js"></script>
+    <script type="text/javascript" src="/js/runmode.js"></script>
+    <script type="text/javascript" src="/js/pyret.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <meta charset="utf-8">
+    <title>Pyret</title>
+    <meta name="description" content="Primitive types: TL;DR: Pyret has them, and not everything acts like an object anymore. In Pyret 2013, numbers, strings, and booleans had fields. These were all methods that performed the builtin primitive operations, like addition, computing the length o...">
+    <meta name="author"      content="The Pyret Crew">
+    <meta name="keywords"    content="">
+    <meta property="og:title" content="Primitive types">
+    <meta property="og:author" content="The Pyret Crew">
+    <meta property="og:url" content="http://pyret.org/release-notes/v0.5.html">
+    <meta property="og:image" content="http://www.pyret.org/img/pyret-logo.png">
+    <meta property="og:image:secure_url" content="https://www.pyret.org/img/pyret-logo.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="444">
+    <meta property="og:image:height" content="445">
+    <meta name="viewport"    content="width=device-width, initial-scale=1.0">
+    <link rel="icon"      href="/img/pyret-icon.png">
+    <link rel="canonical" href="http://pyret.org/release-notes/v0.5.html">
+    <!-- CSS -->
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/font-hack/2.019/css/hack.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/pygments.css">
+    <link rel="stylesheet" type="text/css" href="/css/codemirror.css">
+    <link rel="stylesheet" type="text/css" href="/css/scribble.css">
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <!-- Feeds -->
+    <link ref="alternate" type="application/atom+xml"
+          href="/feeds/all.atom.xml" title="Atom Feed">
+    <link ref="alternate" type="application/rss+xml"
+          href="/feeds/all.rss.xml" title="RSS Feed">
+    <!-- JS -->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-45041801-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type =
+'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' :
+'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0];
+s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+  </head>
+  <body>
+    <!-- A standard Twitter Bootstrap nav bar -->
+    <header class="navbar navbar-default navbar-inverse"
+            role="banner">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button"
+                  class="navbar-toggle"
+                  data-toggle="collapse"
+                  data-target=".our-nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="/index.html" class="navbar-brand fancyhover-above">
+            <img class="navbar-logo" src="/img/pyret-banner.png"></img>
+          </a>
+        </div>
+        <div class="collapse navbar-collapse our-nav-collapse"
+             role="navigation">
+          <ul class="nav navbar-nav">
+            <li><div class="dropdown">
+              <button class="btn btn-primary fancyhover-above dropdown-toggle"
+                      type="button"
+                      data-toggle="dropdown">
+                      About
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                <li><a href="/pyret-code/">Why Pyret?</a></li>
+                <!-- TODO: build a scrbl page using the old home page -->
+                <!-- <li><a href="/other-langs/">vs. Other Lanugages</a></li> -->
+                <li><a href="/crew/">Crew</a></li>
+              </ul>
+            </div></li>
+            <li><div class="dropdown">
+              <button class="btn btn-primary fancyhover-above dropdown-toggle"
+                      type="button"
+                      data-toggle="dropdown">
+                      Start Coding
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                <li><a href="https://code.pyret.org" target="_blank">Try it Now</a></li>
+                <li><a href="http://www.pyret.org/docs/latest/A_Tour_of_Pyret.html">Beginner Tutorial</a></li>
+              </ul>
+            </div></li>
+            <li><div class="dropdown">
+              <button class="btn btn-primary fancyhover-above dropdown-toggle"
+                      type="button"
+                      data-toggle="dropdown">
+                      Resources
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                <li><a href="/docs/latest/">Documentation</a></li>
+                <li><a href="http://www.bootstrapworld.org">Bootstrap Curriculum</a></li>
+                <li><a href="http://papl.cs.brown.edu/2016/">PAPL Textbook</a></li>
+              </ul>
+            </div></li>
+            <li><div class="dropdown">
+              <button class="btn btn-primary fancyhover-above dropdown-toggle"
+                      type="button"
+                      data-toggle="dropdown">
+                      Community
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                <li><a href="/discuss/">Forum</a></li>
+                <li><a href="/discuss/">News</a></li>
+                <li><a href="https://github.com/brownplt/pyret-lang/issues">Bug Report</a></li>
+                <li><a href="https://twitter.com/PyretLang">@PyretLang</a></li>
+              </ul>
+            </div></li>
+          </ul>
+        </div>
+    </header>
+
+        <!-- Main column -->
+
+
+
+
+
+          <div class="row paragraph-content">
+          <div class="col-md-2"></div>
+          <div class="col-md-8">
+
+          <h1 id="primitive-types">Primitive types</h1>
+
+          <p>TL;DR: Pyret has them, and not everything acts like an object anymore.</p>
+
+          <p>In Pyret 2013, numbers, strings, and booleans had fields. These were all methods that performed the builtin primitive operations, like addition, computing the length of a string, etc.</p>
+
+          <p>This is no longer true. Numbers, strings, and booleans no longer have fields, and no longer have object-like behavior. The methods that were present on them have been added to the default namespace, in most cases prefixed with num- or string-. For example, in 2013, you would have written:</p>
+
+          <pre><code>check:
+            5.modulo(2) is 1
+          end</code></pre>
+
+          <p>And now you write:</p>
+
+          <pre><code>check:
+            num-modulo(5, 2) is 1
+          end</code></pre>
+
+          <p>There are a number of reasons for this that we could go on at length about (and probably will in a blog post at some point), but in brief:</p>
+
+          <ul>
+           <li>The long-term space and time performance implications for both typed and  untyped code are significant</li>
+           <li>We were orginally enamored with the idea that any object could enjoy the  number or string interface and be indistinguishable from a primitive number  or string. Turns out that in a real language that just ain&rsquo;t gonna happen:  the difference between your object that&rsquo;s pretending to be a string and a  real string is going to get noticed when it&rsquo;s passed to libraries that talk  to the Real World and need to, say, print real bytes into a file. So we  might as well be honest with the language&rsquo;s values and include them for  programmers to use.</li></ul>
+
+          <h1 id="fun---lam">fun -&gt; lam</h1>
+
+          <p>We changed the keyword for anonymous functions from fun to lam. The typo of</p>
+
+          <pre><code>fun(x, y):
+            body
+          end</code></pre>
+
+          <p>is really hard to detect (for humans), and hard to explain even if you have a computer detect it. Keeping they keywords separate will hopefully let us give better parse error messages in the future, and less ambiguous descriptions of syntax right now.</p>
+
+          <h1 id="constructor-syntax-and-no-more-list-literals">Constructor syntax, and no more list literals</h1>
+
+          <p>Pyret 2013 supported list literals, like:</p>
+
+          <pre><code>[1, 2, 3]</code></pre>
+
+          <p>We&rsquo;re not convinced that lists deserve such special treatment, so we have generalized the syntax for creating collections to require the collection type at the front. So lists are created with:</p>
+
+          <pre><code>[list: 1, 2, 3]</code></pre>
+
+          <p>This lets us add sets and arrays with the same syntax:</p>
+
+          <pre><code>[set: 1, 2, 3]
+          [array: 1, 2, 3]</code></pre>
+
+          <p>And constructors in this style can be written by programmers &mdash; the constructors just need to follow a simple interface 
+           <link /></p>
+
+          <h1 id="limited-annotation-checking">Limited Annotation Checking</h1>
+
+          <p>Dynamic checking of assertions is an active research area without clear solutions for some problems outside of theory. We&rsquo;ve struggled with implementations of dynamic checks for higher-order annotations and record annotations, and decided to (for now) simplify Pyret&rsquo;s enforcement of annotations dynamically.</p>
+
+          <p>Simple, flat types, like <code>Number</code> and <code>String</code>, will be enforced as before. Record types will check that the listed fields are present, and will check their annotations. Refinements, written <code>T % (id)</code>, are still checked by expecting id to be a Pyret function, then checking the T annotation, then checking that the Pyret function returns true for the value.</p>
+
+          <p>Pyret checks all flat annotations, like Number, String, or { x :: Boolean }, and only does limited checking for some annotations:</p>
+
+          <ul>
+           <li>Arrow annotations, like (Number, String -&gt; String) will <em>only</em> check that the  value is a function, and not wrap the function to check its arguments</li>
+           <li>Parameterized annotations, like <code>List&lt;Number&gt;</code>, will <em>only</em> check the  annotation before the &lt;&gt;, the contents the &lt;&gt; will be ignored.</li>
+           <li>Type variables, like the <code>a</code> in <code>lam &lt;a&gt; (x :: a) -&gt; a: x end</code>, will be  ignored</li></ul>
+
+          <p>We still write out the full annotation that we mean whenever possible. We&rsquo;re still building up a static type checker which <em>will</em> handle all of these features, and the more annotations you write now, the easier it will be to typecheck your program (and get the corresponding speed boost) later.</p>
+
+          <h1 id="other-minor-changes">Other Minor Changes</h1>
+
+          <p>The first exception in a check block outside of a &ldquo;raises&rdquo; test causes it to fail, as opposed to being caught by &ldquo;is&rdquo; and &ldquo;satisfies&rdquo; with the check block continuing. This means that these two programs behave the same now, and they didn&rsquo;t before:</p>
+
+          <pre><code>check:
+            x = f() # where f() raises an exception
+            x is y
+          end</code></pre>
+
+          <pre><code>check:
+            f() is y # exception caught by is, tests keep running
+          end</code></pre>
+
+          <p>We haven&rsquo;t made a final decision on parts of the equality algorithm for Pyret, but we&rsquo;ve moved away from the explicit method call. In Pyret in 2013, the expression</p>
+
+          <pre><code>e1 == e2</code></pre>
+
+          <p>meant</p>
+
+          <pre><code>e1._equals(e2)</code></pre>
+
+          <p>Which made it so <code>==</code> didn&rsquo;t mean much: it could be completely user-defined. We&rsquo;ve written a built-in equality algorithm and removed the _equals method. Because of concerns about assertion checking and eq-ness, the details of that algorithm may change in the future, but probably in ways that most users won&rsquo;t notice.</p>
+
+          <p>We removed colon lookup operator for now (e:x and e:[e]), because it caused lots of ambiguity as we tried to add different syntactic forms to the language. It may come back with different syntax if there is a need for it.</p>
+
+          <p>We removed, but will add back, mutable and cyclic fields, and the graph: form. In order to get a release out, we lagged on a few straightforward but time consuming features to implement and test, and they&rsquo;ll come back this summer.</p>
+          </div>
+          <div class="col-md-2"></div>
+          </div>
+        </div>
+      </div>
+      <footer>
+        <hr />
+        <p>Site generated
+        by <a href="https://github.com/greghendershott/frog">Frog</a>,
+        the <strong>fr</strong>ozen bl<strong>og</strong> tool.</p>
+      </footer>
+    </div>
+    <!-- </body> JS -->
+    <script type="text/javascript" src="//code.jquery.com/jquery.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+    <script>
+      $(".info").popover({ placement: "left" });
+    </script>
+    <script type="text/javascript" src="/js/codemirror.js"></script>
+    <script type="text/javascript" src="/js/runmode.js"></script>
+    <script type="text/javascript" src="/js/pyret.js"></script>
+
+  </body>
+</html>
