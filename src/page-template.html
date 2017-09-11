@@ -149,35 +149,131 @@ s.parentNode.insertBefore(ga, s);
         of scripting and functional programming.
         </p>
       </p>
-      <p>
-         <a href="#online" class="btn btn-primary btn-m hvr-border-fade">Online</a>
-         <a href="#teachable" class="btn btn-primary btn-m hvr-border-fade">Teachable</a>
-         <a href="#rigorous" class="btn btn-primary btn-m hvr-border-fade">Rigorous</a>
-         <a href="#community" class="btn btn-primary btn-m hvr-border-fade">Community</a>
-      </p>
       </div>
       <div class="col-md-6">
-             <h2> Project Examples </h2>
-             <div class="col-md-6">
-               <a href="https://code.pyret.org/editor#share=0B32bNEogmncOSEF0LWI2ZmVZTVE" class="thumbnail" target="_blank">
-                 <img src="/img/ninjacat.png" style="width:100%;border:0;"></img>
-               </a>
-               <p> Ninja Cat </p>
-               <a href="https://code.pyret.org/editor#share=0B32bNEogmncOWU9OWW5MSFlHSDQ" class="thumbnail" target="_blank">
-                 <img src="/img/derivative.png" style="width:100%;border:0;"></img>
-               </a>
-               <p> Compute a Derivative </p>
-             </div>
-             <div class="col-md-6">
-               <a href="https://code.pyret.org/editor#share=0B32bNEogmncOTEJjQ1VicHdlYmc" class="thumbnail" target="_blank">
-                 <img src="/img/sort-list.png" style="width:100%;border:0;"></img>
-               </a>
-               <p> Sort a List </p>
-               <a href="https://code.pyret.org/editor#share=0B32bNEogmncOMTg5T2plV19LX0k" class="thumbnail" target="_blank">
-                 <img src="/img/2048.png" style="width:100%;border:0;"></img>
-               </a>
-               <p> Play 2048 </p>
-             </div>
+        <div id="main-carousel" class="container carousel slide" data-interval="false">
+
+          <!-- Wrapper for slides -->
+          <div class="carousel-inner">
+            <div class="item active">
+              <pre>
+        @disable-prefix{
+        data BinTree:
+          | leaf
+          | node(value, left, right)
+        end
+
+        fun tree-sum(t):
+          doc: "Calculate the sum of node values"
+          cases (BinTree) t:
+            | leaf => 0
+            | node(v, l, r) =>
+              v + tree-sum(l) + tree-sum(r)
+          end
+        where:
+          tree-sum(leaf) is 0
+          node4 = node(4, leaf, leaf)
+          tree-sum(node(5, node4, leaf)) is 9
+        end
+        }
+              </pre>
+            </div>
+            <div class="item">
+              <pre>
+        @disable-prefix{
+        # Identifiers are immutable.
+        # Variables are different from identifiers.
+        fun mk-counter():
+          var ctr = 0
+          lam():
+            ctr := ctr + 1
+            ctr
+          end
+        where:
+          l1 = mk-counter()
+          l1() is 1
+          l1() is 2
+          l2 = mk-counter()
+          l2() is 1
+          l1() is 3
+          l2() is 2
+        end
+        }
+              </pre>
+            </div>
+            <div class="item">
+              <pre>
+        @disable-prefix{
+
+
+        for map(n from [list: 1,2,3]): n * n end
+        # ==> [list: 1, 4, 9]
+
+        for filter(n from [list: 1, 2, 3]):
+          n >= 2
+        end
+        # ==> [list: 2, 3]
+
+        for fold(sum from 0, n from [list: 4, 5, 6]):
+          sum + n
+        end
+        # ==> 15
+        }
+              </pre>
+            </div>
+            <div class="item">
+              <pre>
+        @disable-prefix{
+        # Note the refinements on the
+        # l argument and the result.
+        # The refinements are critical to the
+        # correct behavior of insertion.
+
+        fun insert(n :: Number,
+                   l :: List<Number> % (is-sorted-ascending))
+          -> List<Number> % (is-sorted-ascending):
+          cases (List) l:
+            | empty => [list: n]
+            | link(f, r) =>
+              if n < f: link(n, l)
+              else:     link(f, insert(n, r))
+              end
+          end
+        end
+        }
+              </pre>
+            </div>
+            <div class="item">
+              <pre>
+        @disable-prefix{
+
+
+        eps = 0.001
+        fun d-dx(f):
+          doc: "Calculate the derivative of f"
+          lam(x): (f(x + eps) - f(x)) / eps end
+        where:
+          fun square(x): x * x end
+          fun around(delta, target): ... end
+
+          dsquare = d-dx(square)
+
+          dsquare(5) satisfies around(0.1, 10)
+          dsquare(10) satisfies around(0.1, 20)
+        end
+        }
+              </pre>
+            </div>
+          </div>
+
+          <!-- Controls -->
+          <a class="left carousel-control" href="#main-carousel" data-slide="prev">
+            <span class="icon-prev"></span>
+          </a>
+          <a class="right carousel-control" href="#main-carousel" data-slide="next">
+            <span class="icon-next"></span>
+          </a>
+        </div>
            </div>
          </div>
        </div>
@@ -189,8 +285,7 @@ s.parentNode.insertBefore(ga, s);
         <div id="content" class="col-md-12">
           <div style="height:2em;"></div>
           <div class="container">
-          <a name="online"></a>
-          <h2> Online </h2>
+          <h2> Runs in browser, no need to download software </h2>
               <div class="row">
                 <div class="col-md-1"></div>
             <div class="col-md-6">
@@ -207,15 +302,15 @@ s.parentNode.insertBefore(ga, s);
             </div>
                 <div class="col-md-1"></div>
               </div>
+            <br>
 
-          <a name="teachable"></a>
-          <h2> Teachable </h2>
+          <h2> Curricula, not just languages </h2>
             <div class="row">
               <div class="col-md-1"></div>
           <div class="col-md-4">
           <p>Pyret is being actively used from high school to college, for courses
             such as Intro to Programming, Physics, and Programming Languages.
-            Here are some curriculums and textbooks based on Pyret. <br>
+            Here are some curricula and textbooks based on Pyret. <br>
             Check out Resources tab to find the right materials for your class!
           </p>
           </div>
@@ -229,29 +324,33 @@ s.parentNode.insertBefore(ga, s);
             <a href="http://papl.cs.brown.edu/2016/" class="thumbnail">
               <img src="/img/papl.png" style="width:100%;border:0;"></img>
             </a>
-            <p> PAPL textbook used at Brown University for CS019 </p>
+            <p> Programming Lanugages textbook used at Brown University </p>
           </div>
               <div class="col-md-1"></div>
             </div>
 
-          <a name="rigorous"></a>
-          <h2> Rigorous </h2>
+            <br>
+
+          <h2> Flexible, you can do lots of things with Pyret </h2>
             <div class="row">
               <div class="col-md-1"></div>
           <div class="col-md-6">
             <img src="/img/wordcloud.png" style="width:70%;border:0;"></img>
          </div>
           <div class="col-md-4">
-          <p>Pyret helps teach students authentic programming, not only coding skills,
-            but also computational thinking. For more details, see <a href="/pyret-code/"> Why Pyret</a>, a
-            rationale for Pyret.
+          <p>
+            Pyret is designed to not only teach students to code in a certain
+            language, but also to master some important concepts in computer
+            science, such as the ones shown on the left. For more details,
+            see <a href="/pyret-code/"> Why Pyret</a>, a rationale for Pyret.
           </p>
           </div>
               <div class="col-md-1"></div>
             </div>
 
-          <a name="community"></a>
-          <h2> Community </h2>
+            <br>
+
+          <h2> Community, talk to language designers directly </h2>
             <div class="row">
               <div class="col-md-1"></div>
           <div class="col-md-4">
@@ -264,9 +363,45 @@ s.parentNode.insertBefore(ga, s);
           </p>
           </div>
           <div class="col-md-6">
-            <img src="/img/forum.png" style="width:100%;border:0;"></img>
+            <img src="/img/discussion.png" style="width:100%;border:0;"></img>
           </div>
-              <div class="col-md-1"></div>
+          <div class="col-md-1"></div>
+
+          <br> <br>
+
+          <h2> More Project Examples </h2>
+            <div class="row">
+          <div class="col-md-3">
+            <a href="https://code.pyret.org/editor#share=0B32bNEogmncOSEF0LWI2ZmVZTVE"
+              class="thumbnail" target="_blank">
+            <img src="/img/ninjacat.png" style="width:100%;border:0;"></img>
+            </a>
+            <h4 align="center"> Design your own video game </h4>
+          </div>
+
+          <div class="col-md-3">
+            <a href="https://code.pyret.org/editor#share=0B32bNEogmncOWU9OWW5MSFlHSDQ"
+              class="thumbnail" target="_blank">
+              <img src="/img/derivative.png" style="width:100%;border:0;"></img>
+            </a>
+            <h4 align="center"> Compute a Derivative </h4>
+          </div>
+
+          <div class="col-md-3">
+            <a href="https://code.pyret.org/editor#share=0B32bNEogmncOTEJjQ1VicHdlYmc"
+              class="thumbnail" target="_blank">
+              <img src="/img/sort-list.png" style="width:100%;border:0;"></img>
+            </a>
+            <h4 align="center"> Sort a List </h4>
+          </div>
+
+          <div class="col-md-3">
+            <a href="https://code.pyret.org/editor#share=0B32bNEogmncOMTg5T2plV19LX0k"
+              class="thumbnail" target="_blank">
+              <img src="/img/2048.png" style="width:100%;border:0;"></img>
+            </a>
+            <h4 align="center"> Play 2048 </h4>
+          </div>
             </div>
         </div>
       </div>
