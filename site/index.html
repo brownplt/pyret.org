@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <meta charset="utf-8">
+    <title>Pyret</title>
+    <meta name="description" content="...">
+    <meta name="author"      content="The Pyret Crew">
+    <meta name="keywords"    content="">
+    <meta property="og:title" content="The Pyret Programming Language">
+    <meta property="og:author" content="The Pyret Crew">
+    <meta property="og:url" content="http://pyret.org/index.html">
+    <meta property="og:image" content="http://www.pyret.org/img/pyret-logo.png">
+    <meta property="og:image:secure_url" content="https://www.pyret.org/img/pyret-logo.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="444">
+    <meta property="og:image:height" content="445">
+    <meta name="viewport"    content="width=device-width, initial-scale=1.0">
+    <link rel="icon"      href="img/pyret-icon.png">
+    <link rel="canonical" href="http://pyret.org/index.html">
+    <!-- CSS -->
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/font-hack/2.019/css/hack.min.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/pygments.css">
+    <link rel="stylesheet" type="text/css" href="css/codemirror.css">
+    <link rel="stylesheet" type="text/css" href="css/scribble.css">
+    <link rel="stylesheet" type="text/css" href="css/custom.css">
+    <!-- Feeds -->
+    <link ref="alternate" type="application/atom+xml"
+          href="/feeds/all.atom.xml" title="Atom Feed">
+    <link ref="alternate" type="application/rss+xml"
+          href="/feeds/all.rss.xml" title="RSS Feed">
+    <!-- JS -->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-45041801-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type =
+'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' :
+'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0];
+s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+  </head>
+  <body>
+    <!-- A standard Twitter Bootstrap nav bar -->
+    <header class="navbar navbar-default navbar-inverse"
+            role="banner">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button"
+                  class="navbar-toggle"
+                  data-toggle="collapse"
+                  data-target=".our-nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="index.html" class="navbar-brand fancyhover-above">
+            <img class="navbar-logo" src="img/pyret-banner.png"></img>
+          </a>
+        </div>
+        <div class="collapse navbar-collapse our-nav-collapse"
+             role="navigation">
+          <ul class="nav navbar-nav">
+            <li><div class="dropdown">
+              <button class="btn btn-primary fancyhover-above dropdown-toggle"
+                      type="button"
+                      data-toggle="dropdown">
+                      About
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                <li><a href="pyret-code/">Why Pyret?</a></li>
+                <!-- TODO: build a scrbl page using the old home page -->
+                <!-- <li><a href="/other-langs/">vs. Other Lanugages</a></li> -->
+                <li><a href="crew/">Crew</a></li>
+              </ul>
+            </div></li>
+            <li><div class="dropdown">
+              <button class="btn btn-primary fancyhover-above dropdown-toggle"
+                      type="button"
+                      data-toggle="dropdown">
+                      Start Coding
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                <li><a href="https://code.pyret.org" target="_blank">Try it Now</a></li>
+                <li><a href="http://www.pyret.org/docs/latest/A_Tour_of_Pyret.html">Beginner Tutorial</a></li>
+              </ul>
+            </div></li>
+            <li><div class="dropdown">
+              <button class="btn btn-primary fancyhover-above dropdown-toggle"
+                      type="button"
+                      data-toggle="dropdown">
+                      Resources
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                <li><a href="docs/latest/">Documentation</a></li>
+                <li><a href="http://www.bootstrapworld.org">Bootstrap Curriculum</a></li>
+                <li><a href="http://papl.cs.brown.edu/2016/">PAPL Textbook</a></li>
+              </ul>
+            </div></li>
+            <li><div class="dropdown">
+              <button class="btn btn-primary fancyhover-above dropdown-toggle"
+                      type="button"
+                      data-toggle="dropdown">
+                      Community
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                <li><a href="discuss/">Forum</a></li>
+                <li><a href="discuss/">News</a></li>
+                <li><a href="https://github.com/brownplt/pyret-lang/issues">Bug Report</a></li>
+                <li><a href="https://twitter.com/PyretLang">@PyretLang</a></li>
+              </ul>
+            </div></li>
+          </ul>
+        </div>
+    </header>
+    <div class="jumbotron">
+      <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+      <img class="title-logo" src="img/pyret-banner.png"></img>
+      <p>
+        <i> Designed by CS educators, for CS
+          education.
+        </i>
+        <p>
+        Pyret is a programming language designed to serve as an outstanding
+        choice for programming education while exploring the confluence
+        of scripting and functional programming.
+        </p>
+      </p>
+      </div>
+      <div class="col-md-6">
+        <div id="main-carousel" class="container carousel slide" data-interval="false">
+
+          <!-- Wrapper for slides -->
+          <div class="carousel-inner">
+            <div class="item active">
+              <pre>
+data BinTree:
+  | leaf
+  | node(value, left, right)
+end
+
+fun tree-sum(t):
+  doc: "Calculate the sum of node values"
+  cases (BinTree) t:
+    | leaf => 0
+    | node(v, l, r) =>
+      v + tree-sum(l) + tree-sum(r)
+  end
+where:
+  tree-sum(leaf) is 0
+  node4 = node(4, leaf, leaf)
+  tree-sum(node(5, node4, leaf)) is 9
+end
+              </pre>
+            </div>
+            <div class="item">
+              <pre>
+# Identifiers are immutable.
+# Variables are different from identifiers.
+fun mk-counter():
+  var ctr = 0
+  lam():
+    ctr := ctr + 1
+    ctr
+  end
+where:
+  l1 = mk-counter()
+  l1() is 1
+  l1() is 2
+  l2 = mk-counter()
+  l2() is 1
+  l1() is 3
+  l2() is 2
+end
+              </pre>
+            </div>
+            <div class="item">
+              <pre>
+
+
+for map(n from [list: 1,2,3]): n * n end
+# ==> [list: 1, 4, 9]
+
+for filter(n from [list: 1, 2, 3]):
+  n >= 2
+end
+# ==> [list: 2, 3]
+
+for fold(sum from 0, n from [list: 4, 5, 6]):
+  sum + n
+end
+# ==> 15
+              </pre>
+            </div>
+            <div class="item">
+              <pre>
+# Note the refinements on the
+# l argument and the result.
+# The refinements are critical to the
+# correct behavior of insertion.
+
+fun insert(n :: Number,
+           l :: List<Number> % (is-sorted-ascending))
+  -> List<Number> % (is-sorted-ascending):
+  cases (List) l:
+    | empty => [list: n]
+    | link(f, r) =>
+      if n < f: link(n, l)
+      else:     link(f, insert(n, r))
+      end
+  end
+end
+              </pre>
+            </div>
+            <div class="item">
+              <pre>
+
+
+eps = 0.001
+fun d-dx(f):
+  doc: "Calculate the derivative of f"
+  lam(x): (f(x + eps) - f(x)) / eps end
+where:
+  fun square(x): x * x end
+  fun around(delta, target): ... end
+
+  dsquare = d-dx(square)
+
+  dsquare(5) satisfies around(0.1, 10)
+  dsquare(10) satisfies around(0.1, 20)
+end
+              </pre>
+            </div>
+          </div>
+
+          <!-- Controls -->
+          <a class="left carousel-control" href="#main-carousel" data-slide="prev">
+            <span class="icon-prev"></span>
+          </a>
+          <a class="right carousel-control" href="#main-carousel" data-slide="next">
+            <span class="icon-next"></span>
+          </a>
+        </div>
+           </div>
+         </div>
+       </div>
+     </div>
+        <!-- Main column -->
+    <div id="content" class="col-md-12">
+      <div style="height:2em;"></div>
+      <div class="container">
+      <h2> Runs in browser, no need to download software </h2>
+          <div class="row">
+            <div class="col-md-1"></div>
+        <div class="col-md-6">
+          <img src="img/phone-editor.png" style="width:100%;border:0;"></img>
+        </div>
+        <div class="col-md-4">
+        <p>Pyret is free to use, and runs entirely inside the browser.
+          This means that no software download is needed. You can access Pyret from
+          a computer in a public library, a tablet, or any device with a web browser
+          that supports JavaScript. Here's a snapshot of a Pyret program running on
+          an iPhone. <br>
+          <a href="https://code.pyret.org" target="_blank"> Try it now!</a>
+        </p>
+        </div>
+            <div class="col-md-1"></div>
+          </div>
+        <br>
+
+      <h2> Curricula, not just languages </h2>
+        <div class="row">
+          <div class="col-md-1"></div>
+      <div class="col-md-4">
+      <p>Pyret is being actively used from high school to college, for courses
+        such as Intro to Programming, Physics, and Programming Languages.
+        Here are some curricula and textbooks based on Pyret. <br>
+        Check out Resources tab to find the right materials for your class!
+      </p>
+      </div>
+      <div class="col-md-3">
+        <a href="http://www.bootstrapworld.org/materials/spring2017/courses/bs2/index.shtml" class="thumbnail">
+          <img src="img/bootstrap.png" style="width:100%;border:0;"></img>
+        </a>
+        <p> Programming curriculum suitable for grades 8-11 </p>
+      </div>
+      <div class="col-md-3">
+        <a href="http://papl.cs.brown.edu/2016/" class="thumbnail">
+          <img src="img/papl.png" style="width:100%;border:0;"></img>
+        </a>
+        <p> Programming Lanugages textbook used at Brown University </p>
+      </div>
+          <div class="col-md-1"></div>
+        </div>
+
+        <br>
+
+      <h2> Flexible, you can do lots of things with Pyret </h2>
+        <div class="row">
+          <div class="col-md-1"></div>
+      <div class="col-md-6">
+        <img src="img/wordcloud.png" style="width:70%;border:0;"></img>
+     </div>
+      <div class="col-md-4">
+      <p>
+        Pyret is designed to not only teach students to code in a certain
+        language, but also to master some important concepts in computer
+        science, such as the ones shown on the left. For more details,
+        see <a href="pyret-code/"> Why Pyret</a>, a rationale for Pyret.
+      </p>
+      </div>
+          <div class="col-md-1"></div>
+        </div>
+
+        <br>
+
+      <h2> Community, talk to language designers directly </h2>
+        <div class="row">
+          <div class="col-md-1"></div>
+      <div class="col-md-4">
+      <p> Pyret is under active design and development. We actively dogfood Pyret
+        both as teachers (actively teaching with it) and as programmers (actively
+        building things with it), which gives us ongoing feedback about its points
+        of friction.  <br>
+        Join the <a href="discuss/"> discussion forum</a> and get your questions
+        answered by the language designers!
+      </p>
+      </div>
+      <div class="col-md-6">
+        <img src="img/discussion.png" style="width:100%;border:0;"></img>
+      </div>
+      <div class="col-md-1"></div>
+
+      <br> <br>
+
+      <h2> More Project Examples </h2>
+        <div class="row">
+      <div class="col-md-3">
+        <a href="https://code.pyret.org/editor#share=0B32bNEogmncOSEF0LWI2ZmVZTVE"
+          class="thumbnail" target="_blank">
+        <img src="img/ninjacat.png" style="width:100%;border:0;"></img>
+        </a>
+        <h4 align="center"> Design your own video game </h4>
+      </div>
+
+      <div class="col-md-3">
+        <a href="https://code.pyret.org/editor#share=0B32bNEogmncOWU9OWW5MSFlHSDQ"
+          class="thumbnail" target="_blank">
+          <img src="img/derivative.png" style="width:100%;border:0;"></img>
+        </a>
+        <h4 align="center"> Compute a Derivative </h4>
+      </div>
+
+      <div class="col-md-3">
+        <a href="https://code.pyret.org/editor#share=0B32bNEogmncOTEJjQ1VicHdlYmc"
+          class="thumbnail" target="_blank">
+          <img src="img/sort-list.png" style="width:100%;border:0;"></img>
+        </a>
+        <h4 align="center"> Sort a List </h4>
+      </div>
+
+      <div class="col-md-3">
+        <a href="https://code.pyret.org/editor#share=0B32bNEogmncOMTg5T2plV19LX0k"
+          class="thumbnail" target="_blank">
+          <img src="img/2048.png" style="width:100%;border:0;"></img>
+        </a>
+        <h4 align="center"> Play 2048 </h4>
+      </div>
+        </div>
+    </div>
+  </div>
+
+
+
+
+          <div class="row paragraph-content">
+          <div class="col-md-2"></div>
+          <div class="col-md-8">
+
+          </div>
+          <div class="col-md-2"></div>
+          </div>
+        </div>
+      </div>
+      <footer>
+        <hr />
+        <p>Site generated
+        by <a href="https://github.com/greghendershott/frog">Frog</a>,
+        the <strong>fr</strong>ozen bl<strong>og</strong> tool.</p>
+      </footer>
+    </div>
+    <!-- </body> JS -->
+    <script type="text/javascript" src="//code.jquery.com/jquery.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script>
+      $(".info").popover({ placement: "left" });
+    </script>
+    <script type="text/javascript" src="js/codemirror.js"></script>
+    <script type="text/javascript" src="js/runmode.js"></script>
+    <script type="text/javascript" src="js/pyret.js"></script>
+<script type="text/javascript">
+  $(function(){
+    $("pre").each(function(_,code) {
+      if(!$(code).hasClass("non-pyret")) {
+        CodeMirror.runMode($(code).text(), "pyret", code);
+        $(code).addClass("cm-s-default");
+      }
+    });
+  });
+  </script>
+  </body>
+</html>

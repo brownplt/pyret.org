@@ -1,0 +1,8 @@
+http://pyret.org/tour/index.html
+http://pyret.org/release-notes/v0.5.html
+http://pyret.org/pyret-code/index.html
+http://pyret.org/index.html
+http://pyret.org/getting-started/index.html
+http://pyret.org/discuss/index.html
+http://pyret.org/crew/index.html
+http://pyret.org/cpo-faq/index.html
