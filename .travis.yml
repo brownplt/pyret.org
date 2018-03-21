@@ -13,7 +13,9 @@ before_install:
 - cat travis-racket/install-racket.sh | bash
 - export PATH="${RACKET_DIR}/bin:${PATH}"
 - raco pkg install --auto frog
-script: make pages
+script:
+- npm install
+- make pages
 deploy:
   provider: s3
   bucket: pyret-docs
