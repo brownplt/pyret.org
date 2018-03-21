@@ -14,5 +14,6 @@ site/tags/
 site/tour/
 site/release-notes/
 site/cpo-faq/
+site/set-sail/
 .frog
 node_modules
