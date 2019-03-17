@@ -6,6 +6,8 @@ The source for `pyret.org`, the site for Pyret.
 Installation
 --------------------------------------------------------------------------------
 
+Run `npm install` first.
+
 You need Pygments and frog:
 
 ````sh

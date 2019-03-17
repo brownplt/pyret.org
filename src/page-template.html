@@ -1,20 +1,5 @@
 @(define disable-prefix (dynamic-require 'scribble/text 'disable-prefix))
-@(define pygmentize/raw   (dynamic-require 'frog/pygments 'pygmentize))
 @(define xexpr->string (dynamic-require 'xml 'xexpr->string))
-@(define current-pygments-linenos? (dynamic-require 'frog/params 'current-pygments-linenos?))
-@(define (sanitize-pygments-output o)
-  (define (remove-trailing-newline lst)
-    (cond [(null? lst) lst]
-          [(and (null? (cdr lst)) (equal? (car lst) "\n")) '()]
-          [(and (null? (cdr lst)) (pair? (car lst))) (list (remove-trailing-newline (car lst)))]
-          [else (cons (car lst) (remove-trailing-newline (cdr lst)))]))
-  `((div ((class "source")) (pre ((class "non-pyret"))
-    ,@(remove-trailing-newline (cddr (caddar o)))))))
-@(define (pygmentize lang . code)
-   (parameterize ([current-pygments-linenos? #f]
-                  [current-output-port (open-output-string)])
-    (let ([res (sanitize-pygments-output (pygmentize/raw (apply string-append code) lang))])
-      (xexpr->string `(div ([class ,(string-append "brush: " lang)]) ,@res)))))
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -26,7 +11,9 @@
     <meta name="description" content="@|description|">
     <meta name="author"      content="The Pyret Crew">
     <meta name="keywords"    content="@|keywords|">
-    <meta property="og:title" content="@|title|">
+    @(if (string-ci=? uri-path "/index.html")
+      @list{<meta property="og:title" content="The Pyret Programming Language">}
+      @list{<meta property="og:title" content="@|title|">})
     <meta property="og:author" content="The Pyret Crew">
     <meta property="og:url" content="@|full-uri|">
     <meta property="og:image" content="http://www.pyret.org/img/pyret-logo.png">
@@ -35,6 +22,7 @@
     <meta property="og:image:width" content="444">
     <meta property="og:image:height" content="445">
     <meta name="viewport"    content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="BGvLGPcQVvVo-sVVsSxSjK9R189cMv7PkCQPvufXBx8" />
     <link rel="icon"      href="/img/pyret-icon.png">
     <link rel="canonical" href="@|full-uri|">
     <!-- CSS -->
@@ -90,7 +78,7 @@ s.parentNode.insertBefore(ga, s);
              role="navigation">
           <ul class="nav navbar-nav">
             <li><a class="fancyhover-above" href="/pyret-code/">Why Pyret?</a></li>
-            <li><a class="fancyhover-above" target="_blank" href="https://code.pyret.org">Try Pyret</a></li>
+            <li><a class="fancyhover-above" href="/set-sail/">Try Pyret</a></li>
             <li><a class="fancyhover-above" href="/discuss/">News &amp; Discussion</a></li>
             <li><a class="fancyhover-above" href="/docs/latest/">Documentation</a></li>
             <li><a class="fancyhover-above" href="https://github.com/brownplt/pyret-lang">Code</a></li>
@@ -114,7 +102,7 @@ s.parentNode.insertBefore(ga, s);
       <p>
         <a href="/#examples" class="btn btn-primary btn-m hvr-border-fade">Examples</a>
         <a href="./pyret-code/" class="btn btn-primary btn-m hvr-border-fade">Why Pyret?</a>
-        <a target="_blank" href="https://code.pyret.org" class="btn btn-primary btn-m hvr-border-fade">Try Pyret</a>
+        <a href="./set-sail/" class="btn btn-primary btn-m hvr-border-fade">Try Pyret</a>
         <a href="/discuss/" class="btn btn-primary btn-m hvr-border-fade">News &amp; Discussion</a>
       </p>
       </div>
@@ -133,7 +121,7 @@ end
 
 fun tree-sum(t):
   doc: "Calculate the sum of node values"
-  cases(BinTree) t:
+  cases (BinTree) t:
     | leaf => 0
     | node(v, l, r) =>
       v + tree-sum(l) + tree-sum(r)
@@ -219,10 +207,10 @@ end
 eps = 0.001
 fun d-dx(f):
   doc: "Calculate the derivative of f"
-  lam(x): (f(x + eps) - f(x)) / eps;
+  lam(x): (f(x + eps) - f(x)) / eps end
 where:
-  fun square(x): x * x;
-  fun around(delta, target): ...;
+  fun square(x): x * x end
+  fun around(delta, target): ... end
 
   dsquare = d-dx(square)
 
@@ -261,7 +249,7 @@ end
   @(define (two-langs header words other-lang pyret-code other-code)
      (define other-block
          @list{
-         <div class="col-md-4"><b>@|other-lang|</b>@disable-prefix[other-code]</div>
+         <div class="col-md-4"><b>@|other-lang|</b><pre class="non-pyret">@disable-prefix[other-code]</pre></div>
          })
     (define pyret-block
       @list{
@@ -331,7 +319,7 @@ Iteration constructs are designed to be evocative of those in other languages.")
   @(pyret-example #:where 'right
 @disable-prefix{
 fun sum(l):
-  cases(List) l:
+  cases (List) l:
     | empty => 0
     | link(first, rest) => first + sum(rest)
   end
@@ -369,7 +357,6 @@ check:
       }).status-code
   end
   get-status("http://google.com/") is 200
-  get-status("http://healthcare.gov/") is 500
 end
 }
 "In addition to <code>where:</code> blocks, which are attached to
@@ -413,11 +400,12 @@ the language in use for a while before we codify these.
 eps = 0.001
 fun d-dx(f):
   doc: "Approximate the derivative of f"
-  lam(x): (f(x + eps) - f(x)) / eps;
+  lam(x): (f(x + eps) - f(x)) / eps end
 where:
-  fun square(x): x * x;
+  fun square(x): x * x end
   fun around(delta, target):
-    lam(actual): num-abs(actual - target) < delta;;
+    lam(actual): num-abs(actual - target) < delta end
+  end
 
   dsquare = d-dx(square)
 
@@ -435,7 +423,7 @@ satisfaction of an arbitrary predicate.")
   @(pyret-example #:where 'left
 @disable-prefix{
 point-methods = {
-  dist(self, other):
+  method dist(self, other):
     ysquared = num-expt(other.y - self.y, 2)
     xsquared = num-expt(other.x - self.x, 2)
     num-sqrt(ysquared + xsquared)
@@ -460,7 +448,7 @@ curly braces (as in <code>point-methods</code>), and can be extended
 with <code>.{}</code>.  This example shows a simple class-like
 pattern built up from simple objects.  Objects, like most other values in
 Pyret, are immutable by default, so instances of points are created by
-extending the object containing point methods.")
+extending an object containing point methods.")
 
   <hr/>
 
@@ -490,7 +478,7 @@ fun square(n :: Number) -> Number:
   n * n
 end
 }
-@pygmentize["python"]{
+@disable-prefix{
 def square(n):
   return n * n
 }
@@ -505,7 +493,7 @@ languages do."
 fun square(n) -> Number:
   n * n
 end}
-@pygmentize["java"]{
+@disable-prefix{
 static int square(int n) @"{"
   return n * n;
 @"}"})
@@ -520,7 +508,7 @@ fun insert(e :: Number,
     -> BST % (is-balanced):
   # self-balancing tree insertion
 end}
-@pygmentize["python"]{
+@disable-prefix{
 def insert(e, s):
   # tree insertion but with
   # invariants neither
@@ -535,7 +523,7 @@ students to using just 32 bits."
 # this is true
 ((1 / 3) * 3) == 1
 }
-@pygmentize["java"]{
+@disable-prefix{
 // this is not true
 ((1 / 3) * 3) == 1
 })
@@ -553,16 +541,11 @@ check:
   [list: 2,4,6,8].first is 2
 end
 }
-@pygmentize["python"]{
+@disable-prefix{
 import unittest
 class TestLists(unittest.TestCase):
   def test_empty_first(self):
-    def lookup_first(lst):
-      lst[0]
-    self.assertRaises(
-        IndexError,
-        lookup_first,
-        [])
+    self.assertRaises(IndexError, lambda: [][0])
 
   def test_1to5(self):
     self.assertEqual([1,2,3,4,5][0], 1)
@@ -593,7 +576,7 @@ data BinTree:
   | leaf
   | node(v, l, r)
 end}
-@pygmentize["python"]{
+@disable-prefix{
 class BinTree:
   pass
 class leaf(BinTree):
@@ -629,7 +612,7 @@ fun animal-name(a :: Animal):
   a.name
 end
 }
-@pygmentize["ocaml"]{
+@disable-prefix{
 type animal =
   | Elephant of string * float
   | Tiger of string * float
@@ -658,7 +641,7 @@ fun animal-name(a :: Animal):
   a.name
 end
 }
-@pygmentize["racket"]{
+@disable-prefix{
 (struct elephant (name weight))
 (struct tiger (name stripes))
 (struct horse (name races-won))
@@ -685,7 +668,7 @@ binding an expression to a temporary name changes program behavior.
 "JavaScript"
 @disable-prefix{
 o = @"{"
-  my-method(self, x): self.y + x end,
+  method my-method(self, x): self.y + x end,
   y: 10
 @"}"
 method-as-fun = o.my-method
@@ -694,7 +677,7 @@ check:
   method-as-fun(5) is 15
 end
 }
-@pygmentize["javascript"]{
+@disable-prefix{
 var o = @"{"
   my_method: function(x) @"{"
     return this.y + x;
@@ -712,7 +695,7 @@ method_as_fun(5)
 "Ruby"
 @disable-prefix{
 o = @"{"
-  my-method(self, x): self.y + x end,
+  method my-method(self, x): self.y + x end,
   y: 10
 @"}"
 method-as-fun = o.my-method
@@ -721,7 +704,7 @@ check:
   method-as-fun(5) is 15
 end
 }
-@pygmentize["ruby"]{
+@disable-prefix{
 o = Object.new
 def o.my_method(x)
   self.y + x

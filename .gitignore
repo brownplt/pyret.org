@@ -1,4 +1,7 @@
 site/*.html
+site/js/codemirror.js
+site/js/pyret.js
+site/js/runmode.js
 site/sitemap.txt
 site/blog/
 site/crew/
@@ -6,7 +9,11 @@ site/discuss/
 site/docs/
 site/feeds/
 site/getting-started/
+site/pyret-code/
 site/tags/
 site/tour/
 site/release-notes/
+site/cpo-faq/
+site/set-sail/
 .frog
+node_modules
