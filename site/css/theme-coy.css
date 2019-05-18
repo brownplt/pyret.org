@@ -1,0 +1,17 @@
+.cm-s-default.CodeMirror { color: black; }
+.cm-s-default .cm-comment, .token.comment, .token.block-comment { color: #cd7054; }
+.cm-s-default .cm-boolean, .token.boolean { color: #c92c2c; }
+.cm-s-default .cm-builtin, .token.punctuation .token.operator { color: #5F6364; }
+.cm-s-default .cm-function-name, .token.function-name, .token.function { color: #2f9c0a; }
+.cm-s-default .cm-variable, .token.variable {
+    
+}
+.cm-s-default .cm-keyword, .token.keyword { color: #1990b8; font-weight: bold; }
+.cm-s-default .cm-number, .token.number { color: #c92c2c; }
+.cm-s-default .cm-roughnum { color: #c92c2c; }
+.cm-s-default .cm-bad-number { color: red; font-weight: bold; }
+.cm-s-default .cm-string, .token.string { color: #a67f59; }
+.cm-s-default .cm-unterminated-string { color: red; font-weight: bold; }
+.cm-s-default .cm-type, .token.class-name { color: #374049; }
+
+

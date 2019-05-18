@@ -1,5 +1,6 @@
 @(define disable-prefix (dynamic-require 'scribble/text 'disable-prefix))
 @(define xexpr->string (dynamic-require 'xml 'xexpr->string))
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -32,6 +33,8 @@
     <link rel="stylesheet" type="text/css" href="/css/pygments.css">
     <link rel="stylesheet" type="text/css" href="/css/codemirror.css">
     <link rel="stylesheet" type="text/css" href="/css/scribble.css">
+    <link rel="stylesheet" type="text/css" href="/css/pyret.css">
+    <link rel="stylesheet" type="text/css" href="/css/theme-cpo.css">
     <link rel="stylesheet" type="text/css" href="/css/custom.css">
     <!-- Feeds -->
     <link ref="alternate" type="application/atom+xml"
@@ -245,6 +248,9 @@ end
 @(when (string-ci=? uri-path "/index.html")
   @(define (info-code code info)
     @disable-prefix{<span class="info" title="@|info|">@|code|</span>})
+
+  @(define (highlighted-code #:lang lang . code)
+    @list{<code class=@(string-append "language-" lang)>@|code|</code>})
 
   @(define (two-langs header words other-lang pyret-code other-code)
      (define other-block
@@ -478,7 +484,7 @@ fun square(n :: Number) -> Number:
   n * n
 end
 }
-@disable-prefix{
+@highlighted-code[#:lang "python"]{
 def square(n):
   return n * n
 }
@@ -493,7 +499,7 @@ languages do."
 fun square(n) -> Number:
   n * n
 end}
-@disable-prefix{
+@highlighted-code[#:lang "java"]{
 static int square(int n) @"{"
   return n * n;
 @"}"})
@@ -508,7 +514,7 @@ fun insert(e :: Number,
     -> BST % (is-balanced):
   # self-balancing tree insertion
 end}
-@disable-prefix{
+@highlighted-code[#:lang "python"]{
 def insert(e, s):
   # tree insertion but with
   # invariants neither
@@ -523,7 +529,7 @@ students to using just 32 bits."
 # this is true
 ((1 / 3) * 3) == 1
 }
-@disable-prefix{
+@highlighted-code[#:lang "java"]{
 // this is not true
 ((1 / 3) * 3) == 1
 })
@@ -541,7 +547,7 @@ check:
   [list: 2,4,6,8].first is 2
 end
 }
-@disable-prefix{
+@highlighted-code[#:lang "python"]{
 import unittest
 class TestLists(unittest.TestCase):
   def test_empty_first(self):
@@ -576,7 +582,7 @@ data BinTree:
   | leaf
   | node(v, l, r)
 end}
-@disable-prefix{
+@highlighted-code[#:lang "python"]{
 class BinTree:
   pass
 class leaf(BinTree):
@@ -612,7 +618,7 @@ fun animal-name(a :: Animal):
   a.name
 end
 }
-@disable-prefix{
+@highlighted-code[#:lang "ocaml"]{
 type animal =
   | Elephant of string * float
   | Tiger of string * float
@@ -641,7 +647,7 @@ fun animal-name(a :: Animal):
   a.name
 end
 }
-@disable-prefix{
+@highlighted-code[#:lang "scheme"]{
 (struct elephant (name weight))
 (struct tiger (name stripes))
 (struct horse (name races-won))
@@ -668,7 +674,9 @@ binding an expression to a temporary name changes program behavior.
 "JavaScript"
 @disable-prefix{
 o = @"{"
-  method my-method(self, x): self.y + x end,
+  method my-method(self, x):
+    self.y + x
+  end,
   y: 10
 @"}"
 method-as-fun = o.my-method
@@ -677,7 +685,7 @@ check:
   method-as-fun(5) is 15
 end
 }
-@disable-prefix{
+@highlighted-code[#:lang "javascript"]{
 var o = @"{"
   my_method: function(x) @"{"
     return this.y + x;
@@ -695,7 +703,9 @@ method_as_fun(5)
 "Ruby"
 @disable-prefix{
 o = @"{"
-  method my-method(self, x): self.y + x end,
+  method my-method(self, x):
+    self.y + x
+  end,
   y: 10
 @"}"
 method-as-fun = o.my-method
@@ -704,7 +714,7 @@ check:
   method-as-fun(5) is 15
 end
 }
-@disable-prefix{
+@highlighted-code[#:lang "ruby"]{
 o = Object.new
 def o.my_method(x)
   self.y + x
@@ -751,6 +761,11 @@ method_as_fun = o.my_method
       </footer>
     </div>
     <!-- </body> JS -->
+    <!-- NOTE: This version of prism.js was built using only the languages shown
+               on the front page. If a new language is added, this will need to be
+               rebuilt using the prism.js website. See the comment in prism.min.js
+               for a link to the download page with the existing configuration. -->
+    <script type="text/javascript" src="/js/prism.min.js"></script>
     <script type="text/javascript" src="//code.jquery.com/jquery.js"></script>
     <script type="text/javascript" src="/js/bootstrap.min.js"></script>
     <script>
