@@ -1,4 +1,5 @@
-# Pyret Summer Updates 2020
+## Pyret Summer Updates 2020
+
 We’ve been working on a few improvements and new features in Pyret that we’re excited to share.
 
 
@@ -13,6 +14,7 @@ There are some backwards incompatibilities in this release that we view as being
 
 - `because` is a new keyword that wasn’t in Pyret’s reserved keyword list. Programs that used `because` as a variable name will need to choose a new name for that variable.
 - We have changed the way pinholes work for calculating centers of images, which affects how odd-sided polygons’ centers behave.
+
 ## New image library functionality
 
 Pyret’s image library has been updated to include new image primitives ([wedge](https://www.pyret.org/docs/latest/image.html#%28part._image_wedge%29) creates a slice of a pie, and [point-polygon](https://www.pyret.org/docs/latest/image.html#%28part._image_point-polygon%29) creates a polygon from a list of coordinates), new image combinators (such as `-list` variants of `above`, `beside` etc, which take a list of images instead of just two, and [overlay-onto-offset](https://www.pyret.org/docs/latest/image.html#%28part._image_overlay-onto-offset%29), which is a generalization of `overlay-align` and `overlay-offset`), and new mechanisms for handling the *pinholes* of images.  Finally, we provide a [*new, typed library*](https://www.pyret.org/docs/latest/image.html) for images, that uses Pyret data definitions (instead of strings) as the arguments to the image functions.
@@ -20,11 +22,13 @@ Pyret’s image library has been updated to include new image primitives ([wedge
 **Pinholes**
 Intuitively, think of overlaying images as pinning them together with a push-pin; the point where the pin connects the images is their pinhole.  By default, the pinhole is in the *visual center* of each image.  This has changed very slightly from before, where it used to be the *geometric* center of each image (measured by its bounding box); this only affects polygons with odd numbers of sides, and should simply make the images feel less “bottom-heavy” than before.  You’ll now be able to align a triangle or pentagon at the center of a rectangle, or spin a star around its center, without it being lopsided.
 
-![Pinhole at visual center of star](https://paper-attachments.dropbox.com/s_4B59B1C3D2865C64DCB2ACAF8F520775A6DEABFA28947ADA3A106A539CCB2ABA_1576685296379_image.png)
-![Star is visually centered inside circle](https://paper-attachments.dropbox.com/s_4B59B1C3D2865C64DCB2ACAF8F520775A6DEABFA28947ADA3A106A539CCB2ABA_1576684829136_image.png)
+<table width="100%">
+<tr><td><img src="https://paper-attachments.dropbox.com/s_4B59B1C3D2865C64DCB2ACAF8F520775A6DEABFA28947ADA3A106A539CCB2ABA_1576685296379_image.png"/><p>Pinhole at visual center of star</p></td>
+<td><img src="https://paper-attachments.dropbox.com/s_4B59B1C3D2865C64DCB2ACAF8F520775A6DEABFA28947ADA3A106A539CCB2ABA_1576684829136_image.png"/><p>Star is visually centered inside circle</p></td></tr>
 
-![Pinhole at geometric center of star’s bounding box](https://paper-attachments.dropbox.com/s_4B59B1C3D2865C64DCB2ACAF8F520775A6DEABFA28947ADA3A106A539CCB2ABA_1576685308534_image.png)
-![Star is below the visual center of circle](https://paper-attachments.dropbox.com/s_4B59B1C3D2865C64DCB2ACAF8F520775A6DEABFA28947ADA3A106A539CCB2ABA_1576684864397_image.png)
+<tr><td><img src="https://paper-attachments.dropbox.com/s_4B59B1C3D2865C64DCB2ACAF8F520775A6DEABFA28947ADA3A106A539CCB2ABA_1576685308534_image.png"/><p>Pinhole at geometric center of star’s bounding box</p></td>
+<td><img src="https://paper-attachments.dropbox.com/s_4B59B1C3D2865C64DCB2ACAF8F520775A6DEABFA28947ADA3A106A539CCB2ABA_1576684864397_image.png"/><p>Star is below the visual center of circle</p></td></tr>
+</table>
 
 
 Additionally, we provide new functions `draw-pinhole` to see where the pinhole is in an image, `center-pinhole` to move it to its geometric center, and `move-pinhole` to move it by some specified offset.
@@ -34,20 +38,24 @@ Additionally, we provide new functions `draw-pinhole` to see where the pinhole i
 
 Often when writing tests, we have a choice: we can either write a test case that shows the expected answer, or we can write a test case that shows the expression that produces that answer:
 
-    check:
-      distance(0, 0, 3, 4) is 5
-      distance(0, 0, 3, 4) is num-sqrt(num-sqr(3 - 0) + num-sqr(4 - 0))
-    end
+```
+check:
+  distance(0, 0, 3, 4) is 5
+  distance(0, 0, 3, 4) is num-sqrt(num-sqr(3 - 0) + num-sqr(4 - 0))
+end
+```
 
 The former is useful for sanity-checking results; the latter is useful in the design process for deducing how a function should be implemented.  Pyret now supports an optional `because` keyword on test cases to express both of these ideas at once:
 
-    check:
-      distance(0, 0, 3, 4) is 5 because num-sqrt(3 - 0) + num-sqr(4, 0))
-    end
+```
+check:
+  distance(0, 0, 3, 4) is 5 because num-sqrt(3 - 0) + num-sqr(4, 0))
+end
+```
 
 Semantically, Pyret will first check whether the explanation (at the end, after `because`) matches the expected expression (after `is`), and warn the programmer that their expected answer and their explanation are inconsistent if they are not equal.  If they are, then Pyret continues to check the actual expression (at the beginning) against the expected expression as usual.
 
-A [because](https://www.pyret.org/docs/horizon/testing.html#%28part._.Reasons_for_tests__because_clauses%29) [clause](https://www.pyret.org/docs/latest/testing.html#%28part._.Reasons_for_tests__because_clauses%29) is Pyret’s answer to the common teacher request to “show your work”.  Once a few test cases are written that show work, additional tests can be written that don’t need the extra clause.  Conversely, if a test case is unexpectedly failing, the programmer can write a `because` clause to elaborate on their reasoning.  Since Pyret will check that the explanation matches the expected result, this helps pinpoint errors in reasoning without having to debug the function implementation itself.
+A [because clause](https://www.pyret.org/docs/horizon/testing.html#%28part._.Reasons_for_tests__because_clauses%29) is Pyret’s answer to the common teacher request to “show your work”.  Once a few test cases are written that show work, additional tests can be written that don’t need the extra clause.  Conversely, if a test case is unexpectedly failing, the programmer can write a `because` clause to elaborate on their reasoning.  Since Pyret will check that the explanation matches the expected result, this helps pinpoint errors in reasoning without having to debug the function implementation itself.
 
 ## New Syntax (and Some Internal Improvements) for Modules
 
