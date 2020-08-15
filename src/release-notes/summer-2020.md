@@ -88,7 +88,7 @@ This release includes contributions from
 <a href="https://github.com/InnPatron">Alexander Vo</a>,
 <a href="https://github.com/jpolitz">Joe Politz</a>,
 <a href="https://github.com/jswrenn">Jack Wrenn</a>,
-<a href="https://github.com/mkolosick">Matthew Kolosic</a>k.
+<a href="https://github.com/mkolosick">Matthew Kolosick</a>,
 <a href="https://github.com/schanzer">Emmanuel Schanzer</a>,
 <a href="https://github.com/SethPoulson">Seth Poulson</a>,
 <a href="https://github.com/shriram">Shriram Krishnamurthi</a>,
