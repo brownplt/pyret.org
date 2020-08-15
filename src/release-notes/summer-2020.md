@@ -76,4 +76,25 @@ If you load code.pyret.org with a screenreader enabled, you will now hear dictat
 Note that this is pre-alpha infrastructure that we’re getting in place so we can make future improvements on top of it — there’s more work to do for true screenreader support for navigation of code and values. Credit goes to Dorai Sitaram, Emmanuel Schanzer, and Sina Bahram for their work on this.
 
 
+## Credits
+
+This release includes contributions from
+<a href="https://github.com/ayazhafiz">ayazhafiz</a>,
+<a href="https://github.com/belph">Philip Blair</a>,
+<a href="https://github.com/BenMusch">Ben Muschol</a>,
+<a href="https://github.com/blerner">Ben Lerner</a>,
+<a href="https://github.com/ds26gte">Dorai Sitaram</a>,
+<a href="https://github.com/dwoos">Doug Woos</a>,
+<a href="https://github.com/InnPatron">Alexander Vo</a>,
+<a href="https://github.com/jpolitz">Joe Politz</a>,
+<a href="https://github.com/jswrenn">Jack Wrenn</a>,
+<a href="https://github.com/mkolosick">Matthew Kolosic</a>k.
+<a href="https://github.com/schanzer">Emmanuel Schanzer</a>,
+<a href="https://github.com/SethPoulson">Seth Poulson</a>,
+<a href="https://github.com/shriram">Shriram Krishnamurthi</a>,
+<a href="https://github.com/sorawee">Sorawee Porncharoenwase</a>,
+<a href="https://github.com/tov">Jesse Tov</a>, and
+<a href="https://github.com/ZacharyEspiritu">Zachary Espiritu</a>.
+
+
 
