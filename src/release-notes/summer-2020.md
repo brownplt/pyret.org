@@ -79,7 +79,7 @@ Note that this is pre-alpha infrastructure that we’re getting in place so we c
 ## Credits
 
 This release includes contributions from
-<a href="https://github.com/ayazhafiz">ayazhafiz</a>,
+<a href="https://github.com/ayazhafiz">Ayaz Hafiz</a>,
 <a href="https://github.com/belph">Philip Blair</a>,
 <a href="https://github.com/BenMusch">Ben Muschol</a>,
 <a href="https://github.com/blerner">Ben Lerner</a>,
