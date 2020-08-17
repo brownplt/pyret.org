@@ -14,12 +14,12 @@ CM_JS = site/js/codemirror.js site/js/pyret.js site/js/runmode.js
 
 .Phony: pages
 pages: $(CM_JS)
-	raco frog -b
+	/Applications/Racket\ v7.6/bin/raco frog -b
 
 .Phony: serve
 serve:
-	raco frog -s
+	/Applications/Racket\ v7.6/bin/raco frog -s
 
 .Phony: clean
 clean:
-	raco frog --clean
+	/Applications/Racket\ v7.6/bin/raco frog --clean
