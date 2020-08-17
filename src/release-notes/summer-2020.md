@@ -90,7 +90,7 @@ This release includes contributions from
 <a href="https://github.com/jswrenn">Jack Wrenn</a>,
 <a href="https://github.com/mkolosick">Matthew Kolosick</a>,
 <a href="https://github.com/schanzer">Emmanuel Schanzer</a>,
-<a href="https://github.com/SethPoulson">Seth Poulson</a>,
+<a href="https://sethpoulsen.github.io/">Seth Poulson</a>,
 <a href="https://github.com/shriram">Shriram Krishnamurthi</a>,
 <a href="https://github.com/sorawee">Sorawee Porncharoenwase</a>,
 <a href="https://github.com/tov">Jesse Tov</a>, and
