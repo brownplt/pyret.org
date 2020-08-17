@@ -474,21 +474,17 @@ href="/getting-started/">get started</a>!
 <div style="height:2em;"></div>
   @(two-langs
 "Annotations"
-"Many “scripting” languages have uninterpreted annotations, or require a
-separate tool and system to use annotations on parameters and return values. In
-Pyret this is built into the language."
+"Most “scripting” languages don't support annotations for checking parameters
+and return values; Pyret does."
 "Python"
 @disable-prefix{
-fun double(n :: Number) -> Number:
-  2 * n
+fun square(n :: Number) -> Number:
+  n * n
 end
-double("a")
-# reports that "a" is not a Number
 }
 @disable-prefix{
-def double(n : int):
-  return 2 * n
-double("a") # produces "aa"
+def square(n):
+  return n * n
 }
 )
   <hr/>
@@ -617,12 +613,7 @@ data Animal:
 end
 
 fun animal-name(a :: Animal):
-  cases(Animal) a:
-    | elephant(name, _) => name
-    | tiger(name, _) => name
-    | horse(name, _) => name
-    ...
-  end
+  a.name
 end
 }
 @disable-prefix{
