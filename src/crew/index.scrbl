@@ -11,11 +11,11 @@ understanding its (recent) research. Pyret's design and development draw on the
 group's experience in programming languages, education, web security, user
 interfaces, and more.
 
-@link["http://cs.brown.edu/~blerner" "Ben Lerner"] and
-@link["http://jpolitz.github.io/" "Joe Gibbs Politz"] are the main stewards of
+@link["https://www.ccs.neu.edu/home/blerner/" "Ben Lerner"] and
+@link["https://jpolitz.github.io/" "Joe Gibbs Politz"] are the main stewards of
 the language, and build and maintain the compiler and associated tools.
-@link["http://dbpmail.net/" "Daniel Patterson"] and
-@link["http://www.ccs.neu.edu/home/dorai/" "Dorai Sitaram"] have helped design
+@link["https://dbp.io/" "Daniel Patterson"] and
+@link["https://ds26gte.github.io/" "Dorai Sitaram"] have helped design
 and build its feel and core features.
 
 The work of Danny Yoo and Emmanuel Schanzer on Whalesong and WeScheme has been
