@@ -15,7 +15,7 @@ to see a small sample of programs and syntax.
 @section{Using Your Own Editor}
 
 If the command-line is your thing, you can check out the
-@link["https://www.npmjs.com/package/pyret-experimental-cli"]{@code{npm}
+@link["https://www.npmjs.com/package/pyret-npm"]{@code{npm}
 package}, which lets you install a @code{pyret} command that you can use to
 compile and run programs.
 
