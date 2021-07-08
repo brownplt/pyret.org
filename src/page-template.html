@@ -474,17 +474,28 @@ href="/getting-started/">get started</a>!
 <div style="height:2em;"></div>
   @(two-langs
 "Annotations"
-"Most “scripting” languages don't support annotations for checking parameters
-and return values; Pyret does."
+"Most “scripting” languages don't support checking annotations on parameters
+out of the box, Pyret does."
 "Python"
 @disable-prefix{
 fun square(n :: Number) -> Number:
   n * n
 end
+square("5")
+# With type checker off:
+# The Number annotation was not
+# satisfied by the value "5"
+
+# With type checker on:
+# Number is incompatible with String
 }
 @disable-prefix{
-def square(n):
+def square(n : int) -> int:
   return n * n
+square("5")
+# Error at multiplication:
+# Can't multiply sequence by
+# non-int of type 'str'
 }
 )
   <hr/>
