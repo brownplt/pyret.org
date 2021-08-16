@@ -18,9 +18,15 @@ The most immediate thing you'll notice when visiting
 [code.pyret.org](https://www.pyret.org) is the UI work of [Adam
 Solove](https://www.adamsolove.com/). We think the page is cleaner and easier to
 navigate, and a number of menus and dialogs have either had bugs fixed or gotten
-more readable layouts. Thanks Adam!
+more readable layouts. This means a more consistent, thoughtful design across
+the whole interface.
 
 ![](/img/cpo-ui.png)
+
+These are just a few places where the consistent, clutter-free and familiar
+style has been applied.
+
+<img width="100%" src="/img/save-a-copy.png"></img>
 
 ## Updated, Reduced Google Drive Permissions
 
