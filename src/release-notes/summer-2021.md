@@ -82,7 +82,7 @@ versus the default environment.
 We can do this in a backwards-compatible way because of a new feature, `use
 context`.
 
-## `use context`
+## A New Feature – Contexts
 
 Programming languages aren't useful without some functionality provided “out of
 the box.” To that end, most languages have *some* names of built-in functions
