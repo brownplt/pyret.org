@@ -203,7 +203,7 @@ our technical innovations, that's just fine; we consider that a good
 trade-off.
 
 Ultimately, though, research _requires_ doing new things. We don't
-want to do new things just for the sake of it. We're long been
+want to do new things just for the sake of it. We've long been
 inspired by this quote from
 [Paul Graham](http://www.paulgraham.com/desres.html):
 
