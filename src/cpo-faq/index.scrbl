@@ -94,3 +94,34 @@ saved (as it does for all files).  You can follow the instructions at
 @link["https://support.google.com/drive/answer/2409045?hl=en"]{Google's support
 site} to manage old versions of files that you may have saved over or renamed.
 
+@section{Information for Network Administrators}
+
+@code{code.pyret.org} uses several domains to serve the programming
+environment. If you are configuring an allowlist or denylist in a school
+networking tool, the service requires the following domains:
+
+@verbatim{
+*.pyret.org
+*.googleapis.com
+apis.google.com
+*.gstatic.com
+*.cloudfront.net
+}
+
+Each of these domains has a specific purpose:
+
+@itemlist[
+@item{@code{*.pyret.org} hosts this service.}
+@item{@code{*.googlapis.com}, @code{*.gstatic.com}, and @code{apis.google.com} are all domains
+  owned by Google that are used to save and load files from Google Drive and
+  log in to Google accounts. (For example,
+  @url{https://github.com/googleapis/googleapis},
+  @url{https://developers.google.com/chart/interactive/docs/basic_load_libs})}
+@item{@code{*.cloudfront.net} is a domain owned by Amazon Web Services that serves our
+  large files efficiently across many geographic locations
+  (@url{https://aws.amazon.com/cloudfront/})}
+]
+
+Please contact @code{admin@"@"pyret.org} or @code{joe.politz@"@"gmail.com} with for help or more
+information.
+
