@@ -11,7 +11,7 @@
     <meta name="description" content="@|description|">
     <meta name="author"      content="The Pyret Crew">
     <meta name="keywords"    content="@|keywords|">
-    @(if (string-ci=? uri-path "/index.html")
+    @(if (string-ci=? uri-path "./index.html")
       @list{<meta property="og:title" content="The Pyret Programming Language">}
       @list{<meta property="og:title" content="@|title|">})
     <meta property="og:author" content="The Pyret Crew">
@@ -771,15 +771,9 @@ method_as_fun = o.my_method
     <script>
       $(".info").popover({ placement: "left" });
     </script>
-<<<<<<< HEAD
-    <script type="text/javascript" src="./js/codemirror.js"></script>
-    <script type="text/javascript" src="./js/runmode.js"></script>
-    <script type="text/javascript" src="./js/pyret.js"></script>
-=======
     <script type="text/javascript" src="/js/codemirror.js"></script>
     <script type="text/javascript" src="/js/runmode.js"></script>
     <script type="text/javascript" src="/js/pyret.js"></script>
->>>>>>> parent of 50a0d14 (use relative urls for testing github page that isn't at a root url)
 @(when (string-ci=? uri-path "/index.html")
 @list{
     <script type="text/javascript">
