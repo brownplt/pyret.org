@@ -24,7 +24,7 @@ jobs:
           version: 'stable'
       - name: Build pages to site/
         run: |
-          raco pkg install frog
+          raco pkg install --deps search-auto frog
           npm install
           make pages
       - name: Upload artifact
