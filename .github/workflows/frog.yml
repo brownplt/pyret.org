@@ -16,8 +16,15 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
+      - uses: Bogdanp/setup-racket@v1.10
+        with:
+          architecture: 'x64'
+          distribution: 'full'
+          variant: 'CS'
+          version: 'stable'
       - name: Build pages to site/
         run: |
+          raco pkg install frog
           npm install
           make pages
       - name: Upload artifact
