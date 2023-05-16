@@ -11,7 +11,7 @@
     <meta name="description" content="@|description|">
     <meta name="author"      content="The Pyret Crew">
     <meta name="keywords"    content="@|keywords|">
-    @(if (string-ci=? uri-path "./index.html")
+    @(if (string-ci=? uri-path "/index.html")
       @list{<meta property="og:title" content="The Pyret Programming Language">}
       @list{<meta property="og:title" content="@|title|">})
     <meta property="og:author" content="The Pyret Crew">
