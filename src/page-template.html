@@ -11,7 +11,7 @@
     <meta name="description" content="@|description|">
     <meta name="author"      content="The Pyret Crew">
     <meta name="keywords"    content="@|keywords|">
-    @(if (string-ci=? uri-path "/index.html")
+    @(if (string-ci=? uri-path "./index.html")
       @list{<meta property="og:title" content="The Pyret Programming Language">}
       @list{<meta property="og:title" content="@|title|">})
     <meta property="og:author" content="The Pyret Crew">
@@ -27,16 +27,16 @@
     <meta name="twitter:image" content="https://www.pyret.org/img/pyret-logo.png" />
     <meta name="viewport"    content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="BGvLGPcQVvVo-sVVsSxSjK9R189cMv7PkCQPvufXBx8" />
-    <link rel="icon"      href="/img/pyret-icon.png">
+    <link rel="icon"      href="./img/pyret-icon.png">
     <link rel="canonical" href="@|full-uri|">
     <!-- CSS -->
     <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="//cdn.jsdelivr.net/font-hack/2.019/css/hack.min.css">
-    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="/css/pygments.css">
-    <link rel="stylesheet" type="text/css" href="/css/codemirror.css">
-    <link rel="stylesheet" type="text/css" href="/css/scribble.css">
-    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/pygments.css">
+    <link rel="stylesheet" type="text/css" href="./css/codemirror.css">
+    <link rel="stylesheet" type="text/css" href="./css/scribble.css">
+    <link rel="stylesheet" type="text/css" href="./css/custom.css">
     <!-- Feeds -->
     <link ref="alternate" type="application/atom+xml"
           href="@|atom-feed-uri|" title="Atom Feed">
@@ -74,19 +74,19 @@ s.parentNode.insertBefore(ga, s);
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a href="/index.html" class="navbar-brand fancyhover-above">
-            <img class="navbar-logo" src="/img/pyret-banner.png"></img>
+          <a href="./index.html" class="navbar-brand fancyhover-above">
+            <img class="navbar-logo" src="./img/pyret-banner.png"></img>
           </a>
         </div>
         <div class="collapse navbar-collapse our-nav-collapse"
              role="navigation">
           <ul class="nav navbar-nav">
-            <li><a class="fancyhover-above" href="/pyret-code/">Why Pyret?</a></li>
-            <li><a class="fancyhover-above" href="/set-sail/">Try Pyret</a></li>
-            <li><a class="fancyhover-above" href="/discuss/">News &amp; Discussion</a></li>
-            <li><a class="fancyhover-above" href="/docs/latest/">Documentation</a></li>
+            <li><a class="fancyhover-above" href="./pyret-code/">Why Pyret?</a></li>
+            <li><a class="fancyhover-above" href="./set-sail/">Try Pyret</a></li>
+            <li><a class="fancyhover-above" href="./discuss/">News &amp; Discussion</a></li>
+            <li><a class="fancyhover-above" href="./docs/latest/">Documentation</a></li>
             <li><a class="fancyhover-above" href="https://github.com/brownplt/pyret-lang">Code</a></li>
-            <li><a class="fancyhover-above" href="/crew/">Crew</a></li>
+            <li><a class="fancyhover-above" href="./crew/">Crew</a></li>
           </ul>
         </div>
     </header>
@@ -96,7 +96,7 @@ s.parentNode.insertBefore(ga, s);
       <div class="container">
     <div class="row">
       <div class="col-md-6">
-      <img class="title-logo" src="/img/pyret-banner.png"></img>
+      <img class="title-logo" src="./img/pyret-banner.png"></img>
       <p>
       Pyret is a programming language designed to serve as an outstanding
       choice for programming education while exploring the confluence
@@ -104,13 +104,13 @@ s.parentNode.insertBefore(ga, s);
       development, and free to use or modify.
       </p>
       <p>
-        Check out the <a href="/release-notes/summer-2021.html">release notes</a> for updates in summer 2021!
+        Check out the <a href="./release-notes/summer-2021.html">release notes</a> for updates in summer 2021!
       </p>
       <p>
-        <a href="/#examples" class="btn btn-primary btn-m hvr-border-fade">Examples</a>
+        <a href="./#examples" class="btn btn-primary btn-m hvr-border-fade">Examples</a>
         <a href="./pyret-code/" class="btn btn-primary btn-m hvr-border-fade">Why Pyret?</a>
         <a href="./set-sail" class="btn btn-primary btn-m hvr-border-fade">Set Sail</a>
-        <a href="/discuss/" class="btn btn-primary btn-m hvr-border-fade">News &amp; Discussion</a>
+        <a href="./discuss/" class="btn btn-primary btn-m hvr-border-fade">News &amp; Discussion</a>
       </p>
       </div>
       <div class="col-md-6">
@@ -249,7 +249,7 @@ end
             "col-md-4" divs, or 2 "col-md-6" divs. }
         <!-- Main column -->
         <div id="content" class="col-md-12">
-@(when (string-ci=? uri-path "/index.html")
+@(when (string-ci=? uri-path "./index.html")
   @(define (info-code code info)
     @disable-prefix{<span class="info" title="@|info|">@|code|</span>})
 
@@ -464,7 +464,7 @@ extending an object containing point methods.")
 <div class="row">
   <div class="col-md-2"></div>
   <div class="col-md-8">
-    <p>Like what you see?  Sign up for the <a href="/discuss/">announcements
+    <p>Like what you see?  Sign up for the <a href="./discuss/">announcements
 mailing list</a> and get notified when Pyret has a stable release.  Or, if
 you want to try things out in their early state, just <a
 href="/getting-started/">get started</a>!
@@ -749,7 +749,7 @@ method_as_fun = o.my_method
           @(when tag
             @list{<h1>Posts tagged <em>@|tag|</em></h1>})
           @;{ The main page contents are in @contents }
-          @(when (not (string-ci=? uri-path "/blog/index.html"))
+          @(when (not (string-ci=? uri-path "./blog/index.html"))
             @list{
             <div class="row paragraph-content">
             <div class="col-md-2"></div>
@@ -774,10 +774,10 @@ method_as_fun = o.my_method
     <script>
       $(".info").popover({ placement: "left" });
     </script>
-    <script type="text/javascript" src="/js/codemirror.js"></script>
-    <script type="text/javascript" src="/js/runmode.js"></script>
-    <script type="text/javascript" src="/js/pyret.js"></script>
-@(when (string-ci=? uri-path "/index.html")
+    <script type="text/javascript" src="./js/codemirror.js"></script>
+    <script type="text/javascript" src="./js/runmode.js"></script>
+    <script type="text/javascript" src="./js/pyret.js"></script>
+@(when (string-ci=? uri-path "./index.html")
 @list{
     <script type="text/javascript">
       $(function(){
