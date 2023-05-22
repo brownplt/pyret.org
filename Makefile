@@ -22,6 +22,10 @@ docs/latest:
 	mkdir -p site/docs/
 	cp -r latest-docs/build/docs site/docs/latest
 
+site/docs/index.html:
+	mkdir -p site/docs/
+	cp src/docs-redirect.html site/docs/index.html
+
 CM_JS = site/js/codemirror.js site/js/pyret.js site/js/runmode.js
 
 .Phony: pages
@@ -29,7 +33,7 @@ pages: $(CM_JS)
 	raco frog -b
 
 .Phony: pages-and-docs
-pages-and-docs: pages docs/horizon docs/latest
+pages-and-docs: pages docs/horizon docs/latest site/docs/index.html
 
 .Phony: serve
 serve:
