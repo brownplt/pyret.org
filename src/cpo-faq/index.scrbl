@@ -7,8 +7,12 @@
 The online Pyret editor,
 @link["https://code.pyret.org"]{@code{code.pyret.org}}, uses your Google
 Account to store programs, and logs some information about your use of the
-editor to help us debug issues and improve the editor.  This page summarizes
-how the editor uses your account and data.
+editor to help us debug issues and improve the editor. We never share or sell
+the data we collect, and we don't collect very much information in the first
+place. This page summarizes how the editor uses your account and data.
+
+A more formal “legalese” version of our Privacy Policy is at
+@link[https://code.pyret.org/privacy](https://code.pyret.org/privacy).
 
 @section[#:tag "logging"]{What information is stored on Pyret servers?}
 
@@ -30,22 +34,9 @@ If you opt to contribute detailed usage information under the menu on the
 editor page, which is disabled by default, we will receive information about
 the contents of your programs and the edits you make.
 
-
 @section{What permissions does @code{code.pyret.org} ask for and why?}
 
 @itemlist[
-
-@item{@emph{Know who you are on Google} and @emph{View your email address}: The
-site needs to know your Google identity in order to reliably give persistent
-access to saving to Drive that doesn't expire or require popping up new
-windows while you're editing.}
-
-@item{@emph{Manage your photos and videos} and @emph{View the photos, videos, and
-albums in your Google Drive}:  This is used to import images into programs
-from your Drive (which can be useful for customizing games, for example).}
-
-@item{@emph{View and manage your spreadsheets on Google Drive}: This enables
-importing tables and working with data sources in your Drive.}
 
 @item{@emph{Add itself to Google Drive}: This lets you right-click on Pyret
 programs in Google Drive and "Open with Pyret."}
@@ -62,6 +53,22 @@ Google account settings} and remove all access that code.pyret.org has to your
 account.  Your programs and @code{code.pyret.org} folders will not be deleted
 if you do so.  You can always manually delete these folders and their contents
 yourself.
+
+Optionally (and not by default or on first login) you can give full access to
+Drive, which enables some advanced workflows. This requires additional
+permissions:
+
+@itemlist[
+
+@item{@emph{Manage your photos and videos} and @emph{View the photos, videos,
+and albums in your Google Drive}:  This is used to import images into programs
+from your Drive without using the "Import" menu (which can be useful if you
+have a lot of images for a game, for example).}
+
+@item{@emph{View and manage your spreadsheets on Google Drive}: This enables
+importing tables and working with data sources that you upload to your Drive.}
+
+]
 
 @section{Where are things stored in my Drive?}
 
@@ -122,6 +129,6 @@ Each of these domains has a specific purpose:
   (@url{https://aws.amazon.com/cloudfront/})}
 ]
 
-Please contact @code{admin@"@"pyret.org} or @code{joe.politz@"@"gmail.com} with for help or more
+Please contact @code{admin@"@"pyret.org} or @code{joe.politz@"@"gmail.com} for help or more
 information.
 
