@@ -12,7 +12,7 @@ the data we collect, and we don't collect very much information in the first
 place. This page summarizes how the editor uses your account and data.
 
 A more formal “legalese” version of our Privacy Policy is at
-@link["https://code.pyret.org/privacy"](https://code.pyret.org/privacy).
+@link["https://code.pyret.org/privacy"]{@code{https://code.pyret.org/privacy}}.
 
 @section[#:tag "logging"]{What information is stored on Pyret servers?}
 
