@@ -130,7 +130,7 @@ end
 # Variables are different from identifiers.
 fun mk-counter():
   var ctr = 0
-  lam():
+  lam() block:
     ctr := ctr + 1
     ctr
   end
@@ -175,8 +175,8 @@ end
 # correct behavior of insertion.
 
 fun insert(n :: Number,
-           l :: List<Number> % (is-sorted-ascending))
-  -> List<Number> % (is-sorted-ascending):
+           l :: List<Number>%(is-sorted-ascending))
+  -> List<Number>%(is-sorted-ascending):
   cases (List) l:
     | empty => [list: n]
     | link(f, r) =>
@@ -360,7 +360,7 @@ end
 <div class="row">
   <div class="col-md-2"></div>
   <div class="col-md-8">
-    <p><b>Some thoughts on syntax</b></p>
+    <p><b>On Indentation</b></p>
 <p>
 We believe indentation is critical for readable code, but we don't
 want the whitespace of the program to determine its meaning. Rather,
@@ -372,11 +372,6 @@ structure. Indentation becomes just another context-sensitive rule.
 means you can copy-and-paste code from email or the Web, and its meaning won't
 change. Your IDE can help you reindent code without worrying that doing so will
 change the meaning of the program.  </p>
-
-<p>
-We haven't yet decided on the indentation rules because we want to see
-the language in use for a while before we codify these.
-</p>
 
   </div>
   <div class="col-md-2"></div>
@@ -402,9 +397,10 @@ where:
   dsquare(10) satisfies around(0.1, 20)
 end
 }
-"Real tests need to accomodate more than equality tests.  Pyret supports these
-generally with the <code>satisfies</code> form, which can be used to check
-satisfaction of an arbitrary predicate.")
+"Real tests need to accomodate more than simple equality tests.  Pyret provides
+<code>satisfies</code>, which can be used to check
+satisfaction of an arbitrary predicate, as well as other interesting
+testing constructs.")
 
 
   <hr/>
@@ -504,8 +500,8 @@ static int square(int n) @"{"
 "Python"
 @disable-prefix{
 fun insert(e :: Number,
-           s :: BST % (is-balanced))
-    -> BST % (is-balanced):
+           s :: BST%(is-balanced))
+    -> BST%(is-balanced):
   # self-balancing tree insertion
 end}
 @disable-prefix{
