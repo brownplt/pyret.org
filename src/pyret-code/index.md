@@ -139,10 +139,10 @@ Pyret is driven by the [_How to Design Programs_](http://www.htdp.org/)
 (HtDP) philosophy of programming education; one could almost view it
 as a language designed to make teaching from HtDP comfortable.
 However, we also have our own curricular ideas that extend or run
-parallel to those of HtDP, which we are steadily writing up in
-[_Programming and Programming Languages_](http://papl.cs.brown.edu/)
-(PAPL). PAPL both exclusively uses Pyret and is slowly turning into a
-definitive book for teaching with it.
+parallel to those of HtDP, which we have published in a self-contained
+and comprehensive book,
+[_A Data-Centric Introduction to Programming_](https://dcic-world.org/)
+(DCIC).
 
 Some of our central ideas include:
 
