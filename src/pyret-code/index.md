@@ -111,10 +111,14 @@ it's certainly re-ordered priorities.
 ### There are lots of kinds of “education”.
 
 That's right. We are focused on introductory programming education at
-a high-school and collegiate level — what is often called “CS 1” and
-“CS 2” (roughly, the first year of college). Pyret is being
-actively _used_ in everything from high-schools to upper-level
-collegiate courses, giving us a tight feedback loop.
+the school and college levels, and Pyret is actively being _used_ at
+these levels. It is used in several  “CS 1” and
+“CS 2” college-level courses. It is also a central part of
+most of the curricula
+of the [Bootstrap project](http://www.bootstrapworld.org/),
+to teach algebra, data science, physics, and more at the middle- and
+high-school levels.
+This gives us a very tight feedback loop.
 
 Of course, even in that setting there are differences of opinion about
 what needs to be taught. Some believe inheritance is so important it
@@ -172,11 +176,25 @@ Some of our central ideas include:
 * Students should easily be able to escalate from simple examples to
   sophisticated testing, such as writing test oracles.
 
+* DCIC views tables as a central and underappreciated datatype, and
+  a more useful “first compound data structure” than, say, the lists
+  commonly used in functional programming. We discuss this in more
+  detail
+  [in our position paper](https://cs.brown.edu/~sk/Publications/Papers/Published/kf-data-centric/).
+  Pyret therefore offers native support for tables, and allows
+  spreadsheets to easily be imported as tables (thereby making
+  spreadsheets our “database”).
+
 * Equality is subtle and languages should respect its nuances.
   Students must understand the meaning of equality and its
   consequences, especially with regard to observations in the presence
   of state. Therefore, Pyret has carefully developed
   [equality primitives](https://www.pyret.org/docs/latest/equality.html).
+
+* Reactivity is both interesting and important. Pyret has an
+  [elegant model](https://cs.brown.edu/~sk/Publications/Papers/Published/plpk-reactor-design/)
+  for describing animations and other reactive computations that is
+  both powerful and coherent with the rest of our pedagogy.
 
 ### Is Pyret also a research project?
 
@@ -219,47 +237,19 @@ done and will continue to do research, but publishing academic papers
 about it — rather than putting it to work educationally — will
 continue to take a back seat.
 
-### What next?
+### What are some works in progress?
 
-We are currently hard at work on three very important features:
-
-* Support for static typing. Pyret will have a conventional type
-  system with tagged unions and a type _checker_, resulting in
-  straightforward type errors without the complications associated
-  with type _inference_ algorithms. We have carefully designed Pyret
-  to always be typeable, but our earlier type systems were not good
-  enough. We're pretty happy with how this one is going.
-
-* Tables are a critical type for storing real-world data. Pyret is
-  adding linguistic and library support for working effectively with
-  tables, which PAPL will use to expose students to “database”
-  thinking from early on.
-
-* Our model for interactive computation is based on the
-  [“world” model](http://cs.brown.edu/~sk/Publications/Papers/Published/fffk-functional-io/). 
-  We are currently revising and updating it in a few ways that will
-  help it better serve our new educational programs.
+Pyret has some support for static typing. We chose a conventional type
+system with tagged unions and a type _checker_, resulting in
+straightforward type errors without the complications associated
+with type _inference_ algorithms. However, there are still some rough
+edges to the type system. In particular, typing *tables* is
+[very hard](https://cs.brown.edu/~sk/Publications/Papers/Published/lgk-b2t2/)
+and remains an open problem.
 
 If you'd like to stay abreast of our developments or get involved in
 our discussions, please
 [come on board](http://www.pyret.org/discuss/)!
-
-On the educational side, Pyret is already used by the
-[Bootstrap project](http://www.bootstrapworld.org/). We are now
-developing three new curricula for Bootstrap:
-
-* A CS1 curriculum, corresponding to a standard introduction to
-  computer science, but with several twists based on our pedagogy and
-  materials.
-
-* A CS Principles curriculum, for the new US College Board Advanced
-  Placement exam.
-
-* A physics/modeling curriculum, to help teach students physics and
-  modeling through the medium of programming.
-
-If you'd like to talk more about these,
-[join us](http://www.bootstrapworld.org/community/)!
 
 ### Why is your filename suffix `.arr`?
 
