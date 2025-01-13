@@ -1,3 +1,4 @@
+dist: jammy
 branches:
   only:
   - master
