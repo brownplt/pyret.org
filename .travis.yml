@@ -16,11 +16,14 @@ before_install:
 - cat travis-racket/install-racket.sh | bash
 - export PATH="${RACKET_DIR}/bin:${PATH}"
 - raco pkg install --auto --no-docs frog
+- gem install nokogiri
+- gem install logger
 script:
 - npm install
 - make pages
 deploy:
   provider: s3
+  edge: true
   bucket: pyret-docs
   local_dir: site
   skip_cleanup: true
