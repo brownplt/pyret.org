@@ -17,3 +17,4 @@ site/cpo-faq/
 site/set-sail/
 .frog
 node_modules
+*.swp
