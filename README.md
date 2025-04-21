@@ -29,3 +29,9 @@ $ make stage
 ````
 
 Instructions on how to edit coming soon.
+
+For embeds, run:
+
+```
+cp -r node_modules/pyret-embed/dist site/
+```

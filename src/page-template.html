@@ -44,6 +44,7 @@
           href="@|rss-feed-uri|" title="RSS Feed">
     <!-- JS -->
 <!-- Google tag (gtag.js) --> <script async src="https://www.googletagmanager.com/gtag/js?id=G-57D0JGF4LE"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-57D0JGF4LE'); </script>
+      <script src="/dist/pyret.js"></script>
   </head>
   <body>
     <!-- A standard Twitter Bootstrap nav bar -->
@@ -82,6 +83,8 @@
     <div class="row">
       <div class="col-md-6">
       <img class="title-logo" src="/img/pyret-banner.png"></img>
+      </div>
+      <div class="col-md-6">
       <p>
       Pyret is a programming language designed to serve as an outstanding
       choice for programming education while exploring the confluence
@@ -95,12 +98,30 @@
         <a href="/discuss/" class="btn btn-primary btn-m hvr-border-fade">News &amp; Discussion</a>
       </p>
       </div>
-      <div class="col-md-6">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
 <div id="main-carousel" class="container carousel slide" data-interval="false">
 
   <!-- Wrapper for slides -->
   <div class="carousel-inner">
     <div class="item active">
+      <div id="example1" class="embed-container"></div>
+      <script>
+async function example1() {
+  const iframeContainer = document.getElementById("example1");
+  const embed = await makeEmbed('basic1', iframeContainer, "/dist/build/web/editor.embed.html");
+
+  embed.sendReset({
+    definitionsAtLastRun: "use context starter2024\n\n'Hello!'",
+    interactionsSinceLastRun: [],
+    editorContents: "use context starter2024\n\n'Hello!'",
+    replContents: ""
+  });
+}
+example1();
+      </script>
       <pre>
 @disable-prefix{
 data BinTree:
