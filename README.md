@@ -6,7 +6,16 @@ The source for `pyret.org`, the site for Pyret.
 Installation
 --------------------------------------------------------------------------------
 
-Run `npm install` first.
+Basic pollen setup:
+
+```
+npm install
+raco pkg install pollen
+raco pollen publish . ../pyret.org.published
+```
+
+
+Old build:
 
 You need Pygments and frog:
 
