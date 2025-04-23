@@ -4,7 +4,7 @@
   "dependencies": {
     "codemirror": "^5.x",
     "pyret-codemirror-mode": "git://github.com/brownplt/pyret-codemirror-mode",
-    "pyret-embed": "git://github.com/jpolitz/pyret-embed-examples#main"
+    "pyret-embed": "github:jpolitz/pyret-embed-examples#main"
   },
   "scripts": {
     "build": "make"

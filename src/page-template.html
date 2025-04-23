@@ -100,18 +100,20 @@
       </div>
       </div>
     </div>
+    <div class="container">
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-md-2">bleh</div>
+      <div class="col-md-8">
 <div id="main-carousel" class="container carousel slide" data-interval="false">
 
   <!-- Wrapper for slides -->
   <div class="carousel-inner">
     <div class="item active">
-      <div id="example1" class="embed-container"></div>
+      <div id="example1" class="embed-container" style="height: 20em"></div>
       <script>
 async function example1() {
   const iframeContainer = document.getElementById("example1");
-  const embed = await makeEmbed('basic1', iframeContainer, "/dist/build/web/editor.embed.html");
+  const embed = await makeEmbed('basic1', iframeContainer, "/dist/build/web/editor.embed.html#footerStyle=hide&warnOnExit=false");
 
   embed.sendReset({
     definitionsAtLastRun: "use context starter2024\n\n'Hello!'",
@@ -240,6 +242,8 @@ end
     <span class="icon-next"></span>
   </a>
 </div>
+<div class="col-md-2">  </div>
+        </div>
       </div>
     </div>
   </div>
