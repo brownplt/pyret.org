@@ -11,8 +11,21 @@ Basic pollen setup:
 ```
 npm install
 raco pkg install pollen
-raco pollen publish . ../pyret.org.published
 ```
+
+Then, to test:
+
+```
+raco pollen start
+```
+
+Use:
+
+```
+raco pollen publish . <somewhere>
+```
+
+to get the published version at <somewhere>
 
 
 Old build:
