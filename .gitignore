@@ -1,3 +1,4 @@
+compiled/
 site/*.html
 site/js/codemirror.js
 site/js/pyret.js
