@@ -20,39 +20,29 @@
     <link rel="canonical" href="@|full-uri|">
     <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="//cdn.jsdelivr.net/font-hack/2.019/css/hack.min.css">
-    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/bootstrap-css/bootstrap-5.0.2-dist/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/css/pygments.css">
     <link rel="stylesheet" type="text/css" href="/css/codemirror.css">
     <link rel="stylesheet" type="text/css" href="/css/scribble.css">
     <link rel="stylesheet" type="text/css" href="/css/custom.css">
-    <script type="module" src="/dist/pyret.js"></script>
+    <script src="/bootstrap-css/bootstrap-5.0.2-dist/js/bootstrap.min.js">
+    <script type="module" src="/node_modules/pyret-embed/dist/pyret.js"></script>
   </head>
   <body>
-    <header class="navbar navbar-default navbar-inverse"
-            role="banner">
+    <header class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
       <div class="container">
-        <div class="navbar-header">
-          <button type="button"
-                  class="navbar-toggle"
-                  data-toggle="collapse"
-                  data-target=".our-nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a href="/index.html" class="navbar-brand fancyhover-above">
-            <img class="navbar-logo" src="/img/pyret-banner.png"></img>
-          </a>
-        </div>
-        <div class="collapse navbar-collapse our-nav-collapse"
-             role="navigation">
-          <ul class="nav navbar-nav">
-            <li><a class="fancyhover-above" href="/pyret-code/">Why Pyret?</a></li>
-            <li><a class="fancyhover-above" href="/set-sail/">Try Pyret</a></li>
-            <li><a class="fancyhover-above" href="/discuss/">News &amp; Discussion</a></li>
-            <li><a class="fancyhover-above" href="/docs/latest/">Documentation</a></li>
-            <li><a class="fancyhover-above" href="https://github.com/brownplt/pyret-lang">Code</a></li>
-            <li><a class="fancyhover-above" href="/crew/">Crew</a></li>
+        <a href="/index.html" class="navbar-brand">
+          <img class="navbar-logo" src="/site/img/pyret-logo.png"></img>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse"
+             role="navigation"
+             id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item"><a class="nav-link fancyhover-above" href="/docs/latest/">Documentation</a></li>
+            <li class="nav-item"><a class="nav-link fancyhover-above" href="https://github.com/brownplt/pyret-lang">Code</a></li>
           </ul>
         </div>
     </header>
