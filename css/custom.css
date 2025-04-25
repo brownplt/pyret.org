@@ -4,6 +4,14 @@ body > div:first-of-type {
   padding-top: 66px;
 }
 
+h2 {
+  text-align: center;
+  color: white;
+  background-color: #0c46ff;
+  margin-top: 2em;
+  padding: 0.25em;
+}
+
 a:active, a:focus {
   outline: 0;
 }
@@ -264,4 +272,17 @@ h3 {
   font-size: 18px;
   padding-top: 0.5em;
   padding-bottom: 0.5em;
+}
+
+.tab-box {
+  border: 3px solid #0c46ff;
+  border-bottom: 3px solid white;
+  border-radius: 1em 1em 0px 0px;
+  padding: 1em;
+  box-sizing: border-box;
+  margin-bottom: -3px;
+}
+
+#examplesTabsContent {
+  padding-top: 1em;
 }

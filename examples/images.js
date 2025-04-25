@@ -1,8 +1,3 @@
-import { makeEmbed } from "/node_modules/pyret-embed/dist/pyret.js";
-
-export async function images(iframeContainer) {
-  const embed = await makeEmbed('images-example', iframeContainer, "/node_modules/pyret-embed/dist/build/web/editor.embed.html#footerStyle=hide&warnOnExit=false");
-
 const example = `use context starter2024
 
 treetop = triangle(60, "solid", "darkgreen")
@@ -22,10 +17,9 @@ scene = put-image(sun, 100, 100, with-tree)
 forest = beside-list([list: tree, tree, tree, tree])
 `;
 
-  embed.sendReset({
-    definitionsAtLastRun: example,
-    interactionsSinceLastRun: ["scene", "forest"],
-    editorContents: example,
-    replContents: ""
-  });
-}
+export const images = {
+  definitionsAtLastRun: example,
+  interactionsSinceLastRun: ["scene", "forest"],
+  editorContents: example,
+  replContents: ""
+};

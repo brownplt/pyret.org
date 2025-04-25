@@ -1,8 +1,3 @@
-import { makeEmbed } from "/node_modules/pyret-embed/dist/pyret.js";
-
-export async function physics(iframeContainer) {
-  const embed = await makeEmbed('physics-example', iframeContainer, "/node_modules/pyret-embed/dist/build/web/editor.embed.html#footerStyle=hide&warnOnExit=false");
-
 const example = `use context starter2024
 
 ball = circle(20, "solid", "red")
@@ -29,10 +24,9 @@ end
 sim.interact-trace()
 `;
 
-  embed.sendReset({
+export const physics = {
     definitionsAtLastRun: false,
     interactionsSinceLastRun: [],
     editorContents: example,
     replContents: "# Click Run above! There will be an error you can fix."
-  });
 }
