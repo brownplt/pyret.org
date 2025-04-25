@@ -34,7 +34,12 @@
                     Pyret is a programming language designed for
                     computing education across many contexts. It has a robust
                     web-based runtime to support access in many educational
-                    settings and learning environments. Try it out below!
+                    settings and learning environments.
+                }
+                ◊p{
+                    ◊a[#:class "btn btn-primary btn-m hvr-border-fade" #:href "#examples"]{Examples}
+                    ◊a[#:class "btn btn-primary btn-m hvr-border-fade" #:href "./pyret-code/"]{Why Pyret?}
+                    ◊a[#:class "btn btn-primary btn-m hvr-border-fade" #:href "#devs"]{For Devs}
                 }
             }
         }
