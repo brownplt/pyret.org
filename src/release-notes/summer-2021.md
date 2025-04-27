@@ -93,7 +93,7 @@ of names the *default environment* or the *default context*.
 Pyret has had roughly the same default environment for a long time, with only a
 handful of names added. Because Pyret is particular about
 [shadowing](https://www.pyret.org/docs/latest/Bindings.html#%28part._.Shadowing%29),
-we risk breaking folks' code each time we we add a new name!
+we risk breaking folks' code each time we add a new name!
 
 We designed a combined language feature and user interface solution to get
 around this (that hopefully reflects some lessons from other languages, like
