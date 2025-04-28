@@ -5,9 +5,10 @@
 ◊(require pollen/tag)
 ◊(require (only-in pollen/template ->html))
 
-◊(define examples (list "physics" "images"))
+◊(define examples (list "physics" "images" "rational"))
 ◊(define physics-doc (get-doc "examples/physics.html.pm"))
 ◊(define images-doc (get-doc "examples/images.html.pm"))
+◊(define rational-doc (get-doc "examples/rational.html.pm"))
 ◊(define-tag-function (example-pane attrs elems)
     (let ()
         (define name (cadr (assoc 'name attrs)))
@@ -64,10 +65,14 @@
                 ◊li[#:class "nav-item" #:role "presentation"]{
                     ◊button[#:class "nav-link" #:id "images-tab" #:data-bs-toggle "pill" #:data-bs-target "#images" #:type "button" #:role "tab" #:aria-controls "images" #:aria-selected "false"]{Images}
                 }
+                ◊li[#:class "nav-item" #:role "presentation"]{
+                    ◊button[#:class "nav-link" #:id "rational-tab" #:data-bs-toggle "pill" #:data-bs-target "#rational" #:type "button" #:role "tab" #:aria-controls "images" #:aria-selected "false"]{Numbers}
+                }
             }
             ◊div[#:class "tab-content" #:id "examplesTabsContent"]{
                 ◊example-pane[#:name "physics" #:active #t]{◊physics-doc}
                 ◊example-pane[#:name "images"]{◊images-doc}
+                ◊example-pane[#:name "rational"]{◊rational-doc}
             }
         }
     }
