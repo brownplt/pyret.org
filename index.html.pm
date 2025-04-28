@@ -5,10 +5,9 @@
 ◊(require pollen/tag)
 ◊(require (only-in pollen/template ->html))
 
-◊(define examples (list "physics" "images" "rational"))
-◊(define physics-doc (get-doc "examples/physics.html.pm"))
-◊(define images-doc (get-doc "examples/images.html.pm"))
-◊(define rational-doc (get-doc "examples/rational.html.pm"))
+◊(define examples (list "testing" "rational" "images" "data" "physics"))
+◊(define examples-names( list "Testing" "Numbers" "Images" "Data Structures" "Physics"))
+
 ◊(define-tag-function (example-pane attrs elems)
     (let ()
         (define name (cadr (assoc 'name attrs)))
@@ -19,11 +18,8 @@
                             ◊(first elems)}}))
 
 ◊(define-tag-function (center6 attrs elems)
-    (let ()
-        (eprintf "~a" elems)
-
-        ◊div[#:class "row d-flex justify-content-center"]{
-            ◊div[#:class "col-md-6"]{ ◊(apply @ elems) }}))
+    ◊div[#:class "row d-flex justify-content-center"]{
+        ◊div[#:class "col-md-6"]{ ◊(apply @ elems) }})
 
 
 ◊div[#:class "container"]{
@@ -60,19 +56,33 @@
         ◊div[#:class "col-md-6 tab-box"]{
             ◊ul[#:class "nav nav-pills" #:id "examplesTabs" #:role "tablist"]{
                 ◊li[#:class "nav-item" #:role "presentation"]{
-                    ◊button[#:class "nav-link active" #:id "physics-tab" #:data-bs-toggle "pill" #:data-bs-target "#physics" #:type "button" #:role "tab" #:aria-controls "physics" #:aria-selected "true"]{Physics}
+                    ◊button[
+                        #:class "nav-link active"
+                        #:id (format "~a-tab" (first examples))
+                        #:data-bs-toggle "pill"
+                        #:data-bs-target (format "#~a" (first examples))
+                        #:type "button"
+                        #:role "tab"
+                        #:aria-controls (first examples)
+                        #:aria-selected "true"]{◊(first examples-names)}
                 }
-                ◊li[#:class "nav-item" #:role "presentation"]{
-                    ◊button[#:class "nav-link" #:id "images-tab" #:data-bs-toggle "pill" #:data-bs-target "#images" #:type "button" #:role "tab" #:aria-controls "images" #:aria-selected "false"]{Images}
-                }
-                ◊li[#:class "nav-item" #:role "presentation"]{
-                    ◊button[#:class "nav-link" #:id "rational-tab" #:data-bs-toggle "pill" #:data-bs-target "#rational" #:type "button" #:role "tab" #:aria-controls "images" #:aria-selected "false"]{Numbers}
-                }
+                ◊(for/splice ((ex (rest examples)) (name (rest examples-names)))
+                    ◊li[#:class "nav-item" #:role "presentation"]{
+                        ◊button[
+                            #:class "nav-link"
+                            #:id (format "~a-tab" ex)
+                            #:data-bs-toggle "pill"
+                            #:data-bs-target (format "#~a" ex)
+                            #:type "button"
+                            #:role "tab"
+                            #:aria-controls ex
+                            #:aria-selected "false"]{◊name}
+                    })
             }
             ◊div[#:class "tab-content" #:id "examplesTabsContent"]{
-                ◊example-pane[#:name "physics" #:active #t]{◊physics-doc}
-                ◊example-pane[#:name "images"]{◊images-doc}
-                ◊example-pane[#:name "rational"]{◊rational-doc}
+                ◊example-pane[#:active #t #:name (first examples)]{◊(get-doc (format "examples/~a.html.pm" (first examples)))}
+                ◊(for/splice ((ex (rest examples)))
+                    ◊example-pane[#:name ex]{◊(get-doc (format "examples/~a.html.pm" ex))})
             }
         }
     }
@@ -166,7 +176,7 @@
     const startFrameContainer = document.getElementById("examples-frame")   
 
     const embed = await makeEmbed('examples-editor', startFrameContainer, "/node_modules/pyret-embed/dist/build/web/editor.embed.html#footerStyle=hide&warnOnExit=false");
-    embed.sendReset(physics);
+    embed.sendReset(◊(first examples));
 
     const tabs = { ◊(string-join examples ", ") }
     Object.keys(tabs).forEach((t) => {
