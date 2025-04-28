@@ -20,19 +20,19 @@
     <link rel="canonical" href="@|full-uri|">
     <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="//cdn.jsdelivr.net/font-hack/2.019/css/hack.min.css">
-    <link rel="stylesheet" type="text/css" href="/bootstrap-css/bootstrap-5.0.2-dist/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="/css/pygments.css">
-    <link rel="stylesheet" type="text/css" href="/css/codemirror.css">
-    <link rel="stylesheet" type="text/css" href="/css/scribble.css">
-    <link rel="stylesheet" type="text/css" href="/css/custom.css">
-    <script src="/bootstrap-css/bootstrap-5.0.2-dist/js/bootstrap.min.js">
-    <script type="module" src="/node_modules/pyret-embed/dist/pyret.js"></script>
+    <link rel="stylesheet" type="text/css" href="./bootstrap-css/bootstrap-5.0.2-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/pygments.css">
+    <link rel="stylesheet" type="text/css" href="./css/codemirror.css">
+    <link rel="stylesheet" type="text/css" href="./css/scribble.css">
+    <link rel="stylesheet" type="text/css" href="./css/custom.css">
+    <script src="./bootstrap-css/bootstrap-5.0.2-dist/js/bootstrap.min.js">
+    <script type="module" src="./node_modules/pyret-embed/dist/pyret.js"></script>
   </head>
   <body>
     <header class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
       <div class="container">
-        <a href="/index.html" class="navbar-brand">
-          <img class="navbar-logo" src="/site/img/pyret-logo.png"></img>
+        <a href="./index.html" class="navbar-brand">
+          <img class="navbar-logo" src="./site/img/pyret-logo.png"></img>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>

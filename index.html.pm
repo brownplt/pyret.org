@@ -171,11 +171,11 @@
 
     // with a value in a loop in JS)
     ◊(apply string-append (for/list ((ex examples))
-        (format "import { ~a } from \"/examples/~a.js\";\n" ex ex)))
+        (format "import { ~a } from \"./examples/~a.js\";\n" ex ex)))
 
     const startFrameContainer = document.getElementById("examples-frame")   
 
-    const embed = await makeEmbed('examples-editor', startFrameContainer, "/node_modules/pyret-embed/dist/build/web/editor.embed.html#footerStyle=hide&warnOnExit=false");
+    const embed = await makeEmbed('examples-editor', startFrameContainer, "./node_modules/pyret-embed/dist/build/web/editor.embed.html#footerStyle=hide&warnOnExit=false");
     embed.sendReset(◊(first examples));
 
     const tabs = { ◊(string-join examples ", ") }
