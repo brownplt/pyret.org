@@ -302,6 +302,15 @@ h3 {
   color: #111;
 }
 
+.nav-pills .nav-link:hover {
+  color: var(--pyret-stop-red);
+  text-shadow: 1px 1px 1px #eee;
+}
+
+.nav-pills .nav-link.active:hover {
+  text-shadow: none;
+}
+
 .nav-pills .nav-link.active {
   background-color: var(--pyret-stop-red);
   color: white;
