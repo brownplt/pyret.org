@@ -16,7 +16,7 @@
     <meta name="twitter:title" content="@|title|" />
     <meta name="twitter:image" content="https://www.pyret.org/img/pyret-logo.png" />
     <meta name="viewport"    content="width=device-width, initial-scale=1.0">
-    <link rel="icon"      href="/img/pyret-icon.png">
+    <link rel="icon"      href="./img/pyret-icon.png">
     <link rel="canonical" href="@|full-uri|">
     <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="//cdn.jsdelivr.net/font-hack/2.019/css/hack.min.css">

@@ -3,7 +3,6 @@
 ◊(require racket/string)
 ◊(require racket/list)
 ◊(require pollen/tag)
-◊(require (only-in pollen/template ->html))
 
 ◊(define examples (list "testing" "rational" "images" "data" "physics"))
 ◊(define examples-names( list "Testing" "Numbers" "Images" "Data Structures" "Physics"))
@@ -21,20 +20,20 @@
     ◊div[#:class "row d-flex justify-content-center"]{
         ◊div[#:class "col-md-6"]{ ◊(apply @ elems) }})
 
-
 ◊div[#:class "container"]{
     ◊div[#:class "jumbotron"]{
         ◊div[#:class "row d-flex justify-content-center"]{
             ◊div[#:class "col-md-4"]{
-                ◊img[#:class "title-logo" #:src "/site/img/pyret-banner.png"]{}
+                ◊img[#:class "title-logo" #:src "./site/img/pyret-banner.png"]{}
             }
             ◊div[#:class "col-md-6"]{
                 ◊p{
                     Pyret is a programming language designed for
-                    computing education across many contexts. It has a robust
-                    web-based runtime to support access in many educational
-                    settings and learning environments. Check out the examples
-                    below and learn more about its uses for:
+                    computing education across many contexts, with a robust
+                    web-based runtime and programming environment
+                    to support broad access. Several curricula have been
+                    co-designed with Pyret at many levels. Check out the
+                    examples below and learn more about its uses for:
                 }
                 ◊p{
                     ◊a[#:class "btn btn-primary btn-m hvr-border-fade" #:href "#devs"]{K-12 Teachers}
@@ -53,7 +52,7 @@
 
 
     ◊div[#:class "row d-flex justify-content-center"]{
-        ◊div[#:class "col-md-6 tab-box"]{
+        ◊div[#:class "col-md-8"]{
             ◊ul[#:class "nav nav-pills" #:id "examplesTabs" #:role "tablist"]{
                 ◊li[#:class "nav-item" #:role "presentation"]{
                     ◊button[
@@ -79,6 +78,10 @@
                             #:aria-selected "false"]{◊name}
                     })
             }
+        }
+    }
+    ◊div[#:class "row d-flex justify-content-center"]{
+        ◊div[#:class "col-md-8 tab-box"]{
             ◊div[#:class "tab-content" #:id "examplesTabsContent"]{
                 ◊example-pane[#:active #t #:name (first examples)]{◊(get-doc (format "examples/~a.html.pm" (first examples)))}
                 ◊(for/splice ((ex (rest examples)))
@@ -167,7 +170,7 @@
 }
 
 ◊script[#:type "module"]{
-    import { makeEmbed } from "/node_modules/pyret-embed/dist/pyret.js";    // I think this has to be metaprogrammed, because import is syntax (can't import
+    import { makeEmbed } from "./node_modules/pyret-embed/dist/pyret.js";    // I think this has to be metaprogrammed, because import is syntax (can't import
 
     // with a value in a loop in JS)
     ◊(apply string-append (for/list ((ex examples))

@@ -1,5 +1,9 @@
 /* custom.css */
 
+:root {
+  --pyret-run-blue: #317bcf; /* from code.pyret.org */
+}
+
 body > div:first-of-type {
   padding-top: 66px;
 }
@@ -7,7 +11,7 @@ body > div:first-of-type {
 h2 {
   text-align: center;
   color: white;
-  background-color: #0c46ff;
+  background-color: var(--pyret-run-blue);
   margin-top: 2em;
   padding: 0.25em;
 }
@@ -127,7 +131,7 @@ img.title-logo {
   z-index: -1;
   left: 0;
   right: 0;
-  background: #0c46ff;
+  background: var(--pyret-run-blue);
   height: 4px;
   -webkit-transition-property: transform;
   transition-property: transform;
@@ -275,9 +279,9 @@ h3 {
 }
 
 .tab-box {
-  border: 3px solid #0c46ff;
-  border-bottom: 3px solid white;
+  border: 3px solid var(--pyret-run-blue);
   border-radius: 1em 1em 0px 0px;
+  border-bottom: 4px solid white;
   padding: 1em;
   box-sizing: border-box;
   margin-bottom: -3px;
@@ -285,4 +289,15 @@ h3 {
 
 #examplesTabsContent {
   padding-top: 1em;
+}
+
+.nav-pills .nav-link.active {
+  background-color: var(--pyret-run-blue);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.embed-container iframe {
+  overscroll-behavior: contain;
+  overflow-anchor: auto;
 }
