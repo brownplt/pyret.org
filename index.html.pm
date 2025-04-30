@@ -168,6 +168,15 @@
 }
 
 ◊script[#:type "module"]{
+console.log("Welcome to the pyret.org console!");
+console.log("It can be a bit noisy in here because the embedded instances log some information (which you might be interested in – have a look!)")
+console.log("You may enjoy trying out some of the API affordances right from here.");
+console.log("For example, you can run `window.pyretEmbed.sendReset({ definitionsAtLastRun: '\"Hello, api!\"', interactionsSinceLastRun: [ ], editorContents: '\"Hello, api!\"', replContents: '' });`");
+console.log("Noisy application logs below......");
+console.log("-----------------------------------");
+}
+
+◊script[#:type "module"]{
     import { makeEmbed } from "./node_modules/pyret-embed/dist/pyret.js";    // I think this has to be metaprogrammed, because import is syntax (can't import
 
     // with a value in a loop in JS)
@@ -178,6 +187,7 @@
 
     const embed = await makeEmbed('examples-editor', startFrameContainer, "./node_modules/pyret-embed/dist/build/web/editor.embed.html#footerStyle=hide&warnOnExit=false");
     embed.sendReset(◊(first examples));
+    window.pyretEmbed = embed;
 
     const tabs = { ◊(string-join examples ", ") }
     Object.keys(tabs).forEach((t) => {
