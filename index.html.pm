@@ -44,13 +44,10 @@
         }
     }
 }
-
 ◊div[#:class "container-fluid"]{
 
     ◊a[#:name "examples"]{}
     ◊h2{Examples}
-
-
     ◊div[#:class "row d-flex justify-content-center"]{
         ◊div[#:class "col-md-8"]{
             ◊ul[#:class "nav nav-pills" #:id "examplesTabs" #:role "tablist"]{
@@ -90,10 +87,11 @@
         }
     }
 
-    ◊div[#:class "row" #:style "border: 3px solid #0c46ff"]{
+    ◊div[#:class "row embed-row"]{
         ◊div[#:id "examples-frame" #:class "embed-container" #:style "height: 30em"]{}}
 
 }
+
 
 ◊div[#:class "container-fluid"]{
     ◊a[#:name "k-12"]{}
