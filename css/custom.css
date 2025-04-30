@@ -292,6 +292,7 @@ h3 {
 
 .tab-top {
   border-top: 3px solid var(--pyret-stop-red);
+  background: linear-gradient(180deg, #eee, white);
 }
 
 #examplesTabsContent {
@@ -324,7 +325,7 @@ h3 {
 .nav-border {
   border-bottom: 0;
   margin-bottom: -3px;
-  background-color: white;
+  background: #eee;
   border-radius: 0.25rem 0.25rem 0 0;
   border: 3px solid var(--pyret-stop-red);
   border-bottom: 0;
