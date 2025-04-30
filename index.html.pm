@@ -49,7 +49,7 @@
     ◊a[#:name "examples"]{}
     ◊h2{Examples}
     ◊div[#:class "row d-flex justify-content-center"]{
-        ◊div[#:class "col-md-8"]{
+        ◊div[#:class "col-md-8 nav-border"]{
             ◊ul[#:class "nav nav-pills" #:id "examplesTabs" #:role "tablist"]{
                 ◊li[#:class "nav-item" #:role "presentation"]{
                     ◊button[
@@ -77,7 +77,7 @@
             }
         }
     }
-    ◊div[#:class "row d-flex justify-content-center"]{
+    ◊div[#:class "row d-flex justify-content-center tab-top"]{
         ◊div[#:class "col-md-8 tab-box"]{
             ◊div[#:class "tab-content" #:id "examplesTabsContent"]{
                 ◊example-pane[#:active #t #:name (first examples)]{◊(get-doc (format "examples/~a.html.pm" (first examples)))}

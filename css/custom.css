@@ -281,13 +281,17 @@ h3 {
 }
 
 .tab-box {
-  border: 3px solid var(--pyret-stop-red);
-  border-radius: 1em 1em 0px 0px;
-  border-bottom: 0px;
-  background-color: white;
-  padding: 1em;
+  /*border: 3px solid var(--pyret-stop-red);
+  border-radius: 0.25rem 0.25rem 0px 0px;
   box-sizing: border-box;
   margin-bottom: -3px;
+  border-bottom: 0px;
+  background-color: white;*/
+  padding: 1em;
+}
+
+.tab-top {
+  border-top: 3px solid var(--pyret-stop-red);
 }
 
 #examplesTabsContent {
@@ -299,15 +303,8 @@ h3 {
 }
 
 .nav-pills .nav-link.active {
-  background-color: white;
-  color: #111;
-  border: 3px solid var(--pyret-stop-red);
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-  box-sizing: border-box;
-  border-bottom: 0;
-  margin-bottom: -3px;
-  position: relative;
+  background-color: var(--pyret-stop-red);
+  color: white;
 }
 
 .embed-container iframe {
@@ -315,6 +312,12 @@ h3 {
   overflow-anchor: auto;
 }
 
-.embed-row {
+.nav-border {
+  border-bottom: 0;
+  margin-bottom: -3px;
+  background-color: white;
+  border-radius: 0.25rem 0.25rem 0 0;
   border: 3px solid var(--pyret-stop-red);
+  border-bottom: 0;
+  padding-top: 0.25rem;
 }
