@@ -23,31 +23,35 @@
 ◊div[#:class "container"]{
     ◊div[#:class "jumbotron"]{
         ◊div[#:class "row d-flex justify-content-center"]{
-            ◊div[#:class "col-md-4"]{
-                ◊img[#:class "title-logo" #:src "./site/img/pyret-banner.png"]{}
+            ◊div[#:class "col-md-2"]{
+                ◊img[#:class "title-logo" #:src "./site/img/pyret-logo.png"]{}
             }
-            ◊div[#:class "col-md-6"]{
+            ◊div[#:class "col-md-4"]{
                 ◊p{
                     Pyret is a programming language designed for
                     computing education across many contexts, with a robust
                     web-based runtime and programming environment
                     to support broad access. Several curricula have been
-                    co-designed with Pyret at many levels. Check out the
-                    examples below and learn more about its uses for:
-                }
-                ◊p{
-                    ◊a[#:class "btn btn-primary btn-m hvr-border-fade" #:href "#devs"]{K-12 Teachers}
-                    ◊a[#:class "btn btn-primary btn-m hvr-border-fade" #:href "#devs"]{Undergrad Instructors}
-                    ◊a[#:class "btn btn-primary btn-m hvr-border-fade" #:href "#devs"]{Developers}
+                    co-designed with Pyret at many levels.
                 }
             }
+        }
+    }
+    ◊div[#:class "row d-flex justify-content-center"]{
+        ◊div[#:class "col-md-8 d-flex justify-content-center"]{
+          ◊span{
+              Jump to: 
+              ◊a[#:class "btn btn-primary btn-m hvr-border-fade" #:href "#k-12"]{Primary/Secondary (K-12)}
+              ◊a[#:class "btn btn-primary btn-m hvr-border-fade" #:href "#ugrad"]{College/University}
+              ◊a[#:class "btn btn-primary btn-m hvr-border-fade" #:href "#devs"]{Developers}
+          }
         }
     }
 }
 ◊div[#:class "container-fluid"]{
 
-    ◊a[#:name "examples"]{}
-    ◊h2{Examples}
+    ◊a[#:name "k-12" #:style "scroll-margin-top: 100px"]{}
+    ◊h2{Pyret in Schools}
     ◊div[#:class "row d-flex justify-content-center"]{
         ◊div[#:class "col-md-8 nav-border"]{
             ◊ul[#:class "nav nav-pills" #:id "examplesTabs" #:role "tablist"]{
@@ -94,7 +98,6 @@
 
 
 ◊div[#:class "container-fluid"]{
-    ◊a[#:name "k-12"]{}
     ◊h2{For K-12 Teachers}
 
     ◊center6{
@@ -103,7 +106,7 @@
 }
 
 ◊div[#:class "container-fluid"]{
-    ◊a[#:name "ugrad"]{}
+    ◊a[#:name "ugrad" #:style "scroll-margin-top: 100px"]{}
     ◊h2{For Undergraduate Instructors}
 
     ◊center6{
@@ -177,8 +180,9 @@ console.log("-----------------------------------");
 }
 
 ◊script[#:type "module"]{
-    import { makeEmbed } from "./node_modules/pyret-embed/dist/pyret.js";    // I think this has to be metaprogrammed, because import is syntax (can't import
+    import { makeEmbed } from "./node_modules/pyret-embed/dist/pyret.js";
 
+    // I think this has to be metaprogrammed, because import is syntax (can't import
     // with a value in a loop in JS)
     ◊(apply string-append (for/list ((ex examples))
         (format "import { ~a } from \"./examples/~a.js\";\n" ex ex)))
