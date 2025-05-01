@@ -51,8 +51,16 @@
 ◊div[#:class "container-fluid"]{
 
     ◊a[#:name "k-12" #:style "scroll-margin-top: 100px"]{}
-    ◊h2{Pyret in Schools}
+    ◊h2{Pyret in Action}
     ◊div[#:class "row d-flex justify-content-center"]{
+        ◊div[#:class "col-md-6"]{
+            ◊p{
+                This editor shows some sample programs from various
+                curricula that you can try out directly on this page! For
+                using Pyret with your students or on your own, check out
+                ◊a[#:href "#running-pyret"]{Ways to Run Pyret}.
+            }
+        }
         ◊div[#:class "col-md-8 nav-border"]{
             ◊ul[#:class "nav nav-pills" #:id "examplesTabs" #:role "tablist"]{
                 ◊li[#:class "nav-item" #:role "presentation"]{
