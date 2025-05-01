@@ -1,18 +1,30 @@
 #lang pollen
 
-◊(require racket/string)
+◊(require racket/string racket/set)
 ◊(require racket/list)
 ◊(require pollen/tag)
 
+◊(define by-category
+    #hash(
+        ("cat-general" . (("testing" . "Testing") ("images" . "Images")))
+        ("cat-k12" . (("rational" . "Rationals") ("images" . "Images") ("physics" . "Physics")))
+        ("cat-ugrad" . (("testing" . "Testing") ("data" . "Data Structures") ("images" . "Images")))
+        ("cat-beyond" . (("testing" . "Testing") ("data" . "Data Structures")))))
+
+◊(define all-examples
+    (set->list (list->set (apply append (map (lambda (examples) (map car examples)) (hash-values by-category))))))
+◊(define default-example "testing")
+
 ◊(define examples (list "testing" "rational" "images" "data" "physics"))
-◊(define examples-names( list "Testing" "Numbers" "Images" "Data Structures" "Physics"))
+◊(define examples-names (list "Testing" "Numbers" "Images" "Data Structures" "Physics"))
 
 ◊(define-tag-function (example-pane attrs elems)
     (let ()
+        (define id (cadr (assoc 'id attrs)))
         (define name (cadr (assoc 'name attrs)))
         (define active (assoc 'active attrs))
         (define active-show (if active " show active" ""))
-        ◊div[#:class (string-append "tab-pane fade" active-show) #:id name #:role "tabpanel" #:aria-labelled-by (string-append name "-tab")]{
+        ◊div[#:class (string-append "tab-pane fade" active-show) #:id id #:example-name name #:role "tabpanel" #:aria-labelled-by (string-append name "-tab")]{
                        ◊p[#:class "example-info"]{
                             ◊(first elems)}}))
 
@@ -49,21 +61,25 @@
         }
     ])
 
-◊(define (examples-tabs examples examples-names)
+◊(define (examples-tabs examples-ids examples examples-names)
     ◊@[
-        ◊div[#:class "row d-flex justify-content-center"]{
+        ◊div[#:class "row d-flex justify-content-center examples-pills"]{
             ◊div[#:class "col-md-8 nav-border"]{
                 ◊ul[#:class "nav nav-pills" #:id "examplesTabs" #:role "tablist"]{
-                    ◊nav-pills[examples examples-names]
+                    ◊nav-pills[examples-ids examples-names]
                 }
             }
         }
-        ◊div[#:class "row d-flex justify-content-center tab-top"]{
+        ◊div[#:class "row d-flex justify-content-center examples-tab-top"]{
             ◊div[#:class "col-md-8 tab-box"]{
                 ◊div[#:class "tab-content" #:id "examplesTabsContent"]{
-                    ◊example-pane[#:active #t #:name (first examples)]{◊(get-doc (format "examples/~a.html.pm" (first examples)))}
-                    ◊(for/splice ((ex (rest examples)))
-                        ◊example-pane[#:name ex]{◊(get-doc (format "examples/~a.html.pm" ex))})
+                    ◊example-pane[#:active #t #:id (first examples-ids) #:name (first examples)]{◊(get-doc (format "examples/~a.html.pm" (first examples)))}
+                    ◊(for/splice ((ex (rest examples)) (id (rest examples-ids)))
+                        ◊example-pane[
+                            #:name ex
+                            #:id id]{
+                                ◊(get-doc (format "examples/~a.html.pm" ex))
+                            })
                 }
             }
         }
@@ -102,20 +118,28 @@
         }
     }
     ◊div[#:class "row d-flex justify-content-center"]{
-        ◊div[#:class "col-md-8 d-flex justify-content-center"]{
-            ◊p{
-                ◊span{
-                    Examples for:
-                    ◊a[#:class "btn btn-primary btn-m hvr-border-fade"]{General}
-                    ◊a[#:class "btn btn-primary btn-m hvr-border-fade"]{K-12}
-                    ◊a[#:class "btn btn-primary btn-m hvr-border-fade"]{University}
-                    ◊a[#:class "btn btn-primary btn-m hvr-border-fade"]{Beyond}
-                }
-            }
+        ◊div[#:class "col-md-8 d-flex justify-content-center align-items-center"]{
+            ◊span{Examples for:}
+            ◊nav-pills['("cat-general" "cat-k12" "cat-ugrad" "cat-beyond")
+                       '("General" "K-12" "Undergraduate" "Beyond")]
         }
     }
 
-    ◊examples-tabs[examples examples-names]
+    ◊div[#:class "row d-flex justify-content-center categories-tab-top"]{
+        ◊div[#:class "tab-content" #:id "categoriesTabContent"]{
+            ◊(for/splice ((cat '("cat-general" "cat-k12" "cat-ugrad" "cat-beyond")))
+                ◊(let ()
+                    ◊(define active-show (if (equal? cat "cat-general") " active show" ""))
+                    ◊(define examples (map car (hash-ref by-category cat)))
+                    ◊(define examples-ids (map (lambda (ex) (format "~a-~a" cat ex)) examples))
+                    ◊(define examples-names (map cdr (hash-ref by-category cat)))
+                    ◊(eprintf "~a" examples-names)
+                    ◊div[#:class (string-append "tab-pane fade" active-show) #:id cat #:role "tabpanel" #:aria-labelled-by (string-append cat "-tab")]{
+                        ◊examples-tabs[examples-ids examples examples-names]
+                    })
+                )
+        }
+    }
 
     ◊div[#:class "row embed-row"]{
         ◊div[#:id "examples-frame" #:class "embed-container" #:style "height: 30em"]{}}
@@ -210,23 +234,27 @@ console.log("-----------------------------------");
 
     // I think this has to be metaprogrammed, because import is syntax (can't import
     // with a value in a loop in JS)
-    ◊(for/splice ((ex examples))
+    ◊(for/splice ((ex all-examples))
         (format "import { ~a } from \"./examples/~a.js\";\n" ex ex))
 
     const startFrameContainer = document.getElementById("examples-frame")   
 
     const embed = await makeEmbed('examples-editor', startFrameContainer, "./node_modules/pyret-embed/dist/build/web/editor.embed.html#footerStyle=hide&warnOnExit=false");
-    embed.sendReset(◊(first examples));
+    embed.sendReset(◊default-example);
     window.pyretEmbed = embed;
 
-    const tabs = { ◊(string-join examples ", ") }
-    Object.keys(tabs).forEach((t) => {
-        const tabEl = document.querySelector(`button[data-bs-target="#${t}"]`);
-        tabEl.addEventListener('shown.bs.tab', function(event) {
-            if(event.target.id === `${t}-tab`) {
-                const container = document.getElementById(`${t}-frame`);
-                embed.sendReset(tabs[t]);
+    const tabs = { ◊(string-join all-examples ", ") }
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if(entry.intersectionRatio > 0) {
+                const tabContent = tabs[entry.target.attributes['example-name'].value];
+                console.log("tab content: ", entry, tabContent);
+                embed.sendReset(tabContent);
             }
         });
+    });
+    const elts = Object.keys(tabs).map((t) => {
+        const tabElements = document.querySelectorAll(`[example-name="${t}"]`);
+        tabElements.forEach(tabElement => { observer.observe(tabElement); });
     });
 }

@@ -283,16 +283,10 @@ h3 {
 }
 
 .tab-box {
-  /*border: 3px solid var(--pyret-stop-red);
-  border-radius: 0.25rem 0.25rem 0px 0px;
-  box-sizing: border-box;
-  margin-bottom: -3px;
-  border-bottom: 0px;
-  background-color: white;*/
   padding: 1em;
 }
 
-.tab-top {
+.examples-tab-top {
   border-top: 3px solid var(--pyret-stop-red);
   background: linear-gradient(180deg, #eee, white);
 }
@@ -301,20 +295,20 @@ h3 {
   padding-top: 1em;
 }
 
-.nav-pills .nav-link {
+.examples-pills .nav-pills .nav-link {
   color: #111;
 }
 
-.nav-pills .nav-link:hover {
+.examples-pills .nav-pills .nav-link:hover {
   color: var(--pyret-stop-red);
   text-shadow: 1px 1px 1px #ccc;
 }
 
-.nav-pills .nav-link.active:hover {
+.examples-pills .nav-pills .nav-link.active:hover {
   text-shadow: none;
 }
 
-.nav-pills .nav-link.active {
+.examples-pills .nav-pills .nav-link.active {
   background-color: var(--pyret-stop-red);
   color: white;
 }
@@ -324,7 +318,7 @@ h3 {
   overflow-anchor: auto;
 }
 
-.nav-border {
+.examples-pills .nav-border {
   border-bottom: 0;
   margin-bottom: -3px;
   background: #eee;
