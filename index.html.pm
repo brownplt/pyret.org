@@ -20,34 +20,41 @@
     ◊div[#:class "row d-flex justify-content-center"]{
         ◊div[#:class "col-md-6"]{ ◊(apply @ elems) }})
 
+◊(define (nav-pills ids names)
+    ◊@[
+        ◊ul[#:class "nav nav-pills" #:id "examplesTabs" #:role "tablist"]{
+            ◊li[#:class "nav-item" #:role "presentation"]{
+                ◊button[
+                    #:class "nav-link active"
+                    #:id (format "~a-tab" (first ids))
+                    #:data-bs-toggle "pill"
+                    #:data-bs-target (format "#~a" (first ids))
+                    #:type "button"
+                    #:role "tab"
+                    #:aria-controls (first ids)
+                    #:aria-selected "true"]{◊(first names)}
+            }
+            ◊(for/splice ((ex (rest ids)) (name (rest names)))
+                ◊li[#:class "nav-item" #:role "presentation"]{
+                    ◊button[
+                        #:class "nav-link"
+                        #:id (format "~a-tab" ex)
+                        #:data-bs-toggle "pill"
+                        #:data-bs-target (format "#~a" ex)
+                        #:type "button"
+                        #:role "tab"
+                        #:aria-controls ex
+                        #:aria-selected "false"]{◊name}
+                })
+        }
+    ])
+
 ◊(define (examples-tabs examples examples-names)
     ◊@[
         ◊div[#:class "row d-flex justify-content-center"]{
             ◊div[#:class "col-md-8 nav-border"]{
                 ◊ul[#:class "nav nav-pills" #:id "examplesTabs" #:role "tablist"]{
-                    ◊li[#:class "nav-item" #:role "presentation"]{
-                        ◊button[
-                            #:class "nav-link active"
-                            #:id (format "~a-tab" (first examples))
-                            #:data-bs-toggle "pill"
-                            #:data-bs-target (format "#~a" (first examples))
-                            #:type "button"
-                            #:role "tab"
-                            #:aria-controls (first examples)
-                            #:aria-selected "true"]{◊(first examples-names)}
-                    }
-                    ◊(for/splice ((ex (rest examples)) (name (rest examples-names)))
-                        ◊li[#:class "nav-item" #:role "presentation"]{
-                            ◊button[
-                                #:class "nav-link"
-                                #:id (format "~a-tab" ex)
-                                #:data-bs-toggle "pill"
-                                #:data-bs-target (format "#~a" ex)
-                                #:type "button"
-                                #:role "tab"
-                                #:aria-controls ex
-                                #:aria-selected "false"]{◊name}
-                        })
+                    ◊nav-pills[examples examples-names]
                 }
             }
         }
@@ -60,8 +67,7 @@
                 }
             }
         }
-    ]
-)
+    ])
 
 ◊div[#:class "container"]{
     ◊div[#:class "jumbotron"]{
