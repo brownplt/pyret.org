@@ -15,8 +15,8 @@
     (set->list (list->set (apply append (map (lambda (examples) (map car examples)) (hash-values by-category))))))
 ◊(define default-example "testing")
 
-◊(define examples (list "testing" "rational" "images" "data" "physics"))
-◊(define examples-names (list "Testing" "Numbers" "Images" "Data Structures" "Physics"))
+◊(define categories '("cat-general" "cat-k12" "cat-ugrad" "cat-beyond"))
+◊(define categories-names '("General" "K-12" "Undergraduate" "Beyond"))
 
 ◊(define-tag-function (example-pane attrs elems)
     (let ()
@@ -24,7 +24,7 @@
         (define name (cadr (assoc 'name attrs)))
         (define active (assoc 'active attrs))
         (define active-show (if active " show active" ""))
-        ◊div[#:class (string-append "tab-pane fade" active-show) #:id id #:example-name name #:role "tabpanel" #:aria-labelled-by (string-append name "-tab")]{
+        ◊div[#:class (string-append "tab-pane" active-show) #:id id #:example-name name #:role "tabpanel" #:aria-labelled-by (string-append name "-tab")]{
                        ◊p[#:class "example-info"]{
                             ◊(first elems)}}))
 
@@ -120,8 +120,7 @@
     ◊div[#:class "row d-flex justify-content-center"]{
         ◊div[#:class "col-md-8 d-flex justify-content-center align-items-center"]{
             ◊span{Examples for:}
-            ◊nav-pills['("cat-general" "cat-k12" "cat-ugrad" "cat-beyond")
-                       '("General" "K-12" "Undergraduate" "Beyond")]
+            ◊nav-pills[categories categories-names]
         }
     }
 
@@ -134,7 +133,7 @@
                     ◊(define examples-ids (map (lambda (ex) (format "~a-~a" cat ex)) examples))
                     ◊(define examples-names (map cdr (hash-ref by-category cat)))
                     ◊(eprintf "~a" examples-names)
-                    ◊div[#:class (string-append "tab-pane fade" active-show) #:id cat #:role "tabpanel" #:aria-labelled-by (string-append cat "-tab")]{
+                    ◊div[#:class (string-append "tab-pane" active-show) #:id cat #:role "tabpanel" #:aria-labelled-by (string-append cat "-tab")]{
                         ◊examples-tabs[examples-ids examples examples-names]
                     })
                 )
