@@ -2,7 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Pyret</title>
+    <base href="◊(select-from-metas "rel-path" metas)"</base>
+    <title>◊(select-from-metas "title" metas)</title>
     <meta name="description" content="The Pyret programming language">
     <meta name="author"      content="The Pyret Crew">
     <meta property="og:author" content="The Pyret Crew">
@@ -13,7 +14,7 @@
     <meta property="og:image:height" content="445">
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@|"@"|pyretlang" />
-    <meta name="twitter:title" content="@|title|" />
+    <meta name="twitter:title" content="◊(select-from-metas "title" metas)" />
     <meta name="twitter:image" content="https://www.pyret.org/img/pyret-logo.png" />
     <meta name="viewport"    content="width=device-width, initial-scale=1.0">
     <link rel="icon"      href="./site/img/pyret-icon.png">
@@ -43,6 +44,7 @@
           <ul class="navbar-nav me-auto">
             <li class="nav-item"><a class="nav-link fancyhover-above" href="/docs/latest/">Documentation</a></li>
             <li class="nav-item"><a class="nav-link fancyhover-above" href="https://github.com/brownplt/pyret-lang">Code</a></li>
+            <li class="nav-item"><a class="nav-link fancyhover-above" href="./pyret-code/">Why Pyret?</a></li>
           </ul>
         </div>
     </header>

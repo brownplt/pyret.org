@@ -4,6 +4,9 @@
 ◊(require racket/list)
 ◊(require pollen/tag)
 
+◊(define-meta title "The Pyret Programming Language")
+◊(define-meta rel-path ".")
+
 ◊(define by-category
     #hash(
         ("cat-general" . (("testing" . "Testing") ("images" . "Images")))
@@ -85,6 +88,9 @@
         }
     ])
 
+
+
+
 ◊div[#:class "container"]{
     ◊div[#:class "jumbotron"]{
         ◊div[#:class "row d-flex justify-content-center"]{
@@ -99,27 +105,23 @@
                     to support broad access. Several curricula have been
                     co-designed with Pyret at many levels.
                 }
+                ◊p{
+                    ◊a[#:class "btn btn-primary btn-m hvr-border-fade" #:href "#examples"]{Examples}
+                    ◊a[#:class "btn btn-primary btn-m hvr-border-fade" #:href "#k12"]{K-12}
+                    ◊a[#:class "btn btn-primary btn-m hvr-border-fade" #:href "#ugrad"]{Undergraduate}
+                    ◊a[#:class "btn btn-primary btn-m hvr-border-fade" #:href "#devs"]{Developers}
+                }
             }
         }
     }
 }
 ◊div[#:class "container-fluid"]{
 
-    ◊a[#:name "k-12" #:style "scroll-margin-top: 100px"]{}
+    ◊a[#:name "examples" #:style "scroll-margin-top: 100px"]{}
     ◊h2{Pyret in Action}
     ◊div[#:class "row d-flex justify-content-center"]{
-        ◊div[#:class "col-md-6"]{
-            ◊p{
-                This editor shows some sample programs from various
-                curricula that you can try out directly on this page! For
-                using Pyret with your students or on your own, check out
-                ◊a[#:href "#running-pyret"]{Ways to Run Pyret}.
-            }
-        }
-    }
-    ◊div[#:class "row d-flex justify-content-center"]{
         ◊div[#:class "col-md-8 d-flex justify-content-center align-items-center"]{
-            ◊span{Examples for:}
+            ◊space[#:style "padding-right: 1em;"]{Choose a category:}
             ◊nav-pills[categories categories-names]
         }
     }
@@ -147,6 +149,7 @@
 
 
 ◊div[#:class "container-fluid"]{
+    ◊a[#:name "k12" #:style "scroll-margin-top: 100px"]{}
     ◊h2{For K-12 Teachers}
 
     ◊center6{

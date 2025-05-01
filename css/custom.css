@@ -48,11 +48,6 @@ pre {
   position: fixed;
 }
 
-.jumbotron {
-  /* 48px from Bootstrap + 66px from Navbar (30px padding + 36px image)*/
-  padding-top: 114px !important;
-}
-
 img.navbar-logo {
   height: 2em;
 }
@@ -299,4 +294,11 @@ h3 {
   border: 3px solid var(--pyret-stop-red);
   border-bottom: 0;
   padding-top: 0.25rem;
+}
+
+/* This is created by Pollen, why not use it! */
+root {
+  /* 48px from Bootstrap + 66px from Navbar (30px padding + 36px image)*/
+  padding-top: 114px !important;
+  display: block;
 }
