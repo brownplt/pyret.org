@@ -76,19 +76,20 @@
         ◊div[#:class "row d-flex justify-content-center examples-tab-top"]{
             ◊div[#:class "col-md-8 tab-box"]{
                 ◊div[#:class "tab-content" #:id "examplesTabsContent"]{
-                    ◊example-pane[#:active #t #:id (first examples-ids) #:name (first examples)]{◊(get-doc (format "examples/~a.html.pm" (first examples)))}
+                    ◊example-pane[#:active #t #:id (first examples-ids) #:name (first examples)]{◊(example-doc (format "examples/~a.html.pm" (first examples)))}
                     ◊(for/splice ((ex (rest examples)) (id (rest examples-ids)))
                         ◊example-pane[
                             #:name ex
                             #:id id]{
-                                ◊(get-doc (format "examples/~a.html.pm" ex))
+                                ◊(example-doc (format "examples/~a.html.pm" ex))
                             })
                 }
             }
         }
     ])
 
-
+◊(define (example-doc path)
+    (apply @ (rest (get-doc path))))
 
 
 ◊div[#:class "container"]{
