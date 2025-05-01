@@ -20,6 +20,49 @@
     ◊div[#:class "row d-flex justify-content-center"]{
         ◊div[#:class "col-md-6"]{ ◊(apply @ elems) }})
 
+◊(define (examples-tabs examples examples-names)
+    ◊@[
+        ◊div[#:class "row d-flex justify-content-center"]{
+            ◊div[#:class "col-md-8 nav-border"]{
+                ◊ul[#:class "nav nav-pills" #:id "examplesTabs" #:role "tablist"]{
+                    ◊li[#:class "nav-item" #:role "presentation"]{
+                        ◊button[
+                            #:class "nav-link active"
+                            #:id (format "~a-tab" (first examples))
+                            #:data-bs-toggle "pill"
+                            #:data-bs-target (format "#~a" (first examples))
+                            #:type "button"
+                            #:role "tab"
+                            #:aria-controls (first examples)
+                            #:aria-selected "true"]{◊(first examples-names)}
+                    }
+                    ◊(for/splice ((ex (rest examples)) (name (rest examples-names)))
+                        ◊li[#:class "nav-item" #:role "presentation"]{
+                            ◊button[
+                                #:class "nav-link"
+                                #:id (format "~a-tab" ex)
+                                #:data-bs-toggle "pill"
+                                #:data-bs-target (format "#~a" ex)
+                                #:type "button"
+                                #:role "tab"
+                                #:aria-controls ex
+                                #:aria-selected "false"]{◊name}
+                        })
+                }
+            }
+        }
+        ◊div[#:class "row d-flex justify-content-center tab-top"]{
+            ◊div[#:class "col-md-8 tab-box"]{
+                ◊div[#:class "tab-content" #:id "examplesTabsContent"]{
+                    ◊example-pane[#:active #t #:name (first examples)]{◊(get-doc (format "examples/~a.html.pm" (first examples)))}
+                    ◊(for/splice ((ex (rest examples)))
+                        ◊example-pane[#:name ex]{◊(get-doc (format "examples/~a.html.pm" ex))})
+                }
+            }
+        }
+    ]
+)
+
 ◊div[#:class "container"]{
     ◊div[#:class "jumbotron"]{
         ◊div[#:class "row d-flex justify-content-center"]{
@@ -37,16 +80,6 @@
             }
         }
     }
-    ◊div[#:class "row d-flex justify-content-center"]{
-        ◊div[#:class "col-md-8 d-flex justify-content-center"]{
-          ◊span{
-              Jump to: 
-              ◊a[#:class "btn btn-primary btn-m hvr-border-fade" #:href "#k-12"]{Primary/Secondary (K-12)}
-              ◊a[#:class "btn btn-primary btn-m hvr-border-fade" #:href "#ugrad"]{College/University}
-              ◊a[#:class "btn btn-primary btn-m hvr-border-fade" #:href "#devs"]{Developers}
-          }
-        }
-    }
 }
 ◊div[#:class "container-fluid"]{
 
@@ -61,43 +94,22 @@
                 ◊a[#:href "#running-pyret"]{Ways to Run Pyret}.
             }
         }
-        ◊div[#:class "col-md-8 nav-border"]{
-            ◊ul[#:class "nav nav-pills" #:id "examplesTabs" #:role "tablist"]{
-                ◊li[#:class "nav-item" #:role "presentation"]{
-                    ◊button[
-                        #:class "nav-link active"
-                        #:id (format "~a-tab" (first examples))
-                        #:data-bs-toggle "pill"
-                        #:data-bs-target (format "#~a" (first examples))
-                        #:type "button"
-                        #:role "tab"
-                        #:aria-controls (first examples)
-                        #:aria-selected "true"]{◊(first examples-names)}
+    }
+    ◊div[#:class "row d-flex justify-content-center"]{
+        ◊div[#:class "col-md-8 d-flex justify-content-center"]{
+            ◊p{
+                ◊span{
+                    Examples for:
+                    ◊a[#:class "btn btn-primary btn-m hvr-border-fade"]{General}
+                    ◊a[#:class "btn btn-primary btn-m hvr-border-fade"]{K-12}
+                    ◊a[#:class "btn btn-primary btn-m hvr-border-fade"]{University}
+                    ◊a[#:class "btn btn-primary btn-m hvr-border-fade"]{Beyond}
                 }
-                ◊(for/splice ((ex (rest examples)) (name (rest examples-names)))
-                    ◊li[#:class "nav-item" #:role "presentation"]{
-                        ◊button[
-                            #:class "nav-link"
-                            #:id (format "~a-tab" ex)
-                            #:data-bs-toggle "pill"
-                            #:data-bs-target (format "#~a" ex)
-                            #:type "button"
-                            #:role "tab"
-                            #:aria-controls ex
-                            #:aria-selected "false"]{◊name}
-                    })
             }
         }
     }
-    ◊div[#:class "row d-flex justify-content-center tab-top"]{
-        ◊div[#:class "col-md-8 tab-box"]{
-            ◊div[#:class "tab-content" #:id "examplesTabsContent"]{
-                ◊example-pane[#:active #t #:name (first examples)]{◊(get-doc (format "examples/~a.html.pm" (first examples)))}
-                ◊(for/splice ((ex (rest examples)))
-                    ◊example-pane[#:name ex]{◊(get-doc (format "examples/~a.html.pm" ex))})
-            }
-        }
-    }
+
+    ◊examples-tabs[examples examples-names]
 
     ◊div[#:class "row embed-row"]{
         ◊div[#:id "examples-frame" #:class "embed-container" #:style "height: 30em"]{}}
@@ -192,8 +204,8 @@ console.log("-----------------------------------");
 
     // I think this has to be metaprogrammed, because import is syntax (can't import
     // with a value in a loop in JS)
-    ◊(apply string-append (for/list ((ex examples))
-        (format "import { ~a } from \"./examples/~a.js\";\n" ex ex)))
+    ◊(for/splice ((ex examples))
+        (format "import { ~a } from \"./examples/~a.js\";\n" ex ex))
 
     const startFrameContainer = document.getElementById("examples-frame")   
 
