@@ -10,7 +10,7 @@
 ◊(define by-category
     #hash(
         ("cat-general" . (("testing" . "Testing") ("images" . "Images")))
-        ("cat-k12" . (("rational" . "Rationals") ("images" . "Images") ("physics" . "Physics")))
+        ("cat-k12" . (("rational" . "Rationals") ("images" . "Images") ("data_science" . "Data Science") ("physics" . "Physics")))
         ("cat-ugrad" . (("testing" . "Testing") ("data" . "Data Structures") ("images" . "Images")))
         ("cat-beyond" . (("testing" . "Testing") ("data" . "Data Structures")))))
 
@@ -35,9 +35,9 @@
     ◊div[#:class "row d-flex justify-content-center"]{
         ◊div[#:class "col-md-6"]{ ◊(apply @ elems) }})
 
-◊(define (nav-pills ids names)
+◊(define (nav-pills id ids names)
     ◊@[
-        ◊ul[#:class "nav nav-pills" #:id "examplesTabs" #:role "tablist"]{
+        ◊ul[#:class "nav nav-pills" #:id id #:role "tablist"]{
             ◊li[#:class "nav-item" #:role "presentation"]{
                 ◊button[
                     #:class "nav-link active"
@@ -69,7 +69,7 @@
         ◊div[#:class "row d-flex justify-content-center examples-pills"]{
             ◊div[#:class "col-md-8 nav-border"]{
                 ◊ul[#:class "nav nav-pills" #:id "examplesTabs" #:role "tablist"]{
-                    ◊nav-pills[examples-ids examples-names]
+                    ◊nav-pills["examplesTabs" examples-ids examples-names]
                 }
             }
         }
@@ -123,7 +123,7 @@
     ◊div[#:class "row d-flex justify-content-center"]{
         ◊div[#:class "col-md-8 d-flex justify-content-center align-items-center"]{
             ◊space[#:style "padding-right: 1em;"]{Choose a category:}
-            ◊nav-pills[categories categories-names]
+            ◊nav-pills["categoryTabs" categories categories-names]
         }
     }
 
@@ -246,6 +246,8 @@ console.log("-----------------------------------");
     embed.sendReset(◊default-example);
     window.pyretEmbed = embed;
 
+    
+
     const tabs = { ◊(string-join all-examples ", ") }
     const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
@@ -256,8 +258,22 @@ console.log("-----------------------------------");
             }
         });
     });
-    const elts = Object.keys(tabs).map((t) => {
-        const tabElements = document.querySelectorAll(`[example-name="${t}"]`);
-        tabElements.forEach(tabElement => { observer.observe(tabElement); });
+    const catElements = document.querySelectorAll(`#categoryTabs [data-bs-toggle="pill"]`);
+    catElements.forEach(tabElement => {
+        tabElement.addEventListener('show.bs.tab', (event) => {
+            const target = document.querySelector(tabElement.attributes["data-bs-target"].value);
+            const exampleElt = target.querySelector(`.active`);
+            exampleElt.dispatchEvent(new Event("show.bs.tab"));
+//            bootstrap.Tab.getOrCreateInstance(exampleElt).show();
+        });
+    });
+    const tabElements = document.querySelectorAll(`#examplesTabs [data-bs-toggle="pill"]`);
+    tabElements.forEach(tabElement => {
+        tabElement.addEventListener('show.bs.tab', (event) => {
+            const target = document.querySelector(tabElement.attributes["data-bs-target"].value);
+            if(target.attributes["example-name"]) {
+                embed.sendReset(tabs[target.attributes["example-name"].value]);
+            }
+        });
     });
 }
