@@ -17,7 +17,7 @@
     <meta name="twitter:title" content="◊(select-from-metas "title" metas)" />
     <meta name="twitter:image" content="https://www.pyret.org/img/pyret-logo.png" />
     <meta name="viewport"    content="width=device-width, initial-scale=1.0">
-    <link rel="icon"      href="./site/img/pyret-icon.png">
+    <link rel="icon"      href="./img/pyret-icon.png">
     <link rel="canonical" href="@|full-uri|">
     <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="//cdn.jsdelivr.net/font-hack/2.019/css/hack.min.css">
@@ -33,7 +33,7 @@
     <header class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
       <div class="container">
         <a href="./index.html" class="navbar-brand">
-          <img class="navbar-logo" src="./site/img/pyret-banner.png"></img>
+          <img class="navbar-logo" src="./img/pyret-banner.png"></img>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>

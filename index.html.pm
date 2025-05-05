@@ -96,7 +96,7 @@
     ◊div[#:class "jumbotron"]{
         ◊div[#:class "row d-flex justify-content-center"]{
             ◊div[#:class "col-md-2"]{
-                ◊img[#:class "title-logo" #:src "./site/img/pyret-logo.png"]{}
+                ◊img[#:class "title-logo" #:src "./img/pyret-logo.png"]{}
             }
             ◊div[#:class "col-md-4"]{
                 ◊p{
@@ -129,9 +129,9 @@
 
     ◊div[#:class "row d-flex justify-content-center categories-tab-top"]{
         ◊div[#:class "tab-content" #:id "categoriesTabContent"]{
-            ◊(for/splice ((cat '("cat-general" "cat-k12" "cat-ugrad" "cat-beyond")))
+            ◊(for/splice ((cat categories))
                 ◊(let ()
-                    ◊(define active-show (if (equal? cat "cat-general") " active show" ""))
+                    ◊(define active-show (if (equal? cat (first categories)) " active show" ""))
                     ◊(define examples (map car (hash-ref by-category cat)))
                     ◊(define examples-ids (map (lambda (ex) (format "~a-~a" cat ex)) examples))
                     ◊(define examples-names (map cdr (hash-ref by-category cat)))
@@ -245,8 +245,6 @@ console.log("-----------------------------------");
     const embed = await makeEmbed('examples-editor', startFrameContainer, "./node_modules/pyret-embed/dist/build/web/editor.embed.html#footerStyle=hide&warnOnExit=false");
     embed.sendReset(◊default-example);
     window.pyretEmbed = embed;
-
-    
 
     const tabs = { ◊(string-join all-examples ", ") }
     const catElements = document.querySelectorAll(`#categoryTabs [data-bs-toggle="pill"]`);
