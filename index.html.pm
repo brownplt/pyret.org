@@ -249,22 +249,12 @@ console.log("-----------------------------------");
     
 
     const tabs = { ◊(string-join all-examples ", ") }
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if(entry.intersectionRatio > 0) {
-                const tabContent = tabs[entry.target.attributes['example-name'].value];
-                console.log("tab content: ", entry, tabContent);
-                embed.sendReset(tabContent);
-            }
-        });
-    });
     const catElements = document.querySelectorAll(`#categoryTabs [data-bs-toggle="pill"]`);
     catElements.forEach(tabElement => {
         tabElement.addEventListener('show.bs.tab', (event) => {
             const target = document.querySelector(tabElement.attributes["data-bs-target"].value);
             const exampleElt = target.querySelector(`.active`);
             exampleElt.dispatchEvent(new Event("show.bs.tab"));
-//            bootstrap.Tab.getOrCreateInstance(exampleElt).show();
         });
     });
     const tabElements = document.querySelectorAll(`#examplesTabs [data-bs-toggle="pill"]`);
