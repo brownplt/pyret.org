@@ -302,3 +302,10 @@ root {
   padding-top: 114px !important;
   display: block;
 }
+
+blockquote {
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 40px;
+    margin-inline-end: 40px;
+}
