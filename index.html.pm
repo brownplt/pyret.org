@@ -207,7 +207,36 @@ with what you're already teaching. Head over to Bootstrap to learn more!}
     ◊h2{For University (Tertiary) Educators}
 
     ◊center6{
-        FILL all about DCIC, one-click, no installation, pathway to Python, autograding, etc
+Pyret comes with numerous resources that help you create a great course:
+
+◊ul{
+            ◊li{Our book, ◊a[#:href "https://dcic-world.org/"]{◊em{Data-Centric Introduction to Computing}} (DCIC),
+                gives you a modern introduction to computing education that addresses many of the problems
+                that affect current curricula. You can read our
+                ◊a[#:href "https://cs.brown.edu/~sk/Publications/Papers/Published/kf-data-centric/"]{critique}
+                that inspired the book. You can also see some of the research
+                [◊a[#:href "https://cs.brown.edu/~sk/Publications/Papers/Published/fkt-teach-scope-mut/"]{1},
+                ◊a[#:href "https://cs.brown.edu/~sk/Publications/Papers/Published/lkft-switch-fun-lang/"]{2},
+                ◊a[#:href "https://cs.brown.edu/~sk/Publications/Papers/Published/lk-smol-tutor/"]{3}]
+                that has driven its design and content.}
+
+            ◊li{In particular, DCIC takes the position — driven by a
+            significant body of literature in educational and
+            cognitive science — that students learn programming better
+            when they can compare and contrast related but different
+            things. Thus DCIC teaches not one but two programming
+            languages: Python in addition to Pyret. But the
+            progression from Pyret to Python is (a) staged carefully
+            to minimize difficulties, and (b) includes seeing them
+            side-by-side. Pyret, in turn, is designed to facilitate
+            this kind of comparison with Python.}
+
+            ◊no-install
+
+	    ◊autograders
+
+         }
+
     }
 }
 
