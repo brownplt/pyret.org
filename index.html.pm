@@ -129,7 +129,7 @@
                     co-designed with Pyret at many levels.
                 }
                 ◊p{
-                  ◊(for/splice ((cat-label categories) (cat-anchor categories-anchors))
+                  ◊(for/splice ((cat-label categories-names) (cat-anchor categories-anchors))
 		      ◊a[#:class "btn btn-primary btn-m hvr-border-fade" #:href (format "#~a" ◊cat-anchor)]{◊cat-label})
                 }
             }
