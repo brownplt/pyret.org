@@ -283,11 +283,9 @@ inspired by this quote from
 }
 
 ◊blockquote{
-  ◊p{
     The difference between design and research seems to be a question of
     new versus good. Design doesn't have to be new, but it has to be
     good. Research doesn't have to be good, but it has to be new.
-  }
 }
 
 ◊p{
