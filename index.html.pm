@@ -91,6 +91,27 @@
 ◊(define (example-doc path)
     (apply @ (rest (get-doc path))))
 
+◊(define autograders
+    ◊li{Education requires more than software and books; it
+    also requires tools like autograders. We provide them!})
+
+◊(define no-install
+    ◊li{Want to get your students going from day 1? Do you
+    have students who have had minimal computing experience,
+    and do you lose frustrating hours (that make them feel
+    inadequate) due to installers and platforms and what not?
+    Pyret runs entirely in your browser with no installation
+    at all; indeed, you're running Pyret right above on this
+    very page. Pyret is built atop an advanced technology
+    stack
+    [◊a[#:href "https://cs.brown.edu/~sk/Publications/Papers/Published/bnpkg-stopify/"]{1},
+    ◊a[#:href "https://cs.brown.edu/~sk/Publications/Papers/Published/yk-whalesong-racket-browser/"]{2}]
+    that makes this a pleasant experience while avoiding the
+    costs and burdens of maintaining servers. Our view is that
+    the crippling limitations of a platform (like the browser)
+    must not become an impediment to education; rather, we
+    should bend the platform to our needs. That is, the medium
+    should not become the message.})
 
 ◊div[#:class "container"]{
     ◊div[#:class "jumbotron"]{
