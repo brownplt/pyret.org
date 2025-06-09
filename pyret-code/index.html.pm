@@ -189,7 +189,7 @@ Pyret is driven by the ◊a[#:href "http://www.htdp.org/"]{◊em{How to Design P
 }
 
 ◊p{
-Some of our central ideas include:
+Some of our central ideas (many shared with HtDP) include:
 }
 
 ◊ul{
