@@ -172,7 +172,7 @@
 
 ◊div[#:class "container-fluid"]{
     ◊a[#:name "k12" #:style "scroll-margin-top: 100px"]{}
-    ◊h2{For K-12 Teachers}
+    ◊h2{For K–12 (Secondary School) Educators}
 
     ◊center6{
         FILL all about bootstrap, one-click, web-based, CSP projects
@@ -181,7 +181,7 @@
 
 ◊div[#:class "container-fluid"]{
     ◊a[#:name "ugrad" #:style "scroll-margin-top: 100px"]{}
-    ◊h2{For Undergraduate Instructors}
+    ◊h2{For University (Tertiary) Educators}
 
     ◊center6{
         FILL all about DCIC, one-click, no installation, pathway to Python, autograding, etc
