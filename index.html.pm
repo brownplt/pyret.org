@@ -175,7 +175,30 @@
     ◊h2{For K–12 (Secondary School) Educators}
 
     ◊center6{
-        FILL all about bootstrap, one-click, web-based, CSP projects
+
+Pyret comes with numerous resources that help you create or use great
+courses or modules:
+
+◊ul{
+
+◊li{Our partners at ◊a[#:href "https://www.bootstrapworld.org/"]{Bootstrap}
+are the leading designers of ◊em{integrated} computing curricula. All
+the Bootstrap curricula build primarily atop Pyret. Bootstrap covers
+numerous areas (with ties to algebra, data science, AI, physics, and
+more) and provides comprehensive materials that have been tested in
+thousands of classrooms and by tens of thousands of students every
+year. Bootstrap is also, by design, ◊em{modular}: you don't have to
+buy into a whole course, but can instead choose modules that fit best
+with what you're already teaching. Head over to Bootstrap to learn more!}
+
+◊no-install
+
+◊autograders
+
+}
+
+[JOE: what are "one-click, web-based, CSP projects"?]
+
     }
 }
 
