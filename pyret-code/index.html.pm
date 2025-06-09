@@ -48,7 +48,7 @@ several reasons:
   ◊li{
     We wanted to build a really great run-time system for the Web
     browser. Going through Racket and
-    ◊a[#:href "http://cs.brown.edu/~sk/Publications/Papers/Published/yk-whalesong-racket-browser/"]{Whalesong}
+    ◊a[#:href "https://cs.brown.edu/~sk/Publications/Papers/Published/yk-whalesong-racket-browser/"]{Whalesong}
     proved to be a non-starter in terms of performance, and Racket has
     many features that make an efficient implementation on today's
     JavaScript very hard. Building a native JavaScript implementation
@@ -56,10 +56,15 @@ several reasons:
     this could change.
   }
   ◊li{
-    Though our pedagogy draws from and is very similar to that of the
-    Racketeers, it also diverges in some ways, reflecting the somewhat
+    Though our pedagogy is heavily inspired by
+    ◊a[#:href "https://htdp.org/"]{◊em{How to Design Programs}},
+    it also diverges in some ways, reflecting the somewhat
     different backgrounds and preferences of team. Pyret embodies ◊em{our}
-    educational philosophy. We felt we could more easily experiment if
+    educational philosophy, as embodied in
+    ◊a[#:href "https://cs.brown.edu/~sk/Publications/Papers/Published/kf-data-centric/"]{this article}
+    and in the book
+    ◊a[#:href "https://dcic-world.org/"]{◊em{A Data-Centric Introduction to Computing}}.
+    We felt that we could more easily experiment if
     we had a clean-slate design than if we had to keep fitting our work
     into the constraints of Racket.
   }
@@ -68,7 +73,8 @@ several reasons:
     new languages—and a great prototyping ground for Pyret—proved to not
     be quite enough to support a language creation process of the scale
     of Pyret; and the need for a strong Web run-time system also meant
-    that we did not get enough out of the Racket ecosystem.
+    that we did not get enough out of the Racket ecosystem (see instead
+    ◊a[#:href "https://cs.brown.edu/~sk/Publications/Papers/Published/bnpkg-stopify/"]{where we ended up}).
     Nevertheless, that only represents the state of systems today; if
     someday the two grew closer together, many or all of us would
     rejoice.
@@ -114,7 +120,9 @@ JavaScript. In contrast, Pyret is uncompromising.
 ◊p{
 Third, if you want to teach a media-rich curriculum, you actually need
 a pretty full-featured language at least under the hood. For instance,
-Pyret's built-in support for reactive programming requires a much more
+Pyret's
+◊a[#:href "https://cs.brown.edu/~sk/Publications/Papers/Published/plpk-reactor-design/"]{built-in support for reactive programming}
+requires a much more
 sophisticated run-time system — and corresponding language features —
 than one that didn't offer this at all or just punted to JavaScript
 for this support. (Essentially, event-loops are first-class entities
