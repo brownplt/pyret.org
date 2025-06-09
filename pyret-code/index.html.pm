@@ -155,8 +155,7 @@ the school and college levels, and Pyret is actively being ◊em{used} at
 these levels. It is used in several  “CS 1” and
 “CS 2” college-level courses. It is also a central part of
 most of the curricula
-of the ◊a[#:href "https://www.bootstrapworld.org/"](Bootstrap project),
-to teach algebra, data science, physics, and more at the middle- and
+of the ◊a[#:href "https://www.bootstrapworld.org/"]{Bootstrap project}
 high-school levels.
 This gives us a very tight feedback loop.
 }
@@ -279,7 +278,7 @@ trade-off.
 Ultimately, though, research ◊em{requires} doing new things. We don't
 want to do new things just for the sake of it. We've long been
 inspired by this quote from
-[Paul Graham](http://www.paulgraham.com/desres.html):
+◊a[#:href "https://www.paulgraham.com/desres.html"]{Paul Graham}:
 }
 
 ◊blockquote{
