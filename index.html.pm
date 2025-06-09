@@ -19,7 +19,8 @@
 ◊(define default-example "testing")
 
 ◊(define categories '("cat-general" "cat-k12" "cat-ugrad" "cat-beyond"))
-◊(define categories-names '("General" "K-12" "Undergraduate" "Beyond"))
+◊(define categories-names '("General" "K-12" "University" "Beyond"))
+◊(define categories-anchors '("examples" "k12" "ugrad" "devs"))
 
 ◊(define-tag-function (example-pane attrs elems)
     (let ()
@@ -128,10 +129,8 @@
                     co-designed with Pyret at many levels.
                 }
                 ◊p{
-                    ◊a[#:class "btn btn-primary btn-m hvr-border-fade" #:href "#examples"]{Examples}
-                    ◊a[#:class "btn btn-primary btn-m hvr-border-fade" #:href "#k12"]{K-12}
-                    ◊a[#:class "btn btn-primary btn-m hvr-border-fade" #:href "#ugrad"]{Undergraduate}
-                    ◊a[#:class "btn btn-primary btn-m hvr-border-fade" #:href "#devs"]{Developers}
+                  ◊(for/splice ((cat-label categories) (cat-anchor categories-anchors))
+		      ◊a[#:class "btn btn-primary btn-m hvr-border-fade" #:href (format "#~a" ◊cat-anchor)]{◊cat-label})
                 }
             }
         }
