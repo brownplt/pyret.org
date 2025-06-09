@@ -9,14 +9,14 @@
 
 ◊(define by-category
     #hash(
-        ("cat-general" . (("testing" . "Testing") ("images" . "Images")))
+        ("cat-general" . (("images" . "Images") ("testing" . "Testing")))
         ("cat-k12" . (("rational" . "Rationals") ("images" . "Images") ("data_science" . "Data Science") ("physics" . "Physics")))
-        ("cat-ugrad" . (("testing" . "Testing") ("data" . "Data Structures") ("images" . "Images")))
-        ("cat-beyond" . (("testing" . "Testing") ("data" . "Data Structures")))))
+        ("cat-ugrad" . (("data" . "Data Structures") ("data_science" . "Data Science") ("testing" . "Testing") ("images" . "Images")))
+        ("cat-beyond" . (("data" . "Data Structures") ("testing" . "Testing")))))
 
 ◊(define all-examples
     (set->list (list->set (apply append (map (lambda (examples) (map car examples)) (hash-values by-category))))))
-◊(define default-example "testing")
+◊(define default-example "images")
 
 ◊(define categories '("cat-general" "cat-k12" "cat-ugrad" "cat-beyond"))
 ◊(define categories-names '("General" "K-12" "University" "Beyond"))
