@@ -14,7 +14,7 @@ introductory language makes good compromises between expressiveness
 and performance, and between simplicity and feature-richness. Pyret is
 our evolving experiment in this space.
 
-◊h3{Why not just use Java, Python, Racket, OCaml, or Haskell?}
+◊h3{Why not just use Java, Python, OCaml, or Haskell?}
 
 ◊p{
 One of the enduring lessons from the Racket project is that ◊em{no
@@ -26,9 +26,11 @@ which trip up students. The ◊a[#:href "http://cs.brown.edu/~sk/Publications/Pa
 (the old name for DrRacket) explains this in some detail.
 }
 
+◊h3{How about Racket?}
+
 ◊p{
-In that respect, the closest fellow travelers of us Pyreteers are the
-Racketeers (see how that works?). In fact, the first version of Pyret
+Indeed, our closest fellow travelers of are the
+Racketeers. In fact, the first version of Pyret
 was merely a ◊code{#lang} in Racket. Nevertheless, Pyret represents a
 departure from Racket (for now and for the near future, at least) for
 several reasons:
