@@ -127,7 +127,7 @@ sophisticated run-time system — and corresponding language features —
 than one that didn't offer this at all or just punted to JavaScript
 for this support. (Essentially, event-loops are first-class entities
 in the language.) We just haven't emphasized these features when
-talking about Pyret, focusing instead on the curriculum they support.
+talking about Pyret, focusing instead on the curricula they support.
 }
 
 ◊p{
