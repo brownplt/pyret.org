@@ -12,7 +12,7 @@ check:
   t.size() is 4
 end`;
 
-export const data = {
+export const oop = {
     definitionsAtLastRun: example,
     interactionsSinceLastRun: [ ],
     editorContents: example,
