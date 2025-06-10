@@ -4,7 +4,7 @@
 ◊(require racket/list)
 ◊(require pollen/tag)
 
-◊(define-meta title "The Pyret Programming Language")
+◊(define-meta title "Pyret")
 ◊(define-meta rel-path ".")
 
 ◊(define by-category
