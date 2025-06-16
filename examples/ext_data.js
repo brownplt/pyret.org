@@ -16,7 +16,7 @@ animals-table.filter(is-cat)
 `;
 
 
-export const data_science = {
+export const ext_data = {
     definitionsAtLastRun: example,
     interactionsSinceLastRun: [ ],
     editorContents: example,
