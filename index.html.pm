@@ -10,9 +10,9 @@
 ◊(define by-category
     #hash(
         ("cat-general" . (("images" . "Images") ("testing" . "Testing")))
-        ("cat-k12" . (("rational" . "Rationals") ("images" . "Images") ("data_science" . "Data Science") ("physics" . "Physics")))
-        ("cat-ugrad" . (("data" . "Data Structures") ("data_science" . "Data Science") ("testing" . "Testing")  ("oop" . "Object-Oriented Programming") ("images" . "Images")))
-        ("cat-beyond" . (("data" . "Data Structures")  ("oop" . "Object-Oriented Programming") ("testing" . "Testing")))))
+        ("cat-k12" . (("rational" . "Rationals") ("images" . "Images") ("tables" . "Tables") ("physics" . "Physics") ("ext_data" . "External Data")))
+        ("cat-ugrad" . (("data" . "Data Structures") ("tables" . "Tables") ("testing" . "Testing")  ("oop" . "Object-Oriented Programming") ("images" . "Images") ("ext_data" . "External Data")))
+        ("cat-beyond" . (("data" . "Data Structures") ("tables" . "Tables") ("oop" . "Object-Oriented Programming") ("testing" . "Testing")))))
 
 ◊(define all-examples
     (set->list (list->set (apply append (map (lambda (examples) (map car examples)) (hash-values by-category))))))
