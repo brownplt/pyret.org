@@ -99,11 +99,11 @@
     (apply @ (rest (get-doc path))))
 
 ◊(define autograders
-    ◊li{Education requires more than software and books; it
+    ◊li[#:class "mt-3"]{Education requires more than software and books; it
     also requires tools like autograders. We provide them!})
 
 ◊(define no-install
-    ◊li{Want to get your students going from day 1? Do you
+    ◊li[#:class "mt-3"]{Want to get your students going from day 1? Do you
     have students who have had minimal computing experience,
     and do you lose frustrating hours (that make them feel
     inadequate) due to installers and platforms and what not?
@@ -184,16 +184,16 @@ development, and free to use or modify.
 Pyret comes with numerous resources that help you create or use great
 courses or modules:
 
-◊ul{
+◊ul[#:class "mt-3"]{
 
-◊li{Our partners at ◊a[#:href "https://www.bootstrapworld.org/"]{Bootstrap}
+◊li[#:class "mt-3"]{Our partners at ◊a[#:href "https://www.bootstrapworld.org/"]{Bootstrap}
 are the leading designers of ◊em{integrated} computing curricula. All
 the Bootstrap curricula build primarily atop Pyret. Bootstrap covers
 numerous areas (with ties to algebra, data science, AI, physics, and
 more) and provides comprehensive materials that have been tested in
 thousands of classrooms and by tens of thousands of students every
 year. Bootstrap is also, by design, ◊em{modular}: you don't have to
-buy into a whole course, but can instead choose modules that fit best
+adopt a whole course, but can instead choose modules that fit best
 with what you're already teaching. Head over to Bootstrap to learn more!}
 
 ◊no-install
@@ -201,8 +201,6 @@ with what you're already teaching. Head over to Bootstrap to learn more!}
 ◊autograders
 
 }
-
-[JOE: what are "one-click, web-based, CSP projects"?]
 
     }
 }
@@ -214,8 +212,8 @@ with what you're already teaching. Head over to Bootstrap to learn more!}
     ◊center6{
 Pyret comes with numerous resources that help you create a great course:
 
-◊ul{
-            ◊li{Our book, ◊a[#:href "https://dcic-world.org/"]{◊em{Data-Centric Introduction to Computing}} (DCIC),
+◊ul[#:class "mt-3"]{
+            ◊li[#:class "mt-3"]{Our book, ◊a[#:href "https://dcic-world.org/"]{◊em{Data-Centric Introduction to Computing}} (DCIC),
                 gives you a modern introduction to computing education that addresses many of the problems
                 that affect current curricula. You can read our
                 ◊a[#:href "https://cs.brown.edu/~sk/Publications/Papers/Published/kf-data-centric/"]{critique}
@@ -225,7 +223,7 @@ Pyret comes with numerous resources that help you create a great course:
                 ◊a[#:href "https://cs.brown.edu/~sk/Publications/Papers/Published/lk-smol-tutor/"]{3}]
                 that has driven its design and content.}
 
-            ◊li{In particular, DCIC takes the position — driven by a
+            ◊li[#:class "mt-3"]{In particular, DCIC takes the position — driven by a
             significant body of literature in educational and
             cognitive science — that students learn programming better
             when they can compare and contrast related but different
