@@ -21,6 +21,11 @@ h2 {
   border: 3px solid var(--pyret-run-blue);
 }
 
+
+ul.custom-bullets {
+    list-style-type: square; /* Options: disc, circle, square, none */
+}
+
 a:active, a:focus {
   outline: 0;
 }

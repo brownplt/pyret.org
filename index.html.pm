@@ -184,7 +184,7 @@ development, and free to use or modify.
 Pyret comes with numerous resources that help you create or use great
 courses or modules:
 
-◊ul[#:class "mt-3"]{
+◊ul[#:class "mt-3 custom-bullets"]{
 
 ◊li[#:class "mt-3"]{Our partners at ◊a[#:href "https://www.bootstrapworld.org/"]{Bootstrap}
 are the leading designers of ◊em{integrated} computing curricula. All
@@ -212,7 +212,7 @@ with what you're already teaching. Head over to Bootstrap to learn more!}
     ◊center6{
 Pyret comes with numerous resources that help you create a great course:
 
-◊ul[#:class "mt-3"]{
+◊ul[#:class "mt-3 custom-bullets"]{
             ◊li[#:class "mt-3"]{Our book, ◊a[#:href "https://dcic-world.org/"]{◊em{Data-Centric Introduction to Computing}} (DCIC),
                 gives you a modern introduction to computing education that addresses many of the problems
                 that affect current curricula. You can read our
