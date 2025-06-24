@@ -9,18 +9,24 @@
 
 ◊(define by-category
     #hash(
-        ("cat-general" . (("images" . "Images") ("testing" . "Testing")))
-        ("cat-k12" . (("rational" . "Rationals") ("images" . "Images") ("tables" . "Tables") ("physics" . "Physics") ("ext_data" . "External Data")))
-        ("cat-ugrad" . (("data" . "Data Structures") ("tables" . "Tables") ("testing" . "Testing")  ("oop" . "Object-Oriented Programming") ("images" . "Images") ("ext_data" . "External Data")))
-        ("cat-beyond" . (("data" . "Data Structures") ("tables" . "Tables") ("oop" . "Object-Oriented Programming") ("testing" . "Testing")))))
+  ("cat-general" . (
+		    ("images" . "Images")
+		    ("rational" . "Rationals")
+		    ("tables" . "Tables")
+		    ("data" . "Data Structures")
+		    ("oop" . "Object-Oriented Programming")
+		    ("physics" . "Physics")
+		    ("ext_data" . "External Data")
+		    ("testing" . "Testing")
+		   ))))
 
 ◊(define all-examples
     (set->list (list->set (apply append (map (lambda (examples) (map car examples)) (hash-values by-category))))))
 ◊(define default-example "images")
 
-◊(define categories '("cat-general" "cat-k12" "cat-ugrad" "cat-beyond"))
-◊(define categories-names '("General" "K-12" "University" "Beyond"))
-◊(define categories-anchors '("examples" "k12" "ugrad" "devs"))
+◊(define categories '("cat-general"))
+◊(define categories-names '("General"))
+◊(define categories-anchors '("examples"))
 
 ◊(define-tag-function (example-pane attrs elems)
     (let ()
