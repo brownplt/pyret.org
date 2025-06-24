@@ -225,10 +225,7 @@ Pyret comes with numerous resources that help you create a great course:
 
 ◊ul[#:class "mt-3 custom-bullets"]{
             ◊li[#:class "mt-3"]{Our book, ◊a[#:href "https://dcic-world.org/"]{◊em{Data-Centric Introduction to Computing}} (DCIC),
-                gives you a modern introduction to computing education that addresses many of the problems
-                that affect current curricula. You can read our
-                ◊a[#:href "https://cs.brown.edu/~sk/Publications/Papers/Published/kf-data-centric/"]{critique}
-                that inspired the book. You can also see some of the research
+                provides a modern introduction to computing education. You can see some of the research
                 [◊a[#:href "https://cs.brown.edu/~sk/Publications/Papers/Published/fkt-teach-scope-mut/"]{1},
                 ◊a[#:href "https://cs.brown.edu/~sk/Publications/Papers/Published/lkft-switch-fun-lang/"]{2},
                 ◊a[#:href "https://cs.brown.edu/~sk/Publications/Papers/Published/lk-smol-tutor/"]{3}]
@@ -236,6 +233,17 @@ Pyret comes with numerous resources that help you create a great course:
 
 		   ◊images-as-values
 		       
+		   ◊li[#:class "mt-3"]{
+		       Once students get past images,
+		       DCIC takes the position that introductory data ◊em{science} offers an interesting, accessible, and
+		       meaningful introduction to programming that addresses many problems that plague current
+		       introductory curricula. It then transitions from that to data ◊em{structures}.
+		       You can read our
+		       ◊a[#:href "https://cs.brown.edu/~sk/Publications/Papers/Published/kf-data-centric/"]{critique}
+			  that inspired the book.
+			  Pyret offers various features that support this introduction and transition.
+			}
+
             ◊li[#:class "mt-3"]{In particular, DCIC takes the position — driven by a
             significant body of literature in educational and
             cognitive science — that students learn programming better
