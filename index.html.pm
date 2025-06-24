@@ -128,11 +128,11 @@
             }
             ◊div[#:class "col-md-4"]{
                 ◊p{
-                    Pyret is a programming language designed for
-                    computing education across many contexts, with a robust
-                    web-based runtime and programming environment
-                    to support broad access. Several curricula have been
-                    co-designed with Pyret at many levels.
+Pyret is a programming language designed to serve as an outstanding
+choice for programming education. It works effectively at many levels,
+from secondary to the advanced tertiary level. Several curricula in
+active use incorporate Pyret. The language is under active design and
+development, and free to use or modify.
                 }
                 ◊p{
                   ◊(for/splice ((cat-label categories-names) (cat-anchor categories-anchors))
