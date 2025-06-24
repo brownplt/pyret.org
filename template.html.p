@@ -43,8 +43,8 @@
              id="navbarSupportedContent">
           <ul class="navbar-nav me-auto">
             <li class="nav-item"><a class="nav-link fancyhover-above" href="/docs/latest/">Documentation</a></li>
-            <li class="nav-item"><a class="nav-link fancyhover-above" href="https://github.com/brownplt/pyret-lang">Code</a></li>
             <li class="nav-item"><a class="nav-link fancyhover-above" href="./pyret-code/">Why Pyret?</a></li>
+            <li class="nav-item"><a class="nav-link fancyhover-above" href="https://github.com/brownplt/pyret-lang">Source Code</a></li>
           </ul>
         </div>
     </header>
