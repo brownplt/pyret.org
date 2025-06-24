@@ -36,7 +36,7 @@ departure from Racket (for now and for the near future, at least) for
 several reasons:
 }
 
-◊ul{
+◊ul[#:class "custom-bullets"]{
   ◊li{
     We wanted to experiment with syntax. Much as many of us love
     parentheses, we fear that Racket will always bump into an acceptance
@@ -192,7 +192,7 @@ Pyret is driven by the ◊a[#:href "http://www.htdp.org/"]{◊em{How to Design P
 Some of our central ideas (many shared with HtDP) include:
 }
 
-◊ul{
+◊ul[#:class "custom-bullets"]{
   ◊li{
     Languages should offer a rich set of values. For instance, images
     should be primitive values, fully supported by the environment. This
