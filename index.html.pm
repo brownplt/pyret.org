@@ -102,6 +102,15 @@
     ◊li[#:class "mt-3"]{Education requires more than software and books; it
     also requires tools like autograders. We provide them!})
 
+◊(define images-as-values
+  ◊li[#:class "mt-3"]{
+
+      For beginners of all ages, pictures (or “images”) are some of
+      the most compelling media. Pyret offers excellent support for
+      working with images within the language itself.
+
+      })
+
 ◊(define no-install
     ◊li[#:class "mt-3"]{Want to get your students going from day 1? Do you
     have students who have had minimal computing experience,
@@ -196,6 +205,8 @@ year. Bootstrap is also, by design, ◊em{modular}: you don't have to
 adopt a whole course, but can instead choose modules that fit best
 with what you're already teaching. Head over to Bootstrap to learn more!}
 
+    ◊images-as-values
+
 ◊no-install
 
 ◊autograders
@@ -223,6 +234,8 @@ Pyret comes with numerous resources that help you create a great course:
                 ◊a[#:href "https://cs.brown.edu/~sk/Publications/Papers/Published/lk-smol-tutor/"]{3}]
                 that has driven its design and content.}
 
+		   ◊images-as-values
+		       
             ◊li[#:class "mt-3"]{In particular, DCIC takes the position — driven by a
             significant body of literature in educational and
             cognitive science — that students learn programming better
