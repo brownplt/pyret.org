@@ -12,12 +12,14 @@
   ("cat-general" . (
 		    ("images" . "Images")
 		    ("rational" . "Rationals")
+		    ("examples" . "Examples")
 		    ("tables" . "Tables")
 		    ("data" . "Data Structures")
 		    ("oop" . "Object-Oriented Programming")
 		    ("physics" . "Physics")
 		    ("ext_data" . "External Data")
 		    ("testing" . "Testing")
+		    ("pbt" . "Property-Based Testing")
 		   ))))
 
 ◊(define all-examples
