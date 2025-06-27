@@ -7,9 +7,7 @@
 ◊(define-meta title "Pyret")
 ◊(define-meta rel-path ".")
 
-◊(define by-category
-    #hash(
-  ("cat-general" . (
+◊(define examples '(
 		    ("images" . "Images")
 		    ("rational" . "Rationals")
 		    ("examples" . "Examples")
@@ -20,15 +18,10 @@
 		    ("ext_data" . "External Data")
 		    ("testing" . "Testing")
 		    ("pbt" . "Property-Based Testing")
-		   ))))
+		   ))
 
-◊(define all-examples
-    (set->list (list->set (apply append (map (lambda (examples) (map car examples)) (hash-values by-category))))))
+◊(define all-examples (map car examples))
 ◊(define default-example "images")
-
-◊(define categories '("cat-general"))
-◊(define categories-names '("General"))
-◊(define categories-anchors '("examples"))
 
 ◊(define-tag-function (example-pane attrs elems)
     (let ()
@@ -145,10 +138,6 @@ from secondary to the advanced tertiary level. Several curricula in
 active use incorporate Pyret. The language is under active design and
 development, and free to use or modify.
                 }
-                ◊p{
-                  ◊(for/splice ((cat-label categories-names) (cat-anchor categories-anchors))
-		      ◊a[#:class "btn btn-primary btn-m hvr-border-fade" #:href (format "#~a" ◊cat-anchor)]{◊cat-label})
-                }
             }
         }
     }
@@ -157,27 +146,15 @@ development, and free to use or modify.
 
     ◊a[#:name "examples" #:style "scroll-margin-top: 100px"]{}
     ◊h2{Pyret in Action}
-    ◊div[#:class "row d-flex justify-content-center"]{
-        ◊div[#:class "col-md-8 d-flex justify-content-center align-items-center"]{
-            ◊space[#:style "padding-right: 1em;"]{Choose a category:}
-            ◊nav-pills["categoryTabs" categories categories-names]
-        }
-    }
 
     ◊div[#:class "row d-flex justify-content-center categories-tab-top"]{
-        ◊div[#:class "tab-content" #:id "categoriesTabContent"]{
-            ◊(for/splice ((cat categories))
-                ◊(let ()
-                    ◊(define active-show (if (equal? cat (first categories)) " active show" ""))
-                    ◊(define examples (map car (hash-ref by-category cat)))
-                    ◊(define examples-ids (map (lambda (ex) (format "~a-~a" cat ex)) examples))
-                    ◊(define examples-names (map cdr (hash-ref by-category cat)))
-                    ◊(eprintf "~a" examples-names)
-                    ◊div[#:class (string-append "tab-pane" active-show) #:id cat #:role "tabpanel" #:aria-labelled-by (string-append cat "-tab")]{
-                        ◊examples-tabs[examples-ids examples examples-names]
-                    })
-                )
-        }
+      ◊div[#:class "tab-pane"]{
+        ◊(let ()
+          ◊(define examples-shortnames (map car examples))
+          ◊(define examples-names (map cdr examples))
+          ◊examples-tabs[examples-shortnames examples-shortnames examples-names]
+        )
+      }
     }
 
     ◊div[#:class "row embed-row"]{
