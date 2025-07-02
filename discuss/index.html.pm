@@ -1,5 +1,8 @@
 #lang pollen
 
+◊(define-meta title "News and Discussion")
+◊(define-meta rel-path "..")
+
 ◊div[#:class "container"]{
   ◊div[#:class "row d-flex justify-content-center"]{
       ◊div[#:class "col-md-8"]{
