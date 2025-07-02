@@ -244,6 +244,10 @@ div.carousel-inner pre {
   font-size : 14pt;
 }
 
+#content p:first-child {
+  margin-top: 0;
+}
+
 #content ul {
   font-family : 'Garamond';
   font-weight: 300;
@@ -258,6 +262,10 @@ div.carousel-inner pre {
 .paragraph-content {
   font-family : 'Garamond';
   font-size : 14pt;
+}
+
+.paragraph-content p:first-child {
+  margin-top: 0;
 }
 
 h3 {
