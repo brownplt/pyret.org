@@ -49,6 +49,22 @@
         </div>
     </header>
     ◊(->html (body doc))
+	  <footer class="bg-dark text-white text-center py-2">
+	      <div class="container">
+
+		<p>
+		Remember:
+		<a href="https://en.wikipedia.org/wiki/International_Talk_Like_a_Pirate_Day" target="_blank">
+		International Talk Like a Pirate Day</a>
+		is September 19 every year!
+		</p>
+
+		<p class="fst-italic">Site built using
+		  <a href="https://docs.racket-lang.org/pollen/">Pollen</a> and
+		  <a href="https://www.racket-lang.org/">Racket</a>.
+		</p>
+	      </div>
+	  </footer>
   </body>
 </html>
 
