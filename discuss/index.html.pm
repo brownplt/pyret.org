@@ -6,7 +6,7 @@
 
 ◊h1{News and Discussion}
 
- ◊h2{Announcements}
+ ◊h2{News}
 
   ◊p{ If you’re interested in hearing about major updates to Pyret
   (including new versions with updated features or
