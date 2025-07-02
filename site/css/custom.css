@@ -265,3 +265,13 @@ h3 {
   padding-top: 0.5em;
   padding-bottom: 0.5em;
 }
+
+/* Footer link styling */
+footer a {
+  color: #ffd54f !important;
+}
+
+footer a:hover,
+footer a:focus {
+  color: #fff176 !important;
+}
