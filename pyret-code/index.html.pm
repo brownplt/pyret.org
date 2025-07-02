@@ -7,7 +7,7 @@
   ◊div[#:class "row d-flex justify-content-center"]{
       ◊div[#:class "col-md-6"]{
 
-◊h1{The Pyret Code; or A Rationale for the Pyret Programming Language}
+◊h1{The Pyret Code; or ◊br[] A Rationale for the Pyret Programming Language}
 
 We need better languages for introductory computing. A good
 introductory language makes good compromises between expressiveness
