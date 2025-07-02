@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "dependencies": {
     "codemirror": "^5.x",
-    "pyret-codemirror-mode": "git://github.com/brownplt/pyret-codemirror-mode"
+    "pyret-codemirror-mode": "git://github.com/brownplt/pyret-codemirror-mode",
+    "pyret-embed": "^0.0.7"
   },
   "scripts": {
     "build": "make"
