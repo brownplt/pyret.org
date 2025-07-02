@@ -43,6 +43,9 @@
   ◊p{ Shriram Krishnamurthi provides the budget for t-shirts and
       stickers. }
 
+  ◊p{ You can also see who has contributed to the codebase
+      ◊a[#:href "https://github.com/brownplt/pyret-lang/graphs/contributors"]{on GitHub}. }
+
 }
 
 }
