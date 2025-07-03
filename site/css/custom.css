@@ -265,3 +265,12 @@ h3 {
   padding-top: 0.5em;
   padding-bottom: 0.5em;
 }
+
+/* Footer link styling - light yellow for better contrast against black background */
+footer a {
+  color: #ffd700 !important;
+}
+
+footer a:hover {
+  color: #ffed4a !important;
+}
