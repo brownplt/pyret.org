@@ -32,6 +32,9 @@ check:
   insert(1, [list: 2, 3, 4]) is [list: 1, 2, 3, 4]
   insert(1, [list: 3, 2, 4]) raises "predicate"
 end
+
+# Uncomment and run the next line to see the error message!
+# insert(1, [list: 3, 2, 4])
 `;
 
 export const refinement = {
