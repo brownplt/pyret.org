@@ -14,6 +14,7 @@
 		    ("tables" . "Tables")
 		    ("data" . "Data Structures")
 		    ("lambdas" . "Lambdas")
+		    ("refinement" . "Type Refinements")
 		    ("oop" . "Object-Oriented Programming")
 		    ("forloops" . "Loops")
 		    ("mutation" . "Mutation and State")
