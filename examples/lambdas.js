@@ -6,7 +6,7 @@ a1 = lam(x): x + 1 end
 # Parenthetical, useful for concise expressions passed as arguments
 a2 = {(x): x + 1}
 
-# Special syntax for single-argument procedures; syntactically fragile!
+# Special syntax for procedures; syntactically fragile!
 a3 = (_ + 1)
 
 check "add one":
@@ -17,11 +17,12 @@ end
 
 s1 = lam(x, y): x + y end
 s2 = {(x, y): x + y}
-# There is no \`_\` version, because there are two arguments
+s3 = _ + _
 
 check "two-parameter addition":
   s1(5, 10) is 15
   s2(5, 10) is 15
+  s3(5, 10) is 15
 end
 `;
 
