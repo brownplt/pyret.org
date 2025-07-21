@@ -1,5 +1,27 @@
 const example = `use context starter2024
 
+# Objects can have methods
+
+point-methods = {
+  method dist(self, other):
+    ysquared = num-expt(other.y - self.y, 2)
+    xsquared = num-expt(other.x - self.x, 2)
+    num-sqrt(ysquared + xsquared)
+  end
+}
+
+fun make-point(x, y):
+  point-methods.{ x: x, y: y }
+end
+
+check:
+  p1 = make-point(1, 2)
+  p2 = make-point(1, 5)
+  p1.dist(p2) is 3
+end
+
+# Algebraic datatypes can also have methods
+
 data Tree:
   | mt with: 
     method size(self): 0 end
