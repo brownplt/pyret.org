@@ -34,6 +34,11 @@
         margin-left: 1.5rem;
       }
     </style>
+    <style>
+	footer a {
+	    color: #f9e79f; /* Soft Yellow */
+	}
+    </style>
   </head>
   <body>
     <header class="navbar navbar-expand-lg navbar-light bg-light fixed-top more-navbar-space">
