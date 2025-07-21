@@ -13,6 +13,7 @@
 		    ("examples" . "Examples")
 		    ("tables" . "Tables")
 		    ("data" . "Data Structures")
+		    ("annotations" . "Type Annotations")
 		    ("testing" . "Testing")
 		    ("lambdas" . "Lambdas")
 		    ("forloops" . "Loops")
