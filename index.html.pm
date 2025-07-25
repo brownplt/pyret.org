@@ -15,6 +15,7 @@
 		    ("data" . "Data Structures")
 		    ("annotations" . "Type Annotations")
 		    ("testing" . "Testing")
+		    ("spies" . "Spies")
 		    ("lambdas" . "Lambdas")
 		    ("forloops" . "Loops")
 		    ("mutation" . "Mutation and State")
