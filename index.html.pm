@@ -23,6 +23,7 @@
 		    ("constructors" . "Constructors")
 		    ("tuples" . "Tuples")
 		    ("mutation" . "Mutation and State")
+		    ("partial" . "Partial Functions")
 		    ("ext_data" . "External Data")
 		    ("pbt" . "Property-Based Testing")
 		    ("oop" . "Object-Oriented Programming")
