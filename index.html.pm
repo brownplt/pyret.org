@@ -23,6 +23,7 @@
 		    ("constructors" . "Constructors")
 		    ("tuples" . "Tuples")
 		    ("mutation" . "Mutation and State")
+		    ("equality" . "Equality")
 		    ("partial" . "Partial Functions")
 		    ("ext_data" . "External Data")
 		    ("pbt" . "Property-Based Testing")
