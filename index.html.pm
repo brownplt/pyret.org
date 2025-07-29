@@ -20,6 +20,7 @@
 		    ("lambdas" . "Lambdas")
 		    ("forloops" . "Loops")
 		    ("sets" . "Sets")
+		    ("constructors" . "Constructors")
 		    ("tuples" . "Tuples")
 		    ("mutation" . "Mutation and State")
 		    ("ext_data" . "External Data")
