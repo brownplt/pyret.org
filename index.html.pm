@@ -19,6 +19,7 @@
 		    ("spies" . "Spies")
 		    ("lambdas" . "Lambdas")
 		    ("forloops" . "Loops")
+		    ("sets" . "Sets")
 		    ("tuples" . "Tuples")
 		    ("mutation" . "Mutation and State")
 		    ("ext_data" . "External Data")
