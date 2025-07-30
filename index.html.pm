@@ -24,6 +24,7 @@
 		    ("tuples" . "Tuples")
 		    ("mutation" . "Mutation and State")
 		    ("equality" . "Equality")
+		    ("modules" . "Modules")
 		    ("partial" . "Partial Functions")
 		    ("ext_data" . "External Data")
 		    ("pbt" . "Property-Based Testing")
