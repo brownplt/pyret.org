@@ -23,6 +23,7 @@
 		    ("constructors" . "Constructors")
 		    ("tuples" . "Tuples")
 		    ("mutation" . "Mutation and State")
+		    ("contexts" . "Contexts")
 		    ("equality" . "Equality")
 		    ("partial" . "Partial Functions")
 		    ("ext_data" . "External Data")
