@@ -25,6 +25,7 @@
 		    ("mutation" . "Mutation and State")
 		    ("contexts" . "Contexts")
 		    ("equality" . "Equality")
+		    ("modules" . "Modules")
 		    ("partial" . "Partial Functions")
 		    ("ext_data" . "External Data")
 		    ("pbt" . "Property-Based Testing")
