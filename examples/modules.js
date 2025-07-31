@@ -1,6 +1,6 @@
 const example = `use context starter2024
 
-import shared-gdrive("TTT Helper (for Pyret home page)", "1KIysiRxphUAKIAXm08xENzubR_kq-Nss") as TTT
+import url("https://raw.githubusercontent.com/brownplt/pyret.org/786f1539e41d47694ef69312a93804672da0bbf1/examples/code/home-page-modules.arr") as TTT
 
 TTT.draw-board(TTT.board-blank)
 
