@@ -32,6 +32,8 @@
 		    ("oop" . "Object-Oriented Programming")
 		   ))
 
+◊(define shown-examples '("images" "examples" "rational" "reactors"))
+
 ◊(define all-examples (map car examples))
 ◊(define default-example "images")
 
@@ -45,8 +47,51 @@
                        ◊p[#:class "example-info"]{
                             ◊(first elems)}}))
 
+◊(define-tag-function (pyret-snippet attrs elems)
+    ◊pre[#:class "pyret-example"]{
+        ◊(apply @ elems)
+    }
+))
+
+◊(define (example-code example-name)
+    ◊(let ()
+        (define unique (gensym example-name))
+        (define id (format "pyret-example-~a" unique))
+    
+        ◊div[#:class "runnable-pyret"]{
+            ◊pre[#:class "pyret-example" #:id id]{}
+            ◊script[#:type "module"]{
+                import { example } from "./examples/◊|example-name|.js";
+                const preElt = document.getElementById("◊|id|");
+                preElt.innerText = example;
+            }
+        })
+)
+
+◊(define (open-example example-name)
+    ◊(let ()
+        (define unique (gensym example-name))
+        (define button-id (format "pyret-example-~a-run" unique))
+    ◊@{
+        ◊button[#:class "runnable-pyret" #:id button-id]{Run it!}
+        ◊script[#:type "module"]{
+            import { ◊example-name } from "./examples/◊|example-name|.js";
+            const button = document.getElementById("◊|button-id|");
+            const modalElt = document.getElementById('example-modal');
+            const modal = bootstrap.Modal.getOrCreateInstance(modalElt);
+            button.addEventListener("click", () => {
+                window.pyretEmbed.sendReset(◊example-name);
+                modal.show();
+            });
+        }
+    }
+    )
+)
+
+ 
+
 ◊(define-tag-function (center6 attrs elems)
-    ◊div[#:class "row d-flex justify-content-center"]{
+    ◊div[#:class "row d-flex justify-content-center feature"]{
         ◊div[#:class "col-md-6"]{ ◊(apply @ elems) }})
 
 ◊(define (nav-pills id ids names)
@@ -64,17 +109,20 @@
                     #:aria-selected "true"]{◊(first names)}
             }
             ◊(for/splice ((ex (rest ids)) (name (rest names)))
-                ◊li[#:class "nav-item" #:role "presentation"]{
-                    ◊button[
-                        #:class "nav-link"
-                        #:id (format "~a-tab" ex)
-                        #:data-bs-toggle "pill"
-                        #:data-bs-target (format "#~a" ex)
-                        #:type "button"
-                        #:role "tab"
-                        #:aria-controls ex
-                        #:aria-selected "false"]{◊name}
-                })
+                (let ()
+                    (define shown (if (member ex shown-examples) "shown-pill" "hidden-pill"))
+                    ◊li[#:class (string-append "nav-item " shown) #:role "presentation"]{
+                        ◊button[
+                            #:class "nav-link"
+                            #:id (format "~a-tab" ex)
+                            #:data-bs-toggle "pill"
+                            #:data-bs-target (format "#~a" ex)
+                            #:type "button"
+                            #:role "tab"
+                            #:aria-controls ex
+                            #:aria-selected "false"]{◊name}
+                    })
+            )
         }
     ])
 
@@ -102,6 +150,8 @@
         }
     ])
 
+◊(define (inline-example-doc name)
+    (example-doc (format "examples/~a.html.pm" name)))
 ◊(define (example-doc path)
     (apply @ (rest (get-doc path))))
 
@@ -110,22 +160,24 @@
     also requires tools like autograders. We provide them!})
 
 ◊(define images-as-values
-  ◊li[#:class "mt-3"]{
+  ◊p{
 
       For beginners of all ages, pictures (or “images”) are some of
       the most compelling media. Pyret offers excellent support for
-      working with images within the language itself.
+      working with images within the language itself. Try them out in the first
+      example below (and explore others)! You can also jump to reading about CURRICULA or FOR DEVELOPERS.
 
       })
 
 ◊(define no-install
-    ◊li[#:class "mt-3"]{Want to get your students going from day 1? Do you
-    have students who have had minimal computing experience,
-    and do you lose frustrating hours (that make them feel
-    inadequate) due to installers and platforms and what not?
-    Pyret runs entirely in your browser with no installation
-    at all; indeed, you're running Pyret right above on this
-    very page. Pyret is built atop an advanced technology
+
+    ◊p{ ◊b{Pyret is designed from the ground up to run entirely in regular browsers with no installation at all},
+    avoiding frustrating student-hours lost to installers and platform choice and IDE configuration
+    and more. Indeed, Pyret is running right on this very page – check out the
+    examples with the “Run It!” buttons!})
+
+◊(define medium-message
+  ◊p{Pyret is built atop an advanced technology
     stack
     [◊a[#:href "https://cs.brown.edu/~sk/Publications/Papers/Published/bnpkg-stopify/"]{1},
     ◊a[#:href "https://cs.brown.edu/~sk/Publications/Papers/Published/yk-whalesong-racket-browser/"]{2}]
@@ -136,43 +188,129 @@
     should bend the platform to our needs. That is, the medium
     should not become the message.})
 
-◊div[#:class "container"]{
-    ◊div[#:class "jumbotron"]{
+◊div[#:class "jumbotron"]{
+    ◊div[#:class "container"]{
         ◊div[#:class "row d-flex justify-content-center"]{
-            ◊div[#:class "col-md-2"]{
-                ◊img[#:class "title-logo" #:src "./img/pyret-logo.png"]{}
-            }
-            ◊div[#:class "col-md-4"]{
+            ◊div[#:class "col-md-6"]{
+                ◊img[#:src "img/pyret-banner.png" #:class "title-logo"]{}
                 ◊p{
 Pyret is a programming language designed to serve as an outstanding
-choice for programming education. It works effectively at many levels,
-from secondary to the advanced tertiary level. Several curricula in
-active use incorporate Pyret. The language is under active design and
+choice for programming education. It works effectively at many levels, with
+several curricula in
+active use incorporating Pyret. Its robust web-based runtime environment supports
+students on a wide range of devices and settings. The language is under active
+design and
 development, and free to use or modify.
                 }
+                ◊p{
+        ◊a[#:href "#getting-started" #:class "btn btn-primary btn-m hvr-border-fade"]{Quick Examples}
+        ◊a[#:href "#curricula" #:class "btn btn-primary btn-m hvr-border-fade"]{Curricula & Books}
+        ◊a[#:href "#devs" #:class "btn btn-primary btn-m hvr-border-fade"]{For Developers}
+        ◊a[#:href "#all-examples" #:class "btn btn-primary btn-m hvr-border-fade show-all-examples"]{More Examples}
+}
+            }
+            ◊div[#:class "col-md-6"]{
+                ◊open-example["images"]
+                ◊example-code["images"]
             }
         }
     }
 }
-◊div[#:class "container-fluid"]{
 
-    ◊a[#:name "examples" #:style "scroll-margin-top: 100px"]{}
-    ◊h2{Pyret in Action}
+◊script[#:src "site/js/codemirror.js"]
+◊script[#:src "site/js/runmode.js"]
+◊script[#:src "site/js/pyret.js"]
 
-    ◊div[#:class "row d-flex justify-content-center categories-tab-top"]{
-      ◊div[#:class "tab-pane"]{
-        ◊(let ()
-          ◊(define examples-shortnames (map car examples))
-          ◊(define examples-names (map cdr examples))
-          ◊examples-tabs[examples-shortnames examples-shortnames examples-names]
-        )
-      }
-    }
 
-    ◊div[#:class "row embed-row"]{
-        ◊div[#:id "examples-frame" #:class "embed-container" #:style "height: 30em"]{}}
+◊div[#:class "container"]{
+    ◊h2{Designed for Getting Started}
+
+    ◊center6{◊no-install}
+    
+    ◊left-feature[
+        ◊div{
+            ◊open-example["examples"]
+            ◊pyret-snippet{
+examples "cube function":
+  cb(0) is 0
+  cb(3) is 27
+  cb(-5) is -125
+end
+
+fun cb(n):
+  n * n * n
+end
+            }
+        }
+        ◊p{
+            Pyret provides a pleasant syntax for writing illustrative examples
+            of how functions should behave. These serve not only as
+            documentation, but are also useful for students to demonstrate their
+            understanding of a problem before they start programming. 
+        }
+    ]
+    
+    ◊right-feature[
+        ◊p{Programs that create images give immediate visual feedback. Functions
+        that operate on images enable students to learn about function
+        composition in an medium that is both engaging and educational.}
+        ◊@{
+            ◊open-example["images"]
+            ◊pyret-snippet{
+treetop = triangle(60, "solid", "darkgreen")
+trunk = square(20, "solid", "brown")
+tree = above(treetop, trunk)
+            }
+            ◊img[#:style "display: block; margin: auto;" #:src "img/tree.png"]
+        }
+        
+    ]
+
+
 
 }
+
+    ◊div[#:id "example-modal" #:class "modal" #:tabindex "-1" #:role "dialog"]{
+        ◊div[#:class "modal-dialog modal-fullscreen modal-centered" #:role "document"]{
+            ◊div[#:class "modal-content"]{
+                ◊button[#:type "button" #:class "btn-close" #:aria-label "Close"]{}
+                ◊div[#:id "examples-frame" #:class "embed-container" #:style "width: 100%; height: 100%"]{}
+            }
+        }
+    }
+
+    ◊div[#:id "all-examples-modal" #:class "modal" #:tabindex "-1" #:role "dialog"]{
+        ◊div[#:class "modal-dialog modal-fullscreen modal-centered" #:role "document"]{
+            ◊div[#:class "modal-content"]{
+                ◊div[#:class "row d-flex justify-content-center categories-tab-top"]{
+                    ◊div[#:class "tab-pane"]{
+                        ◊(let ()
+                            ◊(define examples-shortnames (map car examples))
+                            ◊(define examples-names (map cdr examples))
+                            ◊examples-tabs[examples-shortnames examples-shortnames examples-names])
+                    }
+                }
+            }
+        }
+    }
+
+◊(define-tag-function (left-feature attrs elems)
+    ◊@{
+        ◊div[#:class "row d-flex justify-content-center feature"]{
+            ◊div[#:class "col-md-6 align-self-center"]{ ◊(first elems) }
+            ◊div[#:class "col-md-4 align-self-center"]{ ◊(second elems) }
+        }
+        ◊hr{}
+    })
+
+◊(define-tag-function (right-feature attrs elems)
+    ◊@{
+        ◊div[#:class "row d-flex justify-content-center align-middle feature"]{
+            ◊div[#:class "col-md-4 align-self-center justify-content-center"]{ ◊(first elems) }
+            ◊div[#:class "col-md-6 align-self-center justify-content-center"]{ ◊(second elems) }
+        }
+        ◊hr{}
+    })
 
 
 ◊div[#:class "container-fluid"]{
@@ -321,35 +459,33 @@ console.log("-----------------------------------");
 }
 
 ◊script[#:type "module"]{
+    // Set up the global embed instance for use in buttons, etc
     import { makeEmbed } from "./node_modules/pyret-embed/dist/pyret.js";
-
-    // I think this has to be metaprogrammed, because import is syntax (can't import
-    // with a value in a loop in JS)
     ◊(for/splice ((ex all-examples))
         (format "import { ~a } from \"./examples/~a.js\";\n" ex ex))
-
     const startFrameContainer = document.getElementById("examples-frame")   
-
     const embed = await makeEmbed('examples-editor', startFrameContainer, "./node_modules/pyret-embed/dist/build/web/editor.embed.html#footerStyle=hide&warnOnExit=false");
-    embed.sendReset(◊default-example);
     window.pyretEmbed = embed;
 
     const tabs = { ◊(string-join all-examples ", ") }
-    const catElements = document.querySelectorAll(`#categoryTabs [data-bs-toggle="pill"]`);
-    catElements.forEach(tabElement => {
-        tabElement.addEventListener('show.bs.tab', (event) => {
-            const target = document.querySelector(tabElement.attributes["data-bs-target"].value);
-            const exampleElt = target.querySelector(`.active`);
-            exampleElt.dispatchEvent(new Event("show.bs.tab"));
-        });
-    });
     const tabElements = document.querySelectorAll(`#examplesTabs [data-bs-toggle="pill"]`);
     tabElements.forEach(tabElement => {
         tabElement.addEventListener('show.bs.tab', (event) => {
+            console.log("Show firing", event, event.target, event.relatedTarget, tabElement);
             const target = document.querySelector(tabElement.attributes["data-bs-target"].value);
             if(target.attributes["example-name"]) {
                 embed.sendReset(tabs[target.attributes["example-name"].value]);
             }
         });
     });
+}
+
+◊script[#:type "module"]{
+    const preElts = document.getElementsByClassName("pyret-example");
+    for(let i = 0; i < preElts.length; i += 1) {
+        const preElt = preElts[i];
+        const example = preElt.innerText;
+        CodeMirror.runMode(example, "pyret", preElt);
+        preElt.classList.add("cm-s-default");
+    }
 }

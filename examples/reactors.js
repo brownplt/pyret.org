@@ -1,4 +1,4 @@
-const example = `use context starter2024
+export const example = `use context starter2024
 type State = {h :: Number, m :: Number}
 # h is [0, 11], m is [0, 59]
 

@@ -1,4 +1,4 @@
-const example = `use context starter2024`;
+export const example = `use context starter2024`;
 
 export const rational = {
     definitionsAtLastRun: example,

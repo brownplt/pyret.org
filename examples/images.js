@@ -1,4 +1,4 @@
-const example = `use context starter2024
+export const example = `use context starter2024
 
 treetop = triangle(60, "solid", "darkgreen")
 trunk = square(20, "solid", "brown")

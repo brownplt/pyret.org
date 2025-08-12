@@ -3,7 +3,7 @@
 ◊p{
    Programs that create ◊link/new-tab["https://pyret.org/docs/horizon/image.html"]{images} give immediate visual feedback.
    Functions that operate on images enable students to learn about function composition in an medium that is both engaging and educational:
-   students are much more interested in composing images that numbers, and they much more immediately spot errors.
+   composing images rather than numbers provides an immediate visual artifact, which makes it easier to spot errors and match a result to an intended design.
 }
 
 ◊p{

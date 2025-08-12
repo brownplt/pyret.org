@@ -1,5 +1,4 @@
-const example = `use context starter2024
-
+export const example = `use context starter2024
 
 fun sq(n):
   n * n

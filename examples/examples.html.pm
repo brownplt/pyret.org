@@ -1,10 +1,10 @@
 #lang pollen
 
 ◊p{
-Pyret provides a pleasant syntax for writing illustrate examples of
+Pyret provides a pleasant syntax for writing illustrative examples of
 how functions should behave. These serve not only as documentation,
 but are also useful for students to demonstrate their understanding of
-a problem before they start programming. Our
+a problem before they start programming. The
 ◊link/new-tab["https://blog.brownplt.org/2024/01/01/examplar.html"]{Examplar}
    project is built entirely around this feature.
   }
