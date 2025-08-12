@@ -270,11 +270,7 @@ tree = above(treetop, trunk)
             }
             ◊img[#:style "display: block; margin: auto;" #:src "img/tree.png"]
         }
-        
     ]
-
-
-
 }
 
     ◊div[#:id "example-modal" #:class "modal" #:tabindex "-1" #:role "dialog"]{
@@ -289,14 +285,15 @@ tree = above(treetop, trunk)
     ◊div[#:id "all-examples-modal" #:class "modal" #:tabindex "-1" #:role "dialog"]{
         ◊div[#:class "modal-dialog modal-fullscreen modal-centered" #:role "document"]{
             ◊div[#:class "modal-content"]{
-                ◊div[#:class "row d-flex justify-content-center categories-tab-top"]{
+                ◊div[#:class "container-fluid"]{
                     ◊div[#:class "tab-pane"]{
                         ◊(let ()
                             ◊(define examples-shortnames (map car examples))
                             ◊(define examples-names (map cdr examples))
                             ◊examples-tabs[examples-shortnames examples-shortnames examples-names])
                     }
-                    ◊div[#:id "examples-frame" #:class "embed-container" #:style "width: 100%; height: 100%"]{}
+                    ◊div[#:id "examples-frame" #:class "embed-container" #:style "width: 100%; min-height: 20em; height: 100%"]{}
+
                 }
             }
         }
@@ -321,67 +318,57 @@ tree = above(treetop, trunk)
     })
 
 
-◊div[#:class "container-fluid"]{
-    ◊a[#:name "k12" #:style "scroll-margin-top: 100px"]{}
-    ◊h2{For K–12 (Secondary School) Educators}
+◊div[#:class "container"]{
+    ◊a[#:name "curricula" #:class "anchor-target"]{}
+    ◊h2{Curricula and Books}
 
-    ◊center6{
+    ◊left-feature[
+        
+        ◊p{For ◊b{grades 6-12 (secondary) students}, our partners at ◊a[#:href
+        "https://www.bootstrapworld.org/"]{Bootstrap} are the leading designers
+        of ◊em{integrated} computing curricula. All the Bootstrap curricula
+        build primarily atop Pyret. Bootstrap covers numerous areas (with ties
+        to algebra, data science, AI, physics, and more) and provides
+        comprehensive materials that have been tested in thousands of classrooms
+        and by tens of thousands of students every year. Bootstrap is also, by
+        design, ◊em{modular}: you don't have to adopt a whole course, but can
+        instead choose modules that fit best with what you're already teaching.
+        Head over to Bootstrap to learn more!}
 
-Pyret comes with numerous resources that help you create or use great
-courses or modules:
+        ◊div{
+            ◊div{
+                ◊img[#:style "width: 10rem" #:src "img/algebra.png"]{}
+                ◊img[#:style "width: 10rem" #:src "img/data-science.png"]{}
+            }
+            ◊div{
+                ◊img[#:style "width: 10rem" #:src "img/physics.png"]{}
+                ◊img[#:style "width: 10rem" #:src "img/reactive.png"]{}
+            }
+        }
+  ]
 
-◊ul[#:class "mt-3 custom-bullets"]{
+  ◊right-feature[
+    ◊img[#:style "width: 100%;" #:src "img/dcic.png"]
 
-◊li[#:class "mt-3"]{Our partners at ◊a[#:href "https://www.bootstrapworld.org/"]{Bootstrap}
-are the leading designers of ◊em{integrated} computing curricula. All
-the Bootstrap curricula build primarily atop Pyret. Bootstrap covers
-numerous areas (with ties to algebra, data science, AI, physics, and
-more) and provides comprehensive materials that have been tested in
-thousands of classrooms and by tens of thousands of students every
-year. Bootstrap is also, by design, ◊em{modular}: you don't have to
-adopt a whole course, but can instead choose modules that fit best
-with what you're already teaching. Head over to Bootstrap to learn more!}
-
-    ◊images-as-values
-
-◊no-install
-
-◊autograders
-
-}
-
-    }
-}
-
-◊div[#:class "container-fluid"]{
-    ◊a[#:name "ugrad" #:style "scroll-margin-top: 100px"]{}
-    ◊h2{For University (Tertiary) Educators}
-
-    ◊center6{
-Pyret comes with numerous resources that help you create a great course:
-
-◊ul[#:class "mt-3 custom-bullets"]{
-            ◊li[#:class "mt-3"]{Our book, ◊a[#:href "https://dcic-world.org/"]{◊em{Data-Centric Introduction to Computing}} (DCIC),
+    ◊@{
+        ◊p{Our book, ◊a[#:href "https://dcic-world.org/"]{◊em{Data-Centric Introduction to Computing}} (DCIC),
                 provides a modern introduction to computing education. You can see some of the research
                 [◊a[#:href "https://cs.brown.edu/~sk/Publications/Papers/Published/fkt-teach-scope-mut/"]{1},
                 ◊a[#:href "https://cs.brown.edu/~sk/Publications/Papers/Published/lkft-switch-fun-lang/"]{2},
                 ◊a[#:href "https://cs.brown.edu/~sk/Publications/Papers/Published/lk-smol-tutor/"]{3}]
                 that has driven its design and content.}
 
-		   ◊images-as-values
-		       
-		   ◊li[#:class "mt-3"]{
-		       Once students get past images,
-		       DCIC takes the position that introductory data ◊em{science} offers an interesting, accessible, and
-		       meaningful introduction to programming that addresses many problems that plague current
-		       introductory curricula. It then transitions from that to data ◊em{structures}.
-		       You can read our
-		       ◊a[#:href "https://cs.brown.edu/~sk/Publications/Papers/Published/kf-data-centric/"]{critique}
-			  that inspired the book.
-			  Pyret offers various features that support this introduction and transition.
-			}
+        ◊p{
+        DCIC takes the position that introductory data ◊em{science} offers an interesting, accessible, and
+        meaningful introduction to programming that addresses many problems that plague current
+        introductory curricula. It then transitions from that to data ◊em{structures}.
+        You can read our
+        ◊a[#:href "https://cs.brown.edu/~sk/Publications/Papers/Published/kf-data-centric/"]{critique}
+        that inspired the book.
+        Pyret offers various features that support this introduction and transition.
+        }
 
-            ◊li[#:class "mt-3"]{In particular, DCIC takes the position — driven by a
+        ◊p{In particular, DCIC takes the position — driven by a
             significant body of literature in educational and
             cognitive science — that students learn programming better
             when they can compare and contrast related but different
@@ -390,16 +377,12 @@ Pyret comes with numerous resources that help you create a great course:
             progression from Pyret to Python is (a) staged carefully
             to minimize difficulties, and (b) includes seeing them
             side-by-side. Pyret, in turn, is designed to facilitate
-            this kind of comparison with Python.}
-
-            ◊no-install
-
-	    ◊autograders
-
-         }
-
+            this kind of comparison with Python}
     }
+  ]
+
 }
+
 
 ◊div[#:class "container-fluid"]{
 

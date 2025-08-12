@@ -270,7 +270,13 @@ h3 {
   background: linear-gradient(180deg, #eee, white);
 }
 
-#examplesTabsContent {
+div.examples-tab-top {
+  margin: 0;
+  padding: 0;
+}
+div.examples-pills {
+  margin: 0;
+  padding: 0;
 }
 
 .examples-pills .nav-pills .nav-link {
@@ -328,11 +334,16 @@ li.hidden-pill {
   display: none;
 }
 
+#examplesTabsContent p {
+  font-family: "Garamond";
+  font-size: 12pt;
+}
+
 .modal-fullscreen {
   margin-top: 2em;
   margin-left: 2em;
   width: calc(100vw - 4em);
-  height: calc(100vh - 4em);
+  height: max(auto, calc(100vh - 4em));
 }
 
 .jumbotron p {
