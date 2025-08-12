@@ -51,7 +51,7 @@
     ◊pre[#:class "pyret-example"]{
         ◊(apply @ elems)
     }
-))
+)
 
 ◊(define (example-code example-name)
     ◊(let ()
@@ -75,12 +75,19 @@
     ◊@{
         ◊button[#:class "runnable-pyret" #:id button-id]{Run it!}
         ◊script[#:type "module"]{
+            import { makeEmbed } from "./node_modules/pyret-embed/dist/pyret.js";
             import { ◊example-name } from "./examples/◊|example-name|.js";
+
+            if(!window.singleEmbed) {
+                const startFrameContainer = document.getElementById("single-examples-frame")   
+                window.singleEmbed = makeEmbed('single-example-editor', startFrameContainer, "./node_modules/pyret-embed/dist/build/web/editor.embed.html#footerStyle=hide&warnOnExit=false");
+            }
+            const embed = await window.singleEmbed;
             const button = document.getElementById("◊|button-id|");
             const modalElt = document.getElementById('example-modal');
             const modal = bootstrap.Modal.getOrCreateInstance(modalElt);
             button.addEventListener("click", () => {
-                window.pyretEmbed.sendReset(◊example-name);
+                embed.sendReset(◊example-name);
                 modal.show();
             });
         }
@@ -110,7 +117,7 @@
             }
             ◊(for/splice ((ex (rest ids)) (name (rest names)))
                 (let ()
-                    (define shown (if (member ex shown-examples) "shown-pill" "hidden-pill"))
+                    (define shown "shown-pill")
                     ◊li[#:class (string-append "nav-item " shown) #:role "presentation"]{
                         ◊button[
                             #:class "nav-link"
@@ -197,8 +204,7 @@
 Pyret is a programming language designed to serve as an outstanding
 choice for programming education. It works effectively at many levels, with
 several curricula in
-active use incorporating Pyret. Its robust web-based runtime environment supports
-students on a wide range of devices and settings. The language is under active
+active use incorporating Pyret. The language is under active
 design and
 development, and free to use or modify.
                 }
@@ -206,7 +212,7 @@ development, and free to use or modify.
         ◊a[#:href "#getting-started" #:class "btn btn-primary btn-m hvr-border-fade"]{Quick Examples}
         ◊a[#:href "#curricula" #:class "btn btn-primary btn-m hvr-border-fade"]{Curricula & Books}
         ◊a[#:href "#devs" #:class "btn btn-primary btn-m hvr-border-fade"]{For Developers}
-        ◊a[#:href "#all-examples" #:class "btn btn-primary btn-m hvr-border-fade show-all-examples"]{More Examples}
+        ◊a[#:href "javascript:void(0)" #:class "btn btn-primary btn-m hvr-border-fade show-all-examples"]{More Examples}
 }
             }
             ◊div[#:class "col-md-6"]{
@@ -223,6 +229,7 @@ development, and free to use or modify.
 
 
 ◊div[#:class "container"]{
+    ◊a[#:id "getting-started" #:class "anchor-target"]{}
     ◊h2{Designed for Getting Started}
 
     ◊center6{◊no-install}
@@ -274,7 +281,7 @@ tree = above(treetop, trunk)
         ◊div[#:class "modal-dialog modal-fullscreen modal-centered" #:role "document"]{
             ◊div[#:class "modal-content"]{
                 ◊button[#:type "button" #:class "btn-close" #:aria-label "Close"]{}
-                ◊div[#:id "examples-frame" #:class "embed-container" #:style "width: 100%; height: 100%"]{}
+                ◊div[#:id "single-examples-frame" #:class "embed-container" #:style "width: 100%; height: 100%"]{}
             }
         }
     }
@@ -289,6 +296,7 @@ tree = above(treetop, trunk)
                             ◊(define examples-names (map cdr examples))
                             ◊examples-tabs[examples-shortnames examples-shortnames examples-names])
                     }
+                    ◊div[#:id "examples-frame" #:class "embed-container" #:style "width: 100%; height: 100%"]{}
                 }
             }
         }
@@ -453,31 +461,46 @@ Pyret comes with numerous resources that help you create a great course:
 console.log("Welcome to the pyret.org console!");
 console.log("It can be a bit noisy in here because the embedded instances log some information (which you might be interested in – have a look!)")
 console.log("You may enjoy trying out some of the API affordances right from here.");
-console.log("For example, you can run `window.pyretEmbed.sendReset({ definitionsAtLastRun: '\"Hello, api!\"', interactionsSinceLastRun: [ ], editorContents: '\"Hello, api!\"', replContents: '' });`");
+console.log("For example, when looking at the all-examples overlay, you can run `window.pyretEmbed.sendReset({ definitionsAtLastRun: '\"Hello, api!\"', interactionsSinceLastRun: [ ], editorContents: '\"Hello, api!\"', replContents: '' });`");
 console.log("Noisy application logs below......");
 console.log("-----------------------------------");
 }
 
 ◊script[#:type "module"]{
-    // Set up the global embed instance for use in buttons, etc
     import { makeEmbed } from "./node_modules/pyret-embed/dist/pyret.js";
     ◊(for/splice ((ex all-examples))
         (format "import { ~a } from \"./examples/~a.js\";\n" ex ex))
-    const startFrameContainer = document.getElementById("examples-frame")   
-    const embed = await makeEmbed('examples-editor', startFrameContainer, "./node_modules/pyret-embed/dist/build/web/editor.embed.html#footerStyle=hide&warnOnExit=false");
-    window.pyretEmbed = embed;
 
-    const tabs = { ◊(string-join all-examples ", ") }
-    const tabElements = document.querySelectorAll(`#examplesTabs [data-bs-toggle="pill"]`);
-    tabElements.forEach(tabElement => {
-        tabElement.addEventListener('show.bs.tab', (event) => {
-            console.log("Show firing", event, event.target, event.relatedTarget, tabElement);
-            const target = document.querySelector(tabElement.attributes["data-bs-target"].value);
-            if(target.attributes["example-name"]) {
-                embed.sendReset(tabs[target.attributes["example-name"].value]);
-            }
+    let initialized = false;
+    async function createAllExamples() {
+        if(initialized){ return; }
+        initialized = true;
+        const startFrameContainer = document.getElementById("examples-frame")   
+        const embed = await makeEmbed('examples-editor', startFrameContainer, "./node_modules/pyret-embed/dist/build/web/editor.embed.html#footerStyle=hide&warnOnExit=false");
+        window.pyretEmbed = embed;
+
+        const tabs = { ◊(string-join all-examples ", ") }
+        const tabElements = document.querySelectorAll(`#examplesTabs [data-bs-toggle="pill"]`);
+        tabElements.forEach(tabElement => {
+            tabElement.addEventListener('show.bs.tab', (event) => {
+                console.log("Show firing", event, event.target, event.relatedTarget, tabElement);
+                const target = document.querySelector(tabElement.attributes["data-bs-target"].value);
+                if(target.attributes["example-name"]) {
+                    embed.sendReset(tabs[target.attributes["example-name"].value]);
+                }
+            });
         });
-    });
+        embed.sendReset(tabs[◊|default-example|]);
+    }
+    const showAll = document.getElementsByClassName("show-all-examples");
+    console.log("showall", showAll);
+    const modal = bootstrap.Modal.getOrCreateInstance(document.getElementById("all-examples-modal"));
+    for(let i = 0; i < showAll.length; i += 1) {
+        showAll[i].addEventListener("click", () => {
+            modal.show();
+            createAllExamples();
+        });
+    }
 }
 
 ◊script[#:type "module"]{

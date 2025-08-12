@@ -21,6 +21,10 @@ h2 {
   border: 3px solid var(--pyret-run-blue);
 }
 
+.anchor-target {
+  scroll-margin-top: 5em;
+}
+
 
 ul.custom-bullets {
     list-style-type: square; /* Options: disc, circle, square, none */
