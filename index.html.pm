@@ -32,8 +32,6 @@
 		    ("oop" . "Object-Oriented Programming")
 		   ))
 
-◊(define shown-examples '("images" "examples" "rational" "reactors"))
-
 ◊(define all-examples (map car examples))
 ◊(define default-example "images")
 
@@ -117,8 +115,7 @@
             }
             ◊(for/splice ((ex (rest ids)) (name (rest names)))
                 (let ()
-                    (define shown "shown-pill")
-                    ◊li[#:class (string-append "nav-item " shown) #:role "presentation"]{
+                    ◊li[#:class "nav-item" #:role "presentation"]{
                         ◊button[
                             #:class "nav-link"
                             #:id (format "~a-tab" ex)
