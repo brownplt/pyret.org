@@ -46,10 +46,7 @@
                             ◊(first elems)}}))
 
 ◊(define-tag-function (pyret-snippet attrs elems)
-    ◊pre[#:class "pyret-example"]{
-        ◊(apply @ elems)
-    }
-)
+    ◊pre[#:class "pyret-example"]{ ◊(apply @ elems) })
 
 ◊(define (example-code example-name)
     ◊(let ()
@@ -93,7 +90,6 @@
     )
 )
 
- 
 
 ◊(define-tag-function (center6 attrs elems)
     ◊div[#:class "row d-flex justify-content-center feature"]{
@@ -206,10 +202,10 @@ design and
 development, and free to use or modify.
                 }
                 ◊p{
-        ◊a[#:href "#getting-started" #:class "btn btn-primary btn-m hvr-border-fade"]{Quick Examples}
+        ◊a[#:href "#getting-started" #:class "btn btn-primary btn-m hvr-border-fade"]{First Examples}
         ◊a[#:href "#curricula" #:class "btn btn-primary btn-m hvr-border-fade"]{Curricula & Books}
-        ◊a[#:href "#devs" #:class "btn btn-primary btn-m hvr-border-fade"]{For Developers}
-        ◊a[#:href "javascript:void(0)" #:class "btn btn-primary btn-m hvr-border-fade show-all-examples"]{More Examples}
+        ◊a[#:href "#devs" #:class "btn btn-primary btn-m hvr-border-fade"]{(Course) Developers}
+        ◊a[#:href "javascript:void(0)" #:class "btn btn-primary btn-m hvr-border-fade show-all-examples"]{Major Features}
 }
             }
             ◊div[#:class "col-md-6"]{
@@ -227,7 +223,7 @@ development, and free to use or modify.
 
 ◊div[#:class "container"]{
     ◊a[#:id "getting-started" #:class "anchor-target"]{}
-    ◊h2{Designed for Getting Started}
+    ◊h2{Programming In Pyret}
 
     ◊center6{◊no-install}
     
@@ -381,59 +377,68 @@ tree = above(treetop, trunk)
 }
 
 
-◊div[#:class "container-fluid"]{
+◊div[#:class "container"]{
 
     ◊a[#:name "devs"]{}
-    ◊h2{For Developers}
+    ◊h2{For (Course) Developers}
 
-    ◊center6{
 
-        ◊h3{Visual Studio Code and Github}
-
+    ◊right-feature[
         ◊p{Pyret has a ◊a[#:href
         "https://marketplace.visualstudio.com/items?itemName=PyretProgrammingLanguage.pyret-parley"]{Visual
         Studio Code extension} that opens files in the same visual editor as the
-        examples above. It works in Github Codespaces, github.dev, and desktop
-        Visual Studio Code.}
+        examples above. It works anywhere Visual Studio Code can run, including
+        on ◊a[#:href
+        "https://docs.github.com/en/codespaces/the-githubdev-web-based-editor"]{github.dev}.}
+        ◊img[#:src "img/vscode.png" #:style "width: 100%"]
+    ]
+        
 
-        ◊h3{Embedding Pyret}
-
+    ◊center6{
         ◊p{
-            All the examples above embed an instace of Pyret through its ◊a[#:href
-            "https://github.com/jpolitz/pyret-embed-examples"]{embedding library}.
+            Pyret has ◊a[#:href "https://pyret.org/docs/horizon/modules.html#%28part._modules_url-file%29"]{specific libraries and features} for creating and deploying
+            starter code for students seamlessly. We developed these features
+            and workflows in our own courses, with our own TAs, and for our own
+            curricula.
+        }
 
+    }
+
+    ◊hr{}
+
+
+    ◊right-feature[
+        ◊p{
+            All the examples on this page embed an instace of Pyret through its
+            ◊a[#:href "https://www.npmjs.com/package/pyret-embed"]{embedding
+            library}.
             You can embed Pyret on your own websites and projects by
             installing that ◊code{npm} package, which has an API for controlling and
             listening to the embedded instance.
-
-            You can embed from our copies of the compiler and runtime, or serve
-            your own. No Pyret code runs on the server: it's strictly a bundle
-            of client-side HTML, CSS, and JavaScript (we've done ◊a[#:href
-            "https://cs.brown.edu/~sk/Publications/Papers/Published/bnpkg-stopify/"]{a
-            little bit of engineering} in this space to make this possible).
         }
+        ◊pre{
+const code =  `use context starter2024
+dot = circle(50, 'solid', 'red')`;
+pyretEmbed.sendReset({
+    definitionsAtLastRun: code,
+    interactionsSinceLastRun: ["dot"],
+    editorContents: code,
+    replContents: ""
+});
+        }
+    ]
 
-        ◊h3{Command-line Pyret}
 
+    ◊left-feature[
+        ◊img[#:src "./img/cli.png" #:style "width: 100%"]
         ◊p{
             Pyret runs from the command line via the ◊code{◊a[#:href
             "https://www.npmjs.com/package/pyret-npm"]{pyret-npm}} package.
             Nearly all libraries (including images) run the same offline and
             in-browser. This can be especially important for grading student
-            code submissions in an automated way. THIS DOCUMENT (fill) says more
-            about it.
+            code submissions in an automated way.
         }
-
-        ◊h3{Programming Assignments and Starter Code}
-
-        ◊p{
-            Pyret has specific libraries and features (FILL: url-file tutorial,
-            Github example) for creating and deploying starter code for students
-            seamlessly. We developed these features and workflows in our own
-            courses, with our own TAs, and for our own curricula.
-        }
-
-    }
+    ]
 
 }
 
@@ -463,7 +468,6 @@ console.log("-----------------------------------");
         const tabElements = document.querySelectorAll(`#examplesTabs [data-bs-toggle="pill"]`);
         tabElements.forEach(tabElement => {
             tabElement.addEventListener('show.bs.tab', (event) => {
-                console.log("Show firing", event, event.target, event.relatedTarget, tabElement);
                 const target = document.querySelector(tabElement.attributes["data-bs-target"].value);
                 if(target.attributes["example-name"]) {
                     embed.sendReset(tabs[target.attributes["example-name"].value]);
@@ -473,7 +477,6 @@ console.log("-----------------------------------");
         embed.sendReset(tabs[◊|default-example|]);
     }
     const showAll = document.getElementsByClassName("show-all-examples");
-    console.log("showall", showAll);
     const modal = bootstrap.Modal.getOrCreateInstance(document.getElementById("all-examples-modal"));
     for(let i = 0; i < showAll.length; i += 1) {
         showAll[i].addEventListener("click", () => {
@@ -487,7 +490,7 @@ console.log("-----------------------------------");
     const preElts = document.getElementsByClassName("pyret-example");
     for(let i = 0; i < preElts.length; i += 1) {
         const preElt = preElts[i];
-        const example = preElt.innerText;
+        const example = preElt.innerText.trim();
         CodeMirror.runMode(example, "pyret", preElt);
         preElt.classList.add("cm-s-default");
     }
