@@ -17,8 +17,9 @@
     ◊li{New ways to import modules}
     ◊li{New ways to work with files, URLs, and images}
     ◊li{An update to the default context (called ◊code{starter2025})}
-    ◊li{Various bug fixes across libraries}
+    ◊li{A new library for embedding Pyret in web pages}
     ◊li{Documentation and naming convention clean up}
+    ◊li{Various bug fixes across libraries}
     ◊li{A prototype of a block-based editor}
 }
 
@@ -80,13 +81,32 @@ We've also added functions to create tables from CSV data loaded ◊a[#:href
 this kind of data import really only worked well from Google Sheets. Now
 arbitrary CSV files can be loaded into tables from the filesystem or the web.
 
+◊h2{A New Embedding Library}
+
+You can now embed the code.pyret.org editor directly into other web pages with
+◊a[#:href "https://www.npmjs.com/package/pyret-embed"]{pyret-embed}. Indeed,
+this is what is used to create the VScode extension!
+
+The embedding library is suitable for showing interactive examples in online
+tutorials, creating interactive lessons, presenting student code to TAs in a
+web-based autograder, and more. We're curious what you build with it!
+
+◊h2{Documentation Updates}
+
+We've significantly updated and improved documentation of many core libraries.
+In addition, we've used the embedding library to make most of the examples in
+the docs ◊em{runnable}. For example, click the (Try it!) button in the ◊a[#:href
+"https://pyret.org/docs/horizon/numbers.html#%28part._numbers_%2B._%28addition._operator%29%29"]{numbers
+documentation}.
+
 ◊h2{Block-based Editing}
 
 ◊p{There is a ◊em{prototype} block-based editor for Pyret available at ◊a[#:href
 "https://code.pyret.org/blocks"]{https://code.pyret.org/blocks} that uses the
 Snap! interface integrated with Pyret's runtime.}
 
-◊p{Feel free to try it out! Drag the blocks from the drawer on the left to form your program.}
+◊p{Feel free to try it out! Drag the blocks from the drawer on the left to form
+your program. We welcome feedback on this early prototype!}
 
 ◊p{This is thanks to a lot of work from Jens Mönig, Dorai Sitaram, Emmanuel Schanzer, Paul Carduner, and Adam Solove.}
 
