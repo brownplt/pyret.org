@@ -278,6 +278,7 @@ tree = above(treetop, trunk)
     ◊div[#:id "all-examples-modal" #:class "modal" #:tabindex "-1" #:role "dialog"]{
         ◊div[#:class "modal-dialog modal-fullscreen modal-centered" #:role "document"]{
             ◊div[#:class "modal-content"]{
+                ◊button[#:type "button" #:class "btn-close" #:aria-label "Close"]{}
                 ◊div[#:class "container-fluid"]{
                     ◊div[#:class "tab-pane"]{
                         ◊(let ()
@@ -493,5 +494,18 @@ console.log("-----------------------------------");
         const example = preElt.innerText.trim();
         CodeMirror.runMode(example, "pyret", preElt);
         preElt.classList.add("cm-s-default");
+    }
+}
+
+◊script[#:type "module"]{
+    // Close bootstrap modals when the close button is clicked
+    const modals = document.getElementsByClassName("modal");
+    for(let i = 0; i < modals.length; i += 1) {
+        const modal = modals[i];
+        const button = modal.getElementsByClassName("btn-close")[0];
+        const bsModal = bootstrap.Modal.getOrCreateInstance(modal);
+        button.addEventListener("click", () => {
+            bsModal.hide();
+        });
     }
 }
