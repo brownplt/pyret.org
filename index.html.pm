@@ -226,6 +226,22 @@ development, and free to use or modify.
     ◊h2{Programming In Pyret}
 
     ◊center6{◊no-install}
+
+    ◊right-feature[
+        ◊p{Programs that create images give immediate visual feedback. Functions
+        that operate on images enable students to learn about function
+        composition in an medium that is both engaging and educational.}
+        ◊@{
+            ◊open-example["images"]
+            ◊pyret-snippet{
+treetop = triangle(60, "solid", "darkgreen")
+trunk = square(20, "solid", "brown")
+tree = above(treetop, trunk)
+            }
+            ◊img[#:style "display: block; margin: auto;" #:src "img/tree.png"]
+        }
+    ]
+}
     
     ◊left-feature[
         ◊div{
@@ -249,22 +265,78 @@ end
             understanding of a problem before they start programming. 
         }
     ]
-    
+
+
     ◊right-feature[
-        ◊p{Programs that create images give immediate visual feedback. Functions
-        that operate on images enable students to learn about function
-        composition in an medium that is both engaging and educational.}
-        ◊@{
-            ◊open-example["images"]
-            ◊pyret-snippet{
-treetop = triangle(60, "solid", "darkgreen")
-trunk = square(20, "solid", "brown")
-tree = above(treetop, trunk)
-            }
-            ◊img[#:style "display: block; margin: auto;" #:src "img/tree.png"]
+        ◊p{
+        Pyret's 
+        ◊link/new-tab["https://pyret.org/docs/latest/numbers.html#(part._numbers)"]{number system}
+        supports ◊em{exact rational} arithmetic for many operations.  This avoids having
+        floating point as a curricular dependency early on. When approximations become
+        inevitable, they have an explicit representation:
+        ◊link/new-tab["https://pyret.org/docs/latest/numbers.html#%28part._numbers_.Roughnum%29"]{Roughnum}s.
+        }
+        ◊div{
+            ◊open-example["rational"] 
+            ◊img[#:src "img/rational.png" #:style "width: 100%; padding-left: 10%; padding-right: 10%"]
         }
     ]
-}
+
+    ◊left-feature[
+        ◊div{
+            ◊open-example["forloops"]
+            ◊pyret-snippet{
+for each(n from range(0, 10)):
+  print(n)
+end
+squares = for map(n from range(0, 5)):
+  n * n
+end
+# for filter, fold, and more!
+            }
+        }
+        ◊p{
+            The ◊code{for} construct provides a familiar syntax for iterating
+            over elements, and much more.
+        }
+    
+    ]
+
+    ◊right-feature[
+        ◊div{
+            ◊p{
+                    Pyret provides modules, with a rich set of features to control
+                    where they are found and where they are exported. Starter or
+                    support code for assignments can be imported directly from
+                    services like Github.
+            }
+            ◊img[#:src "img/tictactoe.png" #:style "margin: auto; display: block;"]
+        }
+        ◊div{
+            ◊open-example["modules"]
+            ◊pyret-snippet{
+            import url("https://raw.githubusercontent.com/brownplt/pyret.org/...") as TTT
+
+            X = TTT.X
+            O = TTT.O
+            Blank = TTT.Blank
+
+            board-xox =
+            TTT.board(
+                [array:
+                [array: X, Blank, Blank],
+                [array: Blank, O, Blank],
+                [array: Blank, Blank, X]])
+
+            TTT.draw-board(board-xox)
+            }
+        }
+    ]
+
+    ◊center6{
+    ◊p{◊b{And much much more!} Check out all the ◊a[#:href "javascript:void(0)" #:class "show-all-examples"]{major features} of Pyret!}
+    }
+    
 
     ◊div[#:id "example-modal" #:class "modal" #:tabindex "-1" #:role "dialog"]{
         ◊div[#:class "modal-dialog modal-fullscreen modal-centered" #:role "document"]{
@@ -339,7 +411,7 @@ tree = above(treetop, trunk)
                 ◊img[#:style "width: 10rem" #:src "img/reactive.png"]{}
             }
         }
-  ]
+    ]
 
   ◊right-feature[
     ◊img[#:style "width: 100%;" #:src "img/dcic.png"]
