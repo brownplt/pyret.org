@@ -209,8 +209,22 @@ development, and free to use or modify.
 }
             }
             ◊div[#:class "col-md-6"]{
-                ◊open-example["images"]
-                ◊example-code["images"]
+                ◊open-example["spin"]
+                ◊pyret-snippet{
+flag = image-url("https://.../pyret-sticker-caps.png")
+blackout = rectangle(550, 425, "solid", "black")
+blank-flag = place-image(blackout, 450, 285, flag)
+bonnie = scale(0.75, image-url("https://.../pyret-logo.png"))
+fun draw-bonnie(angle :: Number) -> Image:
+  scale(0.5, place-image(rotate(angle, bonnie), 450, 285, blank-flag))
+end
+spinner = reactor:
+  init: 0,
+  on-tick: {(angle): angle + 5},
+  to-draw: draw-bonnie
+end
+spinner.interact()
+                }
             }
         }
     }
@@ -241,7 +255,6 @@ tree = above(treetop, trunk)
             ◊img[#:style "display: block; margin: auto;" #:src "img/tree.png"]
         }
     ]
-}
     
     ◊left-feature[
         ◊div{
@@ -276,9 +289,9 @@ end
         inevitable, they have an explicit representation:
         ◊link/new-tab["https://pyret.org/docs/latest/numbers.html#%28part._numbers_.Roughnum%29"]{Roughnum}s.
         }
-        ◊div{
+        ◊div[#:class "text-center"]{
             ◊open-example["rational"] 
-            ◊img[#:src "img/rational.png" #:style "width: 100%; padding-left: 10%; padding-right: 10%"]
+            ◊img[#:src "img/rational.png" #:style "width: 40em;"]
         }
     ]
 
@@ -364,7 +377,7 @@ end
             }
         }
     }
-
+}
 ◊(define-tag-function (left-feature attrs elems)
     ◊@{
         ◊div[#:class "row d-flex justify-content-center feature"]{
