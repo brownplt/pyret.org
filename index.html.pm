@@ -475,7 +475,8 @@ end
         Studio Code extension} that opens files in the same visual editor as the
         examples above. It works anywhere Visual Studio Code can run, including
         on ◊a[#:href
-        "https://docs.github.com/en/codespaces/the-githubdev-web-based-editor"]{github.dev}.}
+        "https://docs.github.com/en/codespaces/the-githubdev-web-based-editor"]{github.dev}.
+        Read more in ◊a[#:href "https://pyret.org/docs/horizon/platforms.html#%28part._.V.Scode_.Extension%29"]{the docs}.}
         ◊img[#:src "img/vscode.png" #:style "width: 100%"]
     ]
         
