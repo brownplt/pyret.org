@@ -245,7 +245,7 @@ spinner.interact()
         ◊p{Programs that create images give immediate visual feedback. Functions
         that operate on images enable students to learn about function
         composition in an medium that is both engaging and educational.}
-        ◊@{
+        ◊div{
             ◊open-example["images"]
             ◊pyret-snippet{
 treetop = triangle(60, "solid", "darkgreen")
@@ -291,7 +291,7 @@ end
         }
         ◊div[#:class "text-center"]{
             ◊open-example["rational"] 
-            ◊img[#:src "img/rational.png" #:style "width: 40em;"]
+            ◊img[#:src "img/rational.png" #:style "width: 30em;"]
         }
     ]
 
@@ -381,8 +381,8 @@ end
 ◊(define-tag-function (left-feature attrs elems)
     ◊@{
         ◊div[#:class "row d-flex justify-content-center feature"]{
-            ◊div[#:class "col-md-6 align-self-center"]{ ◊(first elems) }
-            ◊div[#:class "col-md-4 align-self-center"]{ ◊(second elems) }
+            ◊div[#:class "col-md-6 d-flex align-self-center justify-content-center"]{ ◊(first elems) }
+            ◊div[#:class "col-md-4 d-flex align-self-center justify-content-center"]{ ◊(second elems) }
         }
         ◊hr{}
     })
@@ -390,8 +390,8 @@ end
 ◊(define-tag-function (right-feature attrs elems)
     ◊@{
         ◊div[#:class "row d-flex justify-content-center align-middle feature"]{
-            ◊div[#:class "col-md-4 align-self-center justify-content-center"]{ ◊(first elems) }
-            ◊div[#:class "col-md-6 align-self-center justify-content-center"]{ ◊(second elems) }
+            ◊div[#:class "col-md-4 d-flex align-self-center justify-content-center"]{ ◊(first elems) }
+            ◊div[#:class "col-md-6 d-flex align-self-center justify-content-center"]{ ◊(second elems) }
         }
         ◊hr{}
     })
@@ -429,7 +429,7 @@ end
   ◊right-feature[
     ◊img[#:style "width: 100%;" #:src "img/dcic.png"]
 
-    ◊@{
+    ◊div{
         ◊p{Our book, ◊a[#:href "https://dcic-world.org/"]{◊em{Data-Centric Introduction to Computing}} (DCIC),
                 provides a modern introduction to computing education. You can see some of the research
                 [◊a[#:href "https://cs.brown.edu/~sk/Publications/Papers/Published/fkt-teach-scope-mut/"]{1},
@@ -496,14 +496,14 @@ end
 
     ◊right-feature[
         ◊p{
-            All the examples on this page embed an instace of Pyret through its
+            All the examples on this page embed an instance of Pyret through its
             ◊a[#:href "https://www.npmjs.com/package/pyret-embed"]{embedding
             library}.
             You can embed Pyret on your own websites and projects by
             installing that ◊code{npm} package, which has an API for controlling and
             listening to the embedded instance.
         }
-        ◊pre{
+        ◊pre[#:style "display: inline-block"]{
 const code =  `use context starter2024
 dot = circle(50, 'solid', 'red')`;
 pyretEmbed.sendReset({
@@ -517,7 +517,7 @@ pyretEmbed.sendReset({
 
 
     ◊left-feature[
-        ◊img[#:src "./img/cli.png" #:style "width: 100%"]
+        ◊img[#:src "./img/cli.png" #:style "width: 30em;"]
         ◊p{
             Pyret runs from the command line via the ◊code{◊a[#:href
             "https://www.npmjs.com/package/pyret-npm"]{pyret-npm}} package.
@@ -533,7 +533,7 @@ pyretEmbed.sendReset({
 console.log("Welcome to the pyret.org console!");
 console.log("It can be a bit noisy in here because the embedded instances log some information (which you might be interested in – have a look!)")
 console.log("You may enjoy trying out some of the API affordances right from here.");
-console.log("For example, when looking at the all-examples overlay, you can run `window.pyretEmbed.sendReset({ definitionsAtLastRun: '\"Hello, api!\"', interactionsSinceLastRun: [ ], editorContents: '\"Hello, api!\"', replContents: '' });`");
+console.log("For example, when looking at the Major Features overlay, you can run `window.pyretEmbed.sendReset({ definitionsAtLastRun: '\"Hello, api!\"', interactionsSinceLastRun: [ ], editorContents: '\"Hello, api!\"', replContents: '' });`");
 console.log("Noisy application logs below......");
 console.log("-----------------------------------");
 }
