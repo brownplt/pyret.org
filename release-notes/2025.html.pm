@@ -16,16 +16,13 @@
     ◊li{Improvements to offline Pyret via ◊a[#:href "https://www.npmjs.com/package/pyret-npm"]{pyret-npm} and the VScode extension}
     ◊li{New ways to import modules}
     ◊li{New ways to work with files, URLs, and images}
-    ◊li{An update to the default context (called ◊code{starter2025})}
     ◊li{A new library for embedding Pyret in web pages}
     ◊li{Documentation and naming convention clean up}
     ◊li{Various bug fixes across libraries}
 }
 
 ◊p{There should be no backwards incompatibilities in this release for existing
-code. However, since the default context changed, some new names are available
-in new programs. This could affect you if you or your students start from a
-newly-created file in the ◊code{starter} context, see below.}
+code.}
 
 ◊h2{VScode Extension}
 
@@ -59,7 +56,7 @@ improvements:}
     this. From the command line—and from the VScode mode!—you can use
     ◊code{image-file} to read images from a local path, and ◊code{save-file} to
     save (and later view) images.}
-    ◊li{We've added and documented a few new libraries including ◊[#:href "https://pyret.org/docs/latest/csv.html"]{◊code{csv}},
+    ◊li{We've added and documented a few new libraries including ◊a[#:href "https://pyret.org/docs/latest/csv.html"]{◊code{csv}},
     ◊a[#:href "https://pyret.org/docs/latest/filesystem.html"]{◊code{filesystem}}, and ◊a[#:href "https://pyret.org/docs/latest/fetch.html"]{◊code{fetch}} for getting more work done from the
     command line.}
 }
