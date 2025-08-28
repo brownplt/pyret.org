@@ -26,7 +26,7 @@ jobs:
           version: 'stable'
       - name: Build pollen files to ../pyret.org.published
         run: |
-          raco pkg install --deps pollen
+          raco pkg install --deps search-auto pollen
           npm install
           mkdir -p . ../pyret.org.published
           raco pollen publish . ../pyret.org.published
