@@ -29,10 +29,12 @@
       Porncharoenwase, Alex St Laurent, Philip Blair, Matthew
       Kolosick, Jack Wrenn, Sarah Fischmann, Justin Pombrio, Cody
       Mello, Eric Caruso, Stevie Strickland, Liam Elberty, Kathi
-      Fisler, Emmanuel Schanzer, Emma Youndtsmith, Jonah Kagan, Hilmar
-      Hoffmann, and many users on the ◊code{pyret-discuss} mailing
-      list and the Pyret Discord board have contributed ideas and
-      code. }
+      Fisler,
+Emmanuel Schanzer, Emma Youndtsmith, Jonah Kagan, Hilmar Hoffmann, Ayaz Hafiz,
+Doug Woos, Alexander Vo, Ben Muschol, Seth Poulson, Jesse Tov, Zachary Espiritu,
+Adam Solove, Raj Paul, Thomas Castleman, Owen Duckham, and many users on the
+pyret-discuss mailing list and the Pyret Discord have contributed ideas and code.
+      }
 
   ◊p{ Numerous school teachers and college educators have used Pyret
       in their courses, and we are grateful to them and their
