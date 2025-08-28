@@ -464,8 +464,7 @@ end
 
 
 ◊div[#:class "container"]{
-
-    ◊a[#:name "devs"]{}
+    ◊a[#:name "devs" #:class "anchor-target"]{}
     ◊h2{For (Course) Developers}
 
 
