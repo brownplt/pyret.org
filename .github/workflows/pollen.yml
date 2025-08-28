@@ -31,6 +31,7 @@ jobs:
           raco pkg install --deps search-auto pollen
           npm install
           mkdir -p . ../pyret.org.published
+          raco pollen render *.html.pm */*.html.pm
           raco pollen publish . ../pyret.org.published
       - name: Build documentation
         run: |
