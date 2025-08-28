@@ -27,7 +27,7 @@ Philip Blair, Matthew Kolosick, Jack Wrenn, Sarah Fischmann, Justin Pombrio,
 Cody Mello, Eric Caruso, Stevie Strickland, Liam Elberty, Kathi Fisler,
 Emmanuel Schanzer, Emma Youndtsmith, Jonah Kagan, Hilmar Hoffmann, Ayaz Hafiz,
 Doug Woos, Alexander Vo, Ben Muschol, Seth Poulson, Jesse Tov, Zachary Espiritu,
-Adam Solove, Raj Paul, Thomas Castleman, IRONM00N, and many users on the
+Adam Solove, Raj Paul, Thomas Castleman, Owen Duckham, and many users on the
 pyret-discuss mailing list have contributed ideas and code.
 
 Adam Newall, Melanie Wiscount, YeukSze Leong, Brad Pierce, Eric Allatta, and
