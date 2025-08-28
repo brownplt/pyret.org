@@ -35,11 +35,11 @@ jobs:
           mkdir -p ../pyret.org.published/docs
 
           git clone --branch master https://github.com/brownplt/pyret-docs latest-docs
-          cd latest-docs; npm install; make
+          pushd latest-docs; npm install; make; popd
           cp -r latest-docs/build/docs ../pyret.org.published/docs/latest
 
           git clone --branch horizon https://github.com/brownplt/pyret-docs horizon-docs
-          cd horizon-docs; npm install; make
+          pushd horizon-docs; npm install; make; popd
           cp -r horizon-docs/build/docs ../pyret.org.published/docs/horizon
 
       - name: Upload artifact
