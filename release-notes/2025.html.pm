@@ -20,7 +20,6 @@
     ◊li{A new library for embedding Pyret in web pages}
     ◊li{Documentation and naming convention clean up}
     ◊li{Various bug fixes across libraries}
-    ◊li{A prototype of a block-based editor}
 }
 
 ◊p{There should be no backwards incompatibilities in this release for existing
@@ -32,7 +31,7 @@ newly-created file in the ◊code{starter} context, see below.}
 
 ◊p{Pyret now has a VScode extension:}
 
-◊a[#:href "https://marketplace.visualstudio.com/items?itemName=PyretProgrammingLanguage.pyret-parley"]{Pyret Interactive Editor for VSCode}
+◊p{◊a[#:href "https://marketplace.visualstudio.com/items?itemName=PyretProgrammingLanguage.pyret-parley"]{Pyret Interactive Editor for VSCode}}
 
 ◊p{There are a few exciting things about this:}
 
@@ -60,8 +59,8 @@ improvements:}
     this. From the command line—and from the VScode mode!—you can use
     ◊code{image-file} to read images from a local path, and ◊code{save-file} to
     save (and later view) images.}
-    ◊li{We've added and documented a few new libraries including ◊code{csv},
-    ◊code{filesystem}, and ◊code{fetch} for getting more work done from the
+    ◊li{We've added and documented a few new libraries including ◊[#:href "https://pyret.org/docs/latest/csv.html"]{◊code{csv}},
+    ◊a[#:href "https://pyret.org/docs/latest/filesystem.html"]{◊code{filesystem}}, and ◊a[#:href "https://pyret.org/docs/latest/fetch.html"]{◊code{fetch}} for getting more work done from the
     command line.}
 }
 
@@ -79,7 +78,9 @@ Google Drive.
 We've also added functions to create tables from CSV data loaded ◊a[#:href
 "https://pyret.org/docs/horizon/csv.html"]{from files or from URLs}; previously
 this kind of data import really only worked well from Google Sheets. Now
-arbitrary CSV files can be loaded into tables from the filesystem or the web.
+arbitrary CSV files can be loaded into tables from the filesystem or the web
+(or arbitrary text data with ◊a[#:href
+"https://pyret.org/docs/latest/fetch.html"]{◊code{fetch}}).
 
 ◊h2{A New Embedding Library}
 
@@ -98,16 +99,5 @@ In addition, we've used the embedding library to make most of the examples in
 the docs ◊em{runnable}. For example, click the (Try it!) button in the ◊a[#:href
 "https://pyret.org/docs/horizon/numbers.html#%28part._numbers_%2B._%28addition._operator%29%29"]{numbers
 documentation}.
-
-◊h2{Block-based Editing}
-
-◊p{There is a ◊em{prototype} block-based editor for Pyret available at ◊a[#:href
-"https://code.pyret.org/blocks"]{https://code.pyret.org/blocks} that uses the
-Snap! interface integrated with Pyret's runtime.}
-
-◊p{Feel free to try it out! Drag the blocks from the drawer on the left to form
-your program. We welcome feedback on this early prototype!}
-
-◊p{This is thanks to a lot of work from Jens Mönig, Dorai Sitaram, Emmanuel Schanzer, Paul Carduner, and Adam Solove.}
 
 } } }
