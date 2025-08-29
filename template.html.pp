@@ -20,7 +20,7 @@
     <meta name="viewport"    content="width=device-width, initial-scale=1.0">
     <link rel="icon"      href="./img/pyret-icon.png">
     <link rel="canonical" href="@|full-uri|">
-    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/font-hack/2.019/css/hack.min.css">
     <link rel="stylesheet" type="text/css" href="./bootstrap-css/bootstrap-5.0.2-dist/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="./css/pygments.css">

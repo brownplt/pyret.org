@@ -4,6 +4,8 @@
   /* from code.pyret.org */
   --pyret-run-blue: #317bcf;
   --pyret-stop-red: #CF3B31;
+
+  --pyret-serif: 'EB Garamond', 'Adobe Garamond Pro', serif;
 }
 
 body > div:first-of-type {
@@ -335,7 +337,7 @@ li.hidden-pill {
 }
 
 #examplesTabsContent p {
-  font-family: "Garamond";
+  font-family: var(--pyret-serif);
   font-size: 12pt;
 }
 
@@ -347,7 +349,7 @@ li.hidden-pill {
 }
 
 .jumbotron p {
-  font-family: 'Garamond';
+  font-family: var(--pyret-serif);
   font-size: 14pt;
 }
 
@@ -384,7 +386,7 @@ button.runnable-pyret {
 }
 
 .feature p {
-  font-family: 'Garamond';
+  font-family: var(--pyret-serif);
   font-size: 14pt;
 }
 
