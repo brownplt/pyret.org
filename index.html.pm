@@ -560,7 +560,7 @@ console.log("-----------------------------------");
                 }
             });
         });
-        embed.sendReset(tabs[◊|default-example|]);
+        embed.sendReset(tabs["◊|default-example|"]);
     }
     const showAll = document.getElementsByClassName("show-all-examples");
     const modal = bootstrap.Modal.getOrCreateInstance(document.getElementById("all-examples-modal"));
