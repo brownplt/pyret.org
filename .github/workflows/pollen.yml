@@ -45,7 +45,7 @@ jobs:
           pushd horizon-docs; npm install; make; popd
           cp -r horizon-docs/build/docs ../pyret.org.published/docs/horizon
 
-          cp src/docs-redirect.html site/docs/index.html
+          cp src/docs-redirect.html ../pyret.org.published/docs/index.html
 
 
       - name: Upload artifact
