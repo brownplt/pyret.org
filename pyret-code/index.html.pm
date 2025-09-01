@@ -103,7 +103,7 @@ to get a sense of its sophistication.
 ◊p{
 Second, underneath Pyret is a very powerful run-time system based on
 over a decade of research. You don't see it as a user of the language,
-and that's the point. Many other languages expose the crippling
+and that's the point. Many other languages expose the
 limitations of JavaScript's run-time to users (e.g., can't halt a
 long-running computation, can't yield control to the event loop,
 etc.). These languages effectively let ◊em{the medium become part of the
