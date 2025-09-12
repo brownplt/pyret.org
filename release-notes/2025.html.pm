@@ -1,6 +1,6 @@
 #lang pollen
 
-◊(define-meta title "")
+◊(define-meta title "Pyret Updates 2025")
 ◊(define-meta rel-path "..")
 
 ◊div[#:class "container"]{
