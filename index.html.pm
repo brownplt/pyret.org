@@ -291,7 +291,7 @@ end
         }
         ◊div[#:class "text-center"]{
             ◊open-example["rational"] 
-            ◊img[#:src "img/rational.png" #:style "width: 30em;"]
+            ◊img[#:src "img/rational.png" #:style "width: 30em; max-width: 100%;"]
         }
     ]
 
@@ -516,7 +516,7 @@ pyretEmbed.sendReset({
 
 
     ◊left-feature[
-        ◊img[#:src "./img/cli.png" #:style "width: 30em;"]
+        ◊img[#:src "./img/cli.png" #:style "width: 30em; max-width: 100%;"]
         ◊p{
             Pyret runs from the command line via the ◊code{◊a[#:href
             "https://www.npmjs.com/package/pyret-npm"]{pyret-npm}} package.
