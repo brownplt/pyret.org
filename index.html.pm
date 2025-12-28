@@ -325,7 +325,7 @@ end
             }
             ◊img[#:src "img/tictactoe.png" #:style "margin: auto; display: block;"]
         }
-        ◊div{
+        ◊div[#:class "container"]{
             ◊open-example["modules"]
             ◊pyret-snippet{
             import url("https://raw.githubusercontent.com/brownplt/pyret.org/...") as TTT
